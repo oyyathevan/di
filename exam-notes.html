@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exam Notes — Question Bank | DTI Notes</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+<link rel="stylesheet" href="css/exam.css" />
+<style>
+.qbank-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:16px;margin:20px 0;
+}
+.unit-card{
+  display:block;text-decoration:none;color:inherit;
+  background:#fff;border:1px solid #E2E8F0;border-radius:12px;
+  padding:20px 22px;border-left:5px solid var(--uc,#2563EB);
+  transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.05);
+}
+.unit-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.unit-card .uc-tag{
+  font-size:.72rem;font-weight:800;letter-spacing:.5px;
+  text-transform:uppercase;color:var(--uc,#2563EB);margin-bottom:6px;
+}
+.unit-card h3{margin:0 0 8px;font-size:1.05rem;color:#1F2937;line-height:1.35}
+.unit-card .uc-meta{
+  display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;
+}
+.unit-card .uc-badge{
+  font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:999px;
+  background:#F1F5F9;color:#475569;
+}
+.unit-card .uc-badge.b2{background:#DBEAFE;color:#1E3A8A}
+.unit-card .uc-badge.b5{background:#D1FAE5;color:#065F46}
+.unit-card .uc-badge.b10{background:#FEF3C7;color:#92400E}
+.qbank-list{margin:8px 0 20px}
+.qbank-list li{
+  margin-bottom:4px;font-size:.88rem;
+}
+.qbank-list a{
+  color:#1F2937;text-decoration:none;
+  display:inline-block;padding:2px 0;
+}
+.qbank-list a:hover{color:#7C3AED;text-decoration:underline}
+.qbank-list .q-tag{
+  font-size:.7rem;font-weight:700;color:#7C3AED;
+  display:inline-block;min-width:38px;
+}
+[data-theme="dark"] .unit-card{background:#1E293B;border-color:#334155}
+[data-theme="dark"] .unit-card h3{color:#E2E8F0}
+[data-theme="dark"] .unit-card .uc-badge{background:#0F172A;color:#94A3B8}
+[data-theme="dark"] .unit-card .uc-badge.b2{background:#1E40AF;color:#DBEAFE}
+[data-theme="dark"] .unit-card .uc-badge.b5{background:#064E3B;color:#A7F3D0}
+[data-theme="dark"] .unit-card .uc-badge.b10{background:#78350F;color:#FDE68A}
+[data-theme="dark"] .qbank-list a{color:#E2E8F0}
+</style>
+</head>
+<body data-unit="u1">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<div class="layout">
+  <div id="site-sidebar"></div>
+
+  <main id="main">
+    <nav class="breadcrumb"><a href="index.html">Home</a> › <span>Exam Notes</span></nav>
+    <h1>📝 Exam Notes — Question Bank</h1>
+    <p class="badges">
+      <span class="badge">5 Units</span>
+      <span class="badge">~200 Q&amp;A</span>
+      <span class="badge">Click any question to open it</span>
+    </p>
+
+    <div class="card" style="padding:16px 20px;margin-bottom:18px">
+      <p style="margin:0 0 8px;font-size:.9rem;color:var(--muted);line-height:1.6">
+        Each unit has <strong>2-mark</strong>, <strong>5-mark</strong>, and <strong>10-mark</strong> questions with full model answers.
+        Click any question below to open the unit page and jump straight to it.
+        On each unit page you'll also find <strong>🖨 Print</strong> and <strong>👁 Hide Answers</strong> buttons for self-testing.
+      </p>
+    </div>
+
+    <!-- ================= UNIT CARDS ================= -->
+    <h2 style="margin-top:24px">Jump to a Unit</h2>
+    <div class="qbank-grid">
+      <a class="unit-card" href="unit1.html#exam-qa" style="--uc:#2563EB">
+        <div class="uc-tag">Unit I</div>
+        <h3>Design Thinking Foundations &amp; Empathy</h3>
+        <div class="uc-meta">
+          <span class="uc-badge b2">8 × 2M</span>
+          <span class="uc-badge b5">6 × 5M</span>
+          <span class="uc-badge b10">4 × 10M</span>
+        </div>
+      </a>
+      <a class="unit-card" href="unit2.html#exam-qa" style="--uc:#0D9488">
+        <div class="uc-tag">Unit II</div>
+        <h3>Problem Definition, Analysis &amp; Opportunity</h3>
+        <div class="uc-meta">
+          <span class="uc-badge b2">8 × 2M</span>
+          <span class="uc-badge b5">6 × 5M</span>
+          <span class="uc-badge b10">4 × 10M</span>
+        </div>
+      </a>
+      <a class="unit-card" href="unit3.html#exam-qa" style="--uc:#D97706">
+        <div class="uc-tag">Unit III</div>
+        <h3>Creativity, Ideation &amp; Concept Development</h3>
+        <div class="uc-meta">
+          <span class="uc-badge b2">8 × 2M</span>
+          <span class="uc-badge b5">6 × 5M</span>
+          <span class="uc-badge b10">4 × 10M</span>
+        </div>
+      </a>
+      <a class="unit-card" href="unit4.html#exam-qa" style="--uc:#7C3AED">
+        <div class="uc-tag">Unit IV</div>
+        <h3>Prototyping, Experimentation &amp; Validation</h3>
+        <div class="uc-meta">
+          <span class="uc-badge b2">10 × 2M</span>
+          <span class="uc-badge b5">7 × 5M</span>
+          <span class="uc-badge b10">5 × 10M</span>
+        </div>
+      </a>
+      <a class="unit-card" href="unit5.html#exam-qa" style="--uc:#059669">
+        <div class="uc-tag">Unit V</div>
+        <h3>Innovation, Value Creation &amp; Communication</h3>
+        <div class="uc-meta">
+          <span class="uc-badge b2">10 × 2M</span>
+          <span class="uc-badge b5">7 × 5M</span>
+          <span class="uc-badge b10">5 × 10M</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- ================= QUESTION INDEX ================= -->
+    <h2 style="margin-top:32px">📋 Question Index</h2>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:14px">
+      Click any question to open the unit page and jump to its answer.
+    </p>
+
+    <!-- UNIT I -->
+    <div class="card" style="padding:18px 22px">
+      <h3 style="color:#2563EB;margin-bottom:10px">Unit I — Foundations &amp; Empathy</h3>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#1E3A8A">2-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q1.</span>Define Design Thinking.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q2.</span>List the five stages of DT.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q3.</span>What is empathy in DT?</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q4.</span>Define a persona.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q5.</span>What is a stakeholder?</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q6.</span>What is an empathy map?</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q7.</span>Differentiate explicit vs latent needs.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q8.</span>What is Human-Centered Design?</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#1E3A8A">5-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q1.</span>Explain the DT mindset with examples.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q2.</span>Compare DT with conventional engineering.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q3.</span>Explain the five-stage DT process briefly.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q4.</span>Explain the four quadrants of an empathy map.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q5.</span>Explain personas and user journey maps.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q6.</span>Explain ethical considerations in user research.</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#1E3A8A">10-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q1.</span>Discuss the five-stage DT process with example + diagram.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q2.</span>Explain HCD and how it differs from traditional design.</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q3.</span>Discuss user research methods (interviews, observation, ethics).</a></li>
+        <li><a href="unit1.html#exam-qa"><span class="q-tag">Q4.</span>Explain synthesis — observations → insights → opportunities.</a></li>
+      </ul>
+    </div>
+
+    <!-- UNIT II -->
+    <div class="card" style="padding:18px 22px">
+      <h3 style="color:#0D9488;margin-bottom:10px">Unit II — Problem Definition &amp; Opportunity</h3>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#0D9488">2-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q1.</span>Define affinity mapping.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q2.</span>What is a pain point?</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q3.</span>What is a POV statement?</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q4.</span>Define the 5 Whys technique.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q5.</span>What is a Quick Win?</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q6.</span>Constraint vs specification.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q7.</span>What is the Triple Bottom Line?</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q8.</span>How is a problem selected?</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#0D9488">5-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q1.</span>Explain affinity mapping → insights.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q2.</span>Explain POV &amp; HMW with examples.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q3.</span>Explain the 5 Whys with an example.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q4.</span>Explain the need-opportunity matrix.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q5.</span>Validation, constraints &amp; specs.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q6.</span>Social, environmental &amp; sustainability.</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#0D9488">10-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q1.</span>Discuss synthesis — observations to opportunities.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q2.</span>Stakeholder mapping, 5 Whys &amp; prioritization.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q3.</span>POV &amp; HMW with real examples.</a></li>
+        <li><a href="unit2.html#exam-qa"><span class="q-tag">Q4.</span>Validation, constraints, sustainability &amp; selection.</a></li>
+      </ul>
+    </div>
+
+    <!-- UNIT III -->
+    <div class="card" style="padding:18px 22px">
+      <h3 style="color:#D97706;margin-bottom:10px">Unit III — Creativity, Ideation &amp; Concept</h3>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#92400E">2-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q1.</span>Divergent vs convergent thinking.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q2.</span>Expand SCAMPER.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q3.</span>Biomimicry with an example.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q4.</span>What is lateral thinking?</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q5.</span>What is TRIZ?</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q6.</span>AI-assisted ideation — benefit &amp; limitation.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q7.</span>Impact-feasibility matrix.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q8.</span>Decision matrix &amp; weights.</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#92400E">5-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q1.</span>Brainstorming &amp; brainwriting.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q2.</span>SCAMPER with example.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q3.</span>Biomimicry with two real examples.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q4.</span>Morphological analysis.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q5.</span>TRIZ &amp; its principles.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q6.</span>Decision matrix with example.</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#92400E">10-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q1.</span>Creativity mindset, divergent &amp; convergent.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q2.</span>Biomimicry, analogical &amp; lateral thinking.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q3.</span>TRIZ, individual/collaborative &amp; AI ideation.</a></li>
+        <li><a href="unit3.html#exam-qa"><span class="q-tag">Q4.</span>Concept selection — clustering to decision matrix.</a></li>
+      </ul>
+    </div>
+
+    <!-- UNIT IV -->
+    <div class="card" style="padding:18px 22px">
+      <h3 style="color:#7C3AED;margin-bottom:10px">Unit IV — Prototyping, Testing &amp; Validation</h3>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#6D28D9">2-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q1.</span>Define a prototype.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q2.</span>Four types of prototypes.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q3.</span>What is an MVP?</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q4.</span>Low-fi vs high-fi.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q5.</span>Think-aloud method.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q6.</span>Define iterative design.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q7.</span>What is an iteration log?</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q8.</span>What is CAD?</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q9.</span>What is a service prototype?</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q10.</span>"Fail fast, learn fast."</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#6D28D9">5-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q1.</span>Types of prototypes with examples.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q2.</span>MVP with Dropbox example.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q3.</span>User testing &amp; think-aloud.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q4.</span>Iterative design &amp; design critique.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q5.</span>Prototype evaluation methods.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q6.</span>CAD, simulation &amp; AI in prototyping.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q7.</span>Iteration log &amp; its importance.</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#6D28D9">10-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q1.</span>Types of prototypes with real examples.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q2.</span>User testing &amp; feedback loops.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q3.</span>Iterative design, critique &amp; documentation.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q4.</span>CAD, simulation &amp; AI tools.</a></li>
+        <li><a href="unit4.html#exam-qa"><span class="q-tag">Q5.</span>Complete prototyping process with example.</a></li>
+      </ul>
+    </div>
+
+    <!-- UNIT V -->
+    <div class="card" style="padding:18px 22px">
+      <h3 style="color:#059669;margin-bottom:10px">Unit V — Innovation, Value &amp; Communication</h3>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#065F46">2-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q1.</span>Invention vs innovation.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q2.</span>Disruptive innovation with example.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q3.</span>What is frugal innovation?</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q4.</span>What is DFV?</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q5.</span>Value Proposition Canvas.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q6.</span>Four blocks of BMC.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q7.</span>What is IPR? Name 3 types.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q8.</span>Responsible innovation.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q9.</span>Six beats of a pitch.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q10.</span>Strongest market validation signal.</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#065F46">5-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q1.</span>Types of innovation with examples.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q2.</span>DFV framework &amp; its role.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q3.</span>Value Proposition Canvas with example.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q4.</span>Nine blocks of the BMC.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q5.</span>IPR &amp; four main types.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q6.</span>Responsible, inclusive &amp; sustainable.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q7.</span>Structure &amp; delivery of a 3-min pitch.</a></li>
+      </ul>
+      <p style="font-weight:700;font-size:.85rem;margin:8px 0 4px;color:#065F46">10-Mark</p>
+      <ul class="qbank-list">
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q1.</span>Meaning &amp; types of innovation with examples.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q2.</span>DFV, VPC &amp; BMC — how they work together.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q3.</span>IPR — patents, copyright, trademarks, design.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q4.</span>Responsible, inclusive &amp; sustainable innovation.</a></li>
+        <li><a href="unit5.html#exam-qa"><span class="q-tag">Q5.</span>Innovation pitch — structure, delivery, example.</a></li>
+      </ul>
+    </div>
+
+    <div class="callout tip" style="margin-top:24px">
+      <span class="label">✅ Tip</span>
+      <p>On any unit page, use <strong>📝 Print Q&amp;A Only</strong> for a clean printable PDF of that unit's exam questions. Use <strong>👁 Hide Answers</strong> to test yourself.</p>
+    </div>
+
+    <nav class="pager">
+      <a href="unit5.html">← Unit V</a>
+      <a href="studio.html">Studio Mode →</a>
+    </nav>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search-index.js"></script>
+<script src="js/search.js"></script>
+<script src="js/slogan.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/study-buddy-bank.js"></script>
+<script src="js/buddy.js"></script>
+<script src="js/extras.js"></script>
+<script src="js/exam-mode.js"></script>
+<script src="js/print.js"></script>
+
+</body>
+</html>

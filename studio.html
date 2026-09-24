@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Studio Mode — Design Project Playbook | DTI Notes</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+</head>
+<body data-unit="u5">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div id="site-header"></div>
+
+<div class="layout">
+  <nav class="sidebar" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="unit1.html">Unit I — Foundations &amp; Empathy</a></li>
+      <li><a href="unit2.html">Unit II — Problem Definition</a></li>
+      <li><a href="unit3.html">Unit III — Ideation</a></li>
+      <li><a href="unit4.html">Unit IV — Prototyping</a></li>
+      <li><a href="unit5.html">Unit V — Innovation</a></li>
+      <li><a href="templates.html">📋 Templates</a></li>
+      <li><a href="resources.html">📚 Resources</a></li>
+      <li><a href="lesson-plan.html">🗓 Lesson Plan</a></li>
+      <li><a href="studio.html" class="active">🎨 Studio Mode</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="studio-wrap">
+    <nav class="breadcrumb"><a href="index.html">Home</a> › <span>Studio Mode</span></nav>
+
+    <div class="studio-hero">
+      <h1>🎨 Studio Mode</h1>
+      <p>Pick a real problem and walk through the entire Design Thinking process — one step at a time. Everything you type is saved automatically.</p>
+      <div class="studio-problem-row">
+        <input id="studioProblem" type="text"
+               placeholder="✍️ Write your problem… e.g. Long queues at the campus canteen" />
+      </div>
+    </div>
+
+    <div class="studio-progress">
+      <span class="bar-label" id="studioBarLabel">0 / 0 steps · 0%</span>
+      <div class="bar-wrap"><div class="bar-fill" id="studioBar"></div></div>
+    </div>
+
+    <!-- Optional identity fields -->
+    <div class="card" style="padding:16px 20px">
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <input id="studioName" type="text" placeholder="Your name (optional)"
+               style="flex:1;min-width:180px;padding:10px 14px;border:1px solid var(--border);border-radius:8px" />
+        <input id="studioRoll" type="text" placeholder="Roll no. (optional)"
+               style="flex:1;min-width:180px;padding:10px 14px;border:1px solid var(--border);border-radius:8px" />
+      </div>
+    </div>
+
+    <!-- Stage tabs -->
+    <div class="studio-stages">
+      <div class="studio-stage-tab active" data-stage="s1"><span class="num">1</span> ❤️ Empathize</div>
+      <div class="studio-stage-tab"        data-stage="s2"><span class="num">2</span> 🎯 Define</div>
+      <div class="studio-stage-tab"        data-stage="s3"><span class="num">3</span> 🎨 Ideate</div>
+      <div class="studio-stage-tab"        data-stage="s4"><span class="num">4</span> 🧪 Prototype</div>
+      <div class="studio-stage-tab"        data-stage="s5"><span class="num">5</span> 🎯 Test</div>
+      <div class="studio-stage-tab"        data-stage="s6"><span class="num">6</span> 🏆 Pitch</div>
+    </div>
+
+    <!-- ======================= STAGE 1: EMPATHIZE ======================= -->
+    <section class="studio-panel active" data-stage="s1">
+      <div class="studio-stage-intro">
+        <h2>❤️ Stage 1 — Empathize</h2>
+        <p>Understand your user before you design anything. Talk to them, watch them, feel their pain.</p>
+      </div>
+
+      <div class="studio-step" data-id="s1-who">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 1.1</span>Who is your user?</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Describe the person who faces this problem. Age, role, context — make them real.</p>
+          <textarea placeholder="e.g. Second-year engineering students who buy lunch between 12:30 and 1:00 pm…"></textarea>
+          <div class="studio-step-hint">💡 <b>Hint:</b> Be specific. “Students” is too broad. “Second-year students with 20-minute lunch breaks” is useful.</div>
+          <a class="studio-step-learn" href="unit1.html#1-7">📘 Learn: Understanding Users &amp; Stakeholders (Unit I § 1.7) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s1-interview">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 1.2</span>What did you learn from talking to them?</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Interview 3–5 real users. Write the most surprising things they said.</p>
+          <textarea placeholder="e.g. They said the queue is worse at 12:45. One student skipped lunch because the wait was too long…"></textarea>
+          <div class="studio-step-hint">💡 <b>Hint:</b> Capture exact words. Quotes carry emotion better than summaries.</div>
+          <a class="studio-step-learn" href="unit1.html#1-9">📘 Learn: Interviews &amp; Ethics (Unit I § 1.9) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s1-empathy">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 1.3</span>Empathy Map</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Fill in four things about your user — one line each: what they <b>SAY</b>, <b>THINK</b>, <b>DO</b>, and <b>FEEL</b>.</p>
+          <textarea placeholder="SAYS: 'I don't have time to wait'&#10;THINKS: 'I wish this was faster'&#10;DOES: Skips lunch some days&#10;FEELS: Frustrated and rushed"></textarea>
+          <div class="studio-step-hint">💡 <b>Hint:</b> Thinks and Feels are usually different from Says. That's where the gold is.</div>
+          <a class="studio-step-learn" href="unit1.html#1-10">📘 Learn: Empathy Mapping (Unit I § 1.10) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s1-persona">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 1.4</span>Create a Persona</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Give your main user a name, age, goal and one key frustration.</p>
+          <textarea placeholder="Name: Arjun&#10;Age: 20&#10;Goal: Eat quickly between classes&#10;Frustration: Long queues eat into his 20-minute break"></textarea>
+          <a class="studio-step-learn" href="unit1.html#1-11">📘 Learn: Personas (Unit I § 1.11) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s1-journey">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 1.5</span>User Journey</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">List the 5–6 steps your user takes. Note where they feel the most pain.</p>
+          <textarea placeholder="1. Walks to canteen&#10;2. Sees long queue → 😖 (worst pain here)&#10;3. Waits 10 minutes&#10;4. Orders&#10;5. Eats quickly&#10;6. Rushes to class"></textarea>
+          <a class="studio-step-learn" href="unit1.html#1-11">📘 Learn: User Journey Map (Unit I § 1.11) →</a>
+        </div>
+      </div>
+
+      <div class="studio-stage-nav">
+        <button disabled>← Previous</button>
+        <button class="primary" data-dir="next">Next: Define →</button>
+      </div>
+    </section>
+
+    <!-- ======================= STAGE 2: DEFINE ======================= -->
+    <section class="studio-panel" data-stage="s2">
+      <div class="studio-stage-intro">
+        <h2>🎯 Stage 2 — Define</h2>
+        <p>Turn raw research into a clear problem statement. Vague problems produce vague solutions.</p>
+      </div>
+
+      <div class="studio-step" data-id="s2-affinity">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 2.1</span>Affinity Map</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Group your research notes into 3–4 themes.</p>
+          <textarea placeholder="Theme 1 — Time pressure: most complaints about waiting&#10;Theme 2 — Menu confusion: no clear display&#10;Theme 3 — Payment friction: cash-only slows things down"></textarea>
+          <a class="studio-step-learn" href="unit2.html#2-1">📘 Learn: Affinity Mapping (Unit II § 2.1) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s2-pov">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 2.2</span>POV Statement</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Fill in: <b>[User]</b> needs <b>[need]</b> because <b>[insight]</b>.</p>
+          <textarea placeholder="Arjun needs a faster way to order lunch because his 20-minute break leaves no room for queues."></textarea>
+          <div class="studio-step-hint">💡 <b>Hint:</b> The “because” should come from real research — not a guess.</div>
+          <a class="studio-step-learn" href="unit2.html#2-3">📘 Learn: POV Statements (Unit II § 2.3) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s2-hmw">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 2.3</span>HMW Questions</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Write 3 “How Might We…” questions that could lead to solutions.</p>
+          <textarea placeholder="1. How might we let students order before reaching the canteen?&#10;2. How might we make payment faster?&#10;3. How might we show wait time clearly?"></textarea>
+          <a class="studio-step-learn" href="unit2.html#2-3">📘 Learn: HMW Questions (Unit II § 2.3) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s2-whys">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 2.4</span>5 Whys (Root Cause)</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Ask “Why?” 5 times from the surface problem to the root cause.</p>
+          <textarea placeholder="Problem: Students skip lunch&#10;Why? → Queue is too long&#10;Why? → Only one counter serves all students&#10;Why? → Orders are taken verbally, one at a time&#10;Why? → No pre-order system exists&#10;Why? → Canteen has never digitised ordering&#10;Root cause: No digital pre-order system."></textarea>
+          <a class="studio-step-learn" href="unit2.html#2-4">📘 Learn: 5 Whys (Unit II § 2.4) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s2-statement">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 2.5</span>Final Problem Statement</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">One sentence. Clear. Specific. Solvable.</p>
+          <textarea placeholder="Design a pre-order system that lets second-year students order canteen food from their phones and skip the queue."></textarea>
+          <a class="studio-step-learn" href="unit2.html#2-6">📘 Learn: Problem Validation (Unit II § 2.6) →</a>
+        </div>
+      </div>
+
+      <div class="studio-stage-nav">
+        <button data-dir="prev">← Previous</button>
+        <button class="primary" data-dir="next">Next: Ideate →</button>
+      </div>
+    </section>
+
+    <!-- ======================= STAGE 3: IDEATE ======================= -->
+    <section class="studio-panel" data-stage="s3">
+      <div class="studio-stage-intro">
+        <h2>🎨 Stage 3 — Ideate</h2>
+        <p>Generate many ideas first, judge later. Bad ideas lead to good ones.</p>
+      </div>
+
+      <div class="studio-step" data-id="s3-brainstorm">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 3.1</span>Brainstorm 20 Ideas</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Quickly write 20 rough ideas. Don’t judge. Silly ideas are welcome.</p>
+          <textarea placeholder="1. Mobile pre-order app&#10;2. WhatsApp bot for orders&#10;3. QR code at table&#10;4. Express counter for pre-paid&#10;5. Token system&#10;… (aim for 20)"></textarea>
+          <div class="studio-step-hint">💡 <b>Hint:</b> Use <a href="unit3.html#3-2" style="color:#7C3AED">SCAMPER</a> if you get stuck.</div>
+          <a class="studio-step-learn" href="unit3.html#3-2">📘 Learn: Brainstorming &amp; SCAMPER (Unit III § 3.2) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s3-scamper">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 3.2</span>SCAMPER Pass</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Take your best idea and push it through SCAMPER (Substitute, Combine, Adapt, Modify, Put to use, Eliminate, Reverse).</p>
+          <textarea placeholder="Substitute: voice order instead of typing&#10;Combine: pre-order + payment in one step&#10;Adapt: Uber-style live tracking for order&#10;Modify: single-tap 'usual order'&#10;Put to use: share order with friend&#10;Eliminate: no login for first order&#10;Reverse: chef sees orders before students arrive"></textarea>
+          <a class="studio-step-learn" href="unit3.html#3-2">📘 Learn: SCAMPER (Unit III § 3.2) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s3-top3">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 3.3</span>Pick Top 3 Concepts</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Choose three strongest concepts. Give each a one-line pitch.</p>
+          <textarea placeholder="A. Canteen WhatsApp bot — order in chat, pick up when ready&#10;B. QR menu + instant pay — scan, order, no queue&#10;C. Express pre-paid counter — mobile pre-order, 60-second pickup"></textarea>
+          <a class="studio-step-learn" href="unit3.html#3-7">📘 Learn: Impact-Feasibility (Unit III § 3.7) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s3-matrix">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 3.4</span>Decision Matrix</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Score each concept on Cost, Usability, Speed (1–5). Pick the winner.</p>
+          <textarea placeholder="Criteria (weight): Cost 30%, Usability 40%, Speed 30%&#10;A. WhatsApp bot: 5 / 4 / 4 → score = 4.3&#10;B. QR + pay:     3 / 5 / 5 → score = 4.4&#10;C. Express:      2 / 3 / 4 → score = 3.0&#10;Winner: B. QR + pay"></textarea>
+          <a class="studio-step-learn" href="unit3.html#3-8">📘 Learn: Decision Matrix (Unit III § 3.8) →</a>
+        </div>
+      </div>
+
+      <div class="studio-stage-nav">
+        <button data-dir="prev">← Previous</button>
+        <button class="primary" data-dir="next">Next: Prototype →</button>
+      </div>
+    </section>
+
+    <!-- ======================= STAGE 4: PROTOTYPE ======================= -->
+    <section class="studio-panel" data-stage="s4">
+      <div class="studio-stage-intro">
+        <h2>🧪 Stage 4 — Prototype</h2>
+        <p>Build a rough version fast. Paper is fine. Ugly is fine. Learning is the goal.</p>
+      </div>
+
+      <div class="studio-step" data-id="s4-storyboard">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 4.1</span>Storyboard</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Sketch (in words) 4–5 panels of how the user would use your solution.</p>
+          <textarea placeholder="Panel 1: Arjun opens app before class&#10;Panel 2: Scans canteen QR&#10;Panel 3: Menu appears with wait times&#10;Panel 4: He taps 'usual order' and pays&#10;Panel 5: Notification at 12:40 — order ready. He walks in, picks up, eats."></textarea>
+          <a class="studio-step-learn" href="unit4.html#4-2">📘 Learn: Storyboards (Unit IV § 4.2) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s4-prototype">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 4.2</span>Low-Fidelity Prototype</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Describe what you built — a paper sketch, a Figma mock, a cardboard model, etc.</p>
+          <textarea placeholder="Built a 5-screen paper prototype:&#10;- Home (menu button)&#10;- Menu (with wait times)&#10;- Cart&#10;- Pay (UPI mock)&#10;- Ready notification&#10;Total build time: 40 minutes. Cost: ₹0."></textarea>
+          <a class="studio-step-learn" href="unit4.html#4-4">📘 Learn: Low-Fi vs High-Fi (Unit IV § 4.4) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s4-mvp">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 4.3</span>Minimum Viable Prototype</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">What is the smallest version you could test this week?</p>
+          <textarea placeholder="A single-page website where students enter their order on a Google Form and a WhatsApp bot sends 'Ready' when it's done. One canteen item only."></textarea>
+          <a class="studio-step-learn" href="unit4.html#4-5">📘 Learn: MVP (Unit IV § 4.5) →</a>
+        </div>
+      </div>
+
+      <div class="studio-stage-nav">
+        <button data-dir="prev">← Previous</button>
+        <button class="primary" data-dir="next">Next: Test →</button>
+      </div>
+    </section>
+
+    <!-- ======================= STAGE 5: TEST ======================= -->
+    <section class="studio-panel" data-stage="s5">
+      <div class="studio-stage-intro">
+        <h2>🎯 Stage 5 — Test</h2>
+        <p>Put your prototype in front of real users. Watch. Listen. Take notes. Improve.</p>
+      </div>
+
+      <div class="studio-step" data-id="s5-testers">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 5.1</span>Who tested it?</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">How many users? What happened?</p>
+          <textarea placeholder="5 students tested the paper prototype. Each session lasted 4 minutes. I observed and did NOT help unless they were completely stuck."></textarea>
+          <a class="studio-step-learn" href="unit4.html#4-7">📘 Learn: User Testing (Unit IV § 4.7) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s5-feedback">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 5.2</span>What did they say / do?</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Capture 3–5 concrete observations. Not opinions — behavior.</p>
+          <textarea placeholder="1. 3 of 5 tapped the menu icon first (good)&#10;2. 4 of 5 didn't notice the 'wait time' chip — too small&#10;3. Everyone expected a 'Back to cart' button (missing)&#10;4. Two said they'd use it weekly&#10;5. All said they'd pay extra ₹5 for speed"></textarea>
+          <a class="studio-step-learn" href="unit4.html#4-7">📘 Learn: Think-Aloud (Unit IV § 4.7) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s5-iterate">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 5.3</span>What did you change?</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Based on feedback, list what you changed in v2.</p>
+          <textarea placeholder="v2 changes:&#10;- Enlarged wait-time chip (now top-right, 24px bold)&#10;- Added persistent 'Back to cart' button&#10;- Added 'Repeat last order' shortcut on home&#10;- Reduced menu from 3 taps to 2"></textarea>
+          <a class="studio-step-learn" href="unit4.html#4-9">📘 Learn: Iteration Log (Unit IV § 4.9) →</a>
+        </div>
+      </div>
+
+      <div class="studio-stage-nav">
+        <button data-dir="prev">← Previous</button>
+        <button class="primary" data-dir="next">Next: Pitch →</button>
+      </div>
+    </section>
+
+    <!-- ======================= STAGE 6: PITCH ======================= -->
+    <section class="studio-panel" data-stage="s6">
+      <div class="studio-stage-intro">
+        <h2>🏆 Stage 6 — Pitch</h2>
+        <p>Package your work into a clear, compelling 3-minute story. Innovation only counts when it reaches users.</p>
+      </div>
+
+      <div class="studio-step" data-id="s6-vpc">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 6.1</span>Value Proposition Canvas</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">List your user's <b>Jobs</b>, <b>Pains</b>, <b>Gains</b> — and how your product addresses them.</p>
+          <textarea placeholder="JOBS: Get lunch fast between classes&#10;PAINS: Long queues, missing lunch, rushed eating&#10;GAINS: More time to eat, less stress, cheaper than delivery&#10;&#10;PRODUCT: QR pre-order + mobile pay&#10;PAIN RELIEVERS: Skips the queue, order ready on arrival&#10;GAIN CREATORS: Track wait time, repeat-order in one tap"></textarea>
+          <a class="studio-step-learn" href="unit5.html#5-5">📘 Learn: VPC (Unit V § 5.5) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s6-bmc">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 6.2</span>Business Model Canvas (lite)</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Fill in the 4 most important blocks: Customers, Value, Revenue, Cost.</p>
+          <textarea placeholder="CUSTOMERS: Second-year engineering students at our campus (approx 800)&#10;VALUE: Skip the queue, eat in peace&#10;REVENUE: ₹2 convenience fee per order (canteen shares 50%)&#10;COST: Development (free — student project), server (₹200/month), WhatsApp API (free tier)"></textarea>
+          <a class="studio-step-learn" href="unit5.html#5-6">📘 Learn: BMC (Unit V § 5.6) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s6-ipr">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 6.3</span>IPR Check</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">What could you protect? Patent? Trademark? Copyright?</p>
+          <textarea placeholder="Trademark: 'SkipQ' name and logo&#10;Copyright: The app's source code and UI design&#10;No patent — the idea (pre-order + QR) is not novel.&#10;Design registration: The custom QR sticker design."></textarea>
+          <a class="studio-step-learn" href="unit5.html#5-8">📘 Learn: IPR (Unit V § 5.8) →</a>
+        </div>
+      </div>
+
+      <div class="studio-step" data-id="s6-pitch">
+        <div class="studio-step-head">
+          <div class="studio-step-check">✓</div>
+          <div class="studio-step-title"><span class="step-no">Step 6.4</span>Your 3-Minute Pitch</div>
+        </div>
+        <div class="studio-step-body">
+          <p class="instruction">Write your pitch in 6 beats: Problem · Solution · Market · Model · Team · Ask.</p>
+          <textarea placeholder="PROBLEM: 800 students lose 10+ minutes daily to canteen queues.&#10;SOLUTION: SkipQ — scan, order, pick up. No queue.&#10;MARKET: 800 students × ₹40 avg × 200 days = ₹64 lakh/year potential.&#10;MODEL: ₹2/order convenience fee. Canteen keeps 50%.&#10;TEAM: 3 engineering students, 1 canteen partner.&#10;ASK: ₹15,000 for domain + server for 6 months. Pilot with 1 canteen in 2 weeks."></textarea>
+          <a class="studio-step-learn" href="unit5.html#5-10">📘 Learn: Innovation Pitch (Unit V § 5.10) →</a>
+        </div>
+      </div>
+
+      <div class="studio-stage-nav">
+        <button data-dir="prev">← Previous</button>
+        <button class="primary" data-dir="report">View My Report →</button>
+      </div>
+    </section>
+
+    <!-- Report CTA + report box -->
+    <div class="studio-report-cta">
+      <span class="icon">📄</span>
+      <div class="text">
+        <b>Ready to see your project?</b>
+        <span>Generate a clean report of everything you've written — print it or save it as PDF.</span>
+      </div>
+      <button id="generateReport">Generate Report</button>
+    </div>
+
+    <div class="studio-report" id="studioReport"></div>
+
+    <div style="text-align:center;margin:32px 0">
+      <button id="studioReset"
+              style="padding:10px 22px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer;font-size:.85rem;color:var(--muted)">
+        🔄 Reset all Studio answers
+      </button>
+    </div>
+
+    <nav class="pager">
+      <a href="unit5.html">← Unit V</a>
+      <a href="index.html">Home →</a>
+    </nav>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>       <!-- 1st -->
+<script src="js/nav.js"></script>          <!-- 2nd -->
+<script src="js/slogan.js"></script>       <!-- 3rd -->
+<script src="js/translate.js"></script>    <!-- 4th -->
+<script src="js/study-buddy-bank.js"></script>
+<script src="js/buddy.js"></script>
+<script src="js/extras.js"></script>
+<script src="js/studio.js"></script>
+</body>
+</html>

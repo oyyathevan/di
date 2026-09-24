@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Designer's Toolbox — 50 Methods | DTI Notes</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+<link rel="stylesheet" href="css/exam.css" />
+<link rel="stylesheet" href="css/toolbox.css" />
+</head>
+<body data-unit="u1" data-page="toolbox">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<div class="layout">
+  <div id="site-sidebar"></div>
+
+  <main id="main">
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a> ›
+      <span>Designer's Toolbox</span>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section class="tb-hero">
+      <div class="tb-hero-tag">🛠 Designer's Toolbox</div>
+      <h1>50 methods. One page.</h1>
+      <p>Every technique from the syllabus — search, filter by stage, and jump to any topic. Switch to Map view to see how they all connect.</p>
+      <div class="tb-hero-stats">
+        <div><strong id="tbStatMethods">50</strong> Methods</div>
+        <div><strong id="tbStatEdges">84</strong> Connections</div>
+        <div><strong>6</strong> Stages</div>
+        <div><strong>5</strong> Units</div>
+      </div>
+    </section>
+
+    <!-- ================= CONTROLS ================= -->
+    <div class="tb-controls">
+      <div class="tb-controls-row">
+        <div class="tb-search-wrap">
+          <span class="tb-search-icon">🔍</span>
+          <input type="search" id="tbSearch" placeholder="Search methods — name, use-when, description…" autocomplete="off" />
+          <button class="tb-search-clear" id="tbSearchClear" aria-label="Clear search" hidden>✕</button>
+        </div>
+
+        <div class="tb-view-toggle" role="tablist" aria-label="View mode">
+          <button class="tb-view-btn active" data-view="list" role="tab" aria-selected="true">📋 List</button>
+          <button class="tb-view-btn" data-view="map" role="tab" aria-selected="false" disabled title="Coming in Step 3">🗺 Map</button>
+        </div>
+      </div>
+
+      <div class="tb-controls-row tb-filters">
+        <span class="tb-filter-label">Stage:</span>
+        <div class="tb-chips" id="tbStageChips"></div>
+      </div>
+
+      <div class="tb-controls-row tb-filters">
+        <span class="tb-filter-label">Unit:</span>
+        <div class="tb-chips" id="tbUnitChips"></div>
+
+        <span class="tb-filter-label tb-filter-label-right">Sort:</span>
+        <select class="tb-sort" id="tbSort">
+          <option value="default">By stage</option>
+          <option value="az">A–Z</option>
+          <option value="unit">By unit</option>
+          <option value="connected">Most connected</option>
+        </select>
+
+        <button class="tb-reset" id="tbReset">↺ Reset</button>
+      </div>
+    </div>
+
+    <!-- ================= RESULT INFO ================= -->
+    <div class="tb-result-info">
+      <span id="tbResultCount">Showing all 50 methods</span>
+      <span id="tbActiveFilters"></span>
+    </div>
+
+    <!-- ================= LIST VIEW ================= -->
+    <div class="tb-list" id="tbList" aria-live="polite"></div>
+
+    <!-- ================= EMPTY STATE ================= -->
+    <div class="tb-empty" id="tbEmpty" hidden>
+      <div class="tb-empty-emoji">🔍</div>
+      <h3>No methods match your filters</h3>
+      <p>Try clearing the search or picking a different stage.</p>
+      <button class="tb-empty-btn" onclick="document.getElementById('tbReset').click()">Reset all filters</button>
+    </div>
+
+    <!-- ================= DETAIL POPUP ================= -->
+    <div class="tb-detail-overlay" id="tbDetail" hidden>
+      <div class="tb-detail" role="dialog" aria-modal="true" aria-labelledby="tbDetailTitle">
+        <button class="tb-detail-close" id="tbDetailClose" aria-label="Close">✕</button>
+        <div class="tb-detail-emoji" id="tbDetailEmoji">🗺️</div>
+        <div class="tb-detail-tag" id="tbDetailTag">Unit I · § 1.10</div>
+        <h2 class="tb-detail-title" id="tbDetailTitle">Empathy Map</h2>
+        <p class="tb-detail-desc" id="tbDetailDesc"></p>
+
+        <div class="tb-detail-meta" id="tbDetailMeta"></div>
+
+        <div class="tb-detail-links" id="tbDetailLinks"></div>
+
+        <div class="tb-detail-actions">
+          <a class="tb-detail-btn primary" id="tbDetailOpen" href="#">📘 Open full topic →</a>
+          <button class="tb-detail-btn" id="tbDetailCopy">📋 Copy summary</button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="pager">
+      <a href="practical-u5.html">← Practical Activities</a>
+      <a href="exam-notes.html">Exam Notes →</a>
+    </nav>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search-index.js"></script>
+<script src="js/search.js"></script>
+<script src="js/slogan.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/extras.js"></script>
+<script src="js/toolbox-data.js"></script>
+<script src="js/toolbox.js"></script>
+<script src="js/toolbox-map-extras.js"></script>
+<script src="js/toolbox-custom-paths.js"></script>
+
+</body>
+</html>

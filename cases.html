@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Case Study Library — 40 Real-World Stories | DTI Notes</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+</head>
+<body data-unit="b" data-page="cases">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<div class="layout">
+  <div id="site-sidebar"></div>
+
+  <main id="main">
+    <nav class="breadcrumb"><a href="index.html">Home</a> › <span>Case Study Library</span></nav>
+
+    <!-- ============== HERO ============== -->
+    <section class="cases-hero">
+      <div class="ch-tag">📚 Case Study Library</div>
+      <h1>40 real stories from design and innovation</h1>
+      <p>Companies, startups, inventions, and failures — each with the problem, approach, outcome, and lessons. Filter, search, and read in depth.</p>
+      <div class="cases-hero-stats">
+        <div><strong>40</strong> Cases</div>
+        <div><strong>13</strong> India</div>
+        <div><strong>6</strong> Categories</div>
+        <div><strong>7</strong> Failures</div>
+      </div>
+    </section>
+
+    <!-- ============== CONTROLS ============== -->
+    <div class="cases-controls">
+      <div class="cases-search-wrap">
+        <input type="search" id="casesSearch" placeholder="Search cases — company, problem, method…" autocomplete="off" />
+      </div>
+
+      <div class="cases-filter-row">
+        <span class="cases-filter-label">Category</span>
+        <div class="cases-chips" id="casesCategoryChips"></div>
+      </div>
+
+      <div class="cases-filter-row">
+        <span class="cases-filter-label">Region</span>
+        <div class="cases-chips" id="casesRegionChips"></div>
+
+        <span class="cases-filter-label" style="margin-left:auto">Era</span>
+        <div class="cases-chips" id="casesEraChips"></div>
+      </div>
+    </div>
+
+    <!-- ============== RESULT INFO ============== -->
+    <div class="cases-result-info">
+      <span id="casesCount">Showing all 40 cases</span>
+      <button class="cases-reset" id="casesReset" type="button">↺ Reset filters</button>
+    </div>
+
+    <!-- ============== GRID ============== -->
+    <div class="cases-grid" id="casesGrid" aria-live="polite"></div>
+
+    <!-- ============== EMPTY STATE ============== -->
+    <div class="cases-empty" id="casesEmpty" hidden>
+      <div class="ce-emoji">🔍</div>
+      <h3>No cases match your filters</h3>
+      <p>Try clearing the search or picking a different category.</p>
+    </div>
+
+    <!-- ============== DETAIL MODAL ============== -->
+    <div class="case-modal" id="caseModal" hidden>
+      <div class="case-modal-card" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle">
+        <div class="case-modal-tools">
+  <button class="case-modal-tool" id="caseModalShare" type="button" aria-label="Share" title="Copy link">🔗</button>
+  <button class="case-modal-tool" id="caseModalPrint" type="button" aria-label="Print case" title="Print this case">🖨</button>
+  <button class="case-modal-tool" id="caseModalClose" type="button" aria-label="Close" title="Close">✕</button>
+</div>
+
+        <div class="case-modal-head">
+          <div class="case-modal-emoji" id="caseModalEmoji">📚</div>
+          <div class="case-modal-tag" id="caseModalTag">Case Study</div>
+          <h2 class="case-modal-title" id="caseModalTitle">Title</h2>
+          <div class="case-modal-meta" id="caseModalMeta"></div>
+        </div>
+
+        <div class="case-modal-body" id="caseModalBody"></div>
+
+        <div class="case-modal-actions">
+          <button class="case-modal-btn" id="caseModalPrev" type="button">← Previous</button>
+          <button class="case-modal-btn primary" id="caseModalNext" type="button">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="pager">
+      <a href="beyond.html">← Beyond the Syllabus</a>
+      <a href="exam-notes.html">Exam Notes →</a>
+    </nav>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search-index.js"></script>
+<script src="js/search.js"></script>
+<script src="js/slogan.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/extras.js"></script>
+<script src="js/cases-data.js"></script>
+<script src="js/cases.js"></script>
+
+</body>
+</html>

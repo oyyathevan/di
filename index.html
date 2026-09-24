@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DTI Notes — Design Thinking and Innovation</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+<link rel="stylesheet" href="css/exam.css" />
+
+<style>
+/* ============ HOME PAGE ONLY ============ */
+body[data-page="home"] main{max-width:1100px}
+body[data-page="home"] .layout{grid-template-columns:240px 1fr}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  background:linear-gradient(135deg,#1E3A8A 0%,#7C3AED 100%);
+  color:#fff;
+  padding:36px 40px;
+  border-radius:18px;
+  margin:0 0 28px;
+  box-shadow:0 12px 32px rgba(30,58,138,.28);
+  overflow:hidden;
+} 
+
+    <a class="htu-banner" href="how-to-use.html">
+      <span class="htu-banner__icon">🧭</span>
+      <span class="htu-banner__text">
+        <b>New here? Start with the 5-minute guide</b>
+        <span>Role-based instructions for staff and students — how to use every tool</span>
+      </span>
+      <span class="htu-banner__arrow">→</span>
+    </a>
+
+.hero::before{
+  content:"";position:absolute;right:-60px;top:-60px;
+  width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%);
+  pointer-events:none;
+}
+.hero .hero-eyebrow{
+  font-size:.75rem;font-weight:800;letter-spacing:1.5px;
+  text-transform:uppercase;opacity:.85;margin-bottom:10px;
+}
+.hero h1{
+  color:#fff;font-size:2.1rem;margin:0 0 12px;
+  line-height:1.15;font-weight:800;letter-spacing:-.02em;
+}
+.hero .tagline{
+  font-size:1rem;opacity:.92;margin:0 0 22px;
+  max-width:620px;line-height:1.6;
+}
+.hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.hero .cta{
+  padding:12px 24px;border-radius:10px;font-weight:700;font-size:.9rem;
+  text-decoration:none;transition:.2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.hero .cta.primary{background:#fff;color:#1E3A8A}
+.hero .cta.primary:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.2)}
+.hero .cta.ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.hero .cta.ghost:hover{background:rgba(255,255,255,.25)}
+.hero .hero-stats{
+  display:flex;gap:22px;flex-wrap:wrap;margin-top:22px;
+  padding-top:20px;border-top:1px solid rgba(255,255,255,.2);
+}
+.hero .hero-stats div{
+  font-size:.82rem;opacity:.9;display:flex;align-items:center;gap:6px;
+}
+.hero .hero-stats strong{font-weight:800;font-size:1rem;opacity:1}
+
+/* ---------- SECTION TITLES ---------- */
+.section-title{
+  display:flex;align-items:center;gap:10px;
+  font-size:1.1rem;font-weight:800;color:#1F2937;
+  margin:26px 0 14px;
+}
+.section-title .st-emoji{font-size:1.3rem}
+[data-theme="dark"] .section-title{color:#E2E8F0}
+
+/* ---------- UNITS GRID ---------- */
+.units-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin:0 0 8px;
+}
+.unit-tile{
+  background:#fff;border:1px solid #E2E8F0;border-radius:14px;
+  padding:22px 22px 18px;text-decoration:none;color:inherit;
+  border-top:5px solid var(--uc,#2563EB);
+  transition:.2s;display:flex;flex-direction:column;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+.unit-tile:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(0,0,0,.1);
+  border-color:var(--uc,#2563EB);
+}
+.unit-tile .tile-num{
+  font-size:.72rem;font-weight:800;letter-spacing:.6px;
+  text-transform:uppercase;color:var(--uc,#2563EB);margin-bottom:6px;
+}
+.unit-tile h3{margin:0 0 8px;font-size:1.05rem;color:#1F2937;line-height:1.35;font-weight:700}
+.unit-tile .desc{
+  font-size:.84rem;color:#64748B;margin:0 0 14px;
+  flex:1;line-height:1.55;
+}
+.unit-tile .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.unit-tile .meta span{
+  font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:999px;
+  background:#F1F5F9;color:#475569;
+}
+
+/* ---------- QUICK LINKS ---------- */
+.quick-links{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;margin:0 0 8px;
+}
+.quick-link{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 18px;background:#fff;border:1px solid #E2E8F0;
+  border-radius:12px;text-decoration:none;color:inherit;
+  transition:.2s;
+}
+.quick-link:hover{
+  border-color:#7C3AED;
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(124,58,237,.15);
+}
+.quick-link .ql-icon{font-size:1.7rem;flex-shrink:0}
+.quick-link .ql-text b{display:block;font-size:.92rem;margin-bottom:2px;color:#1F2937}
+.quick-link .ql-text span{font-size:.75rem;color:#64748B}
+
+/* ---------- HOW TO USE ---------- */
+.steps{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin:0 0 8px;
+}
+.step-card{
+  padding:20px 22px;background:#F8FAFC;
+  border:1.5px dashed #CBD5E1;border-radius:14px;
+}
+.step-card .step-num{
+  display:inline-flex;justify-content:center;align-items:center;
+  width:30px;height:30px;border-radius:50%;
+  background:linear-gradient(135deg,#1E3A8A,#7C3AED);color:#fff;
+  font-weight:800;font-size:.9rem;margin-bottom:12px;
+}
+.step-card b{display:block;font-size:.95rem;color:#1F2937;margin-bottom:6px}
+.step-card p{margin:0;font-size:.83rem;color:#64748B;line-height:1.6}
+
+/* ---------- DARK MODE ---------- */
+[data-theme="dark"] .unit-tile{background:#1E293B;border-color:#334155}
+[data-theme="dark"] .unit-tile h3{color:#E2E8F0}
+[data-theme="dark"] .unit-tile .meta span{background:#0F172A;color:#94A3B8}
+[data-theme="dark"] .quick-link{background:#1E293B;border-color:#334155}
+[data-theme="dark"] .quick-link .ql-text b{color:#E2E8F0}
+[data-theme="dark"] .step-card{background:#0F172A;border-color:#334155}
+[data-theme="dark"] .step-card b{color:#E2E8F0}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1100px){.units-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){
+  .units-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .hero{padding:26px 22px}
+  .hero h1{font-size:1.55rem}
+}
+@media(max-width:560px){
+  .units-grid{grid-template-columns:1fr}
+  .hero{padding:22px 18px;border-radius:14px}
+  .hero h1{font-size:1.35rem}
+  .hero .cta{padding:10px 18px;font-size:.85rem}
+}
+
+/* ---------- Practical Activities CTA ---------- */
+.practical-cta{
+  display:flex;align-items:center;gap:18px;
+  padding:22px 26px;margin:20px 0 8px;
+  background:linear-gradient(135deg,#EEF2FF,#F5F3FF);
+  border:1.5px dashed #A5B4FC;
+  border-radius:14px;text-decoration:none;color:inherit;
+  transition:.2s;
+}
+.practical-cta:hover{
+  border-color:#7C3AED;
+  transform:translateY(-2px);
+  box-shadow:0 10px 26px rgba(124,58,237,.15);
+}
+.practical-cta .pc-icon{font-size:2.4rem;flex-shrink:0}
+.practical-cta .pc-text{flex:1}
+.practical-cta .pc-text b{display:block;font-size:1.05rem;color:#1F2937;margin-bottom:4px}
+.practical-cta .pc-text span{font-size:.85rem;color:#64748B;line-height:1.5}
+.practical-cta .pc-btn{
+  font-size:.85rem;font-weight:700;color:#7C3AED;white-space:nowrap;
+  padding:8px 14px;border-radius:8px;background:#fff;
+  border:1px solid #C7D2FE;
+}
+[data-theme="dark"] .practical-cta{
+  background:linear-gradient(135deg,#1E293B,#312E81);border-color:#4338CA;
+}
+[data-theme="dark"] .practical-cta .pc-text b{color:#E2E8F0}
+[data-theme="dark"] .practical-cta .pc-btn{
+  background:#0F172A;border-color:#4338CA;color:#A78BFA;
+}
+@media(max-width:600px){
+  .practical-cta{flex-direction:column;text-align:center}
+  .practical-cta .pc-btn{width:100%;text-align:center}
+}
+
+</style>
+</head>
+<body data-unit="u1" data-page="home">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<div class="layout">
+  <div id="site-sidebar"></div>
+
+  <main id="main">
+    <nav class="breadcrumb"><span>Home</span></nav>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="hero-eyebrow">🎨 Design Thinking &amp; Innovation</div>
+      <h1>Learn the mindset.<br>Build what matters.</h1>
+      <p class="tagline">
+        A complete, human-centered course on Design Thinking — from empathy and ideation
+        to prototyping and innovation. Interactive notes, real-world cases, exam Q&amp;A,
+        and a guided project playbook.
+      </p>
+      <div class="cta-row">
+        <a class="cta primary" href="unit1.html">📘 Start Unit I →</a>
+        <a class="cta ghost" href="studio.html">🎨 Open Studio Mode</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>5</strong> Units</div>
+        <div><strong>~200</strong> Q&amp;A</div>
+        <div><strong>50+</strong> Real Cases</div>
+        <div><strong>9</strong> Languages</div>
+      </div>
+    </section>
+
+    <!-- ================= UNITS GRID ================= -->
+    <h2 class="section-title"><span class="st-emoji">📚</span> Explore the Course</h2>
+    <div class="units-grid">
+
+      <a class="unit-tile" href="unit1.html" style="--uc:#2563EB">
+        <div class="tile-num">Unit I</div>
+        <h3>Design Thinking Foundations &amp; Empathy</h3>
+        <p class="desc">Introduction, mindset, human-centered design, user research, empathy maps, personas, and journey maps.</p>
+        <div class="meta">
+          <span>14 Topics</span>
+          <span>CO1 · CO2</span>
+        </div>
+      </a>
+
+      <a class="unit-tile" href="unit2.html" style="--uc:#0D9488">
+        <div class="tile-num">Unit II</div>
+        <h3>Problem Definition &amp; Opportunity</h3>
+        <p class="desc">Affinity mapping, POV, HMW, 5 Whys, root-cause analysis, prioritization, and problem validation.</p>
+        <div class="meta">
+          <span>9 Topics</span>
+          <span>CO2 · CO3</span>
+        </div>
+      </a>
+
+      <a class="unit-tile" href="unit3.html" style="--uc:#D97706">
+        <div class="tile-num">Unit III</div>
+        <h3>Creativity, Ideation &amp; Concept</h3>
+        <p class="desc">Divergent and convergent thinking, SCAMPER, biomimicry, TRIZ, AI-assisted ideation, and decision matrices.</p>
+        <div class="meta">
+          <span>9 Topics</span>
+          <span>CO3</span>
+        </div>
+      </a>
+
+      <a class="unit-tile" href="unit4.html" style="--uc:#7C3AED">
+        <div class="tile-num">Unit IV</div>
+        <h3>Prototyping, Testing &amp; Validation</h3>
+        <p class="desc">Paper and digital prototypes, MVP, user testing, think-aloud, iterative design, CAD, and iteration logs.</p>
+        <div class="meta">
+          <span>12 Topics</span>
+          <span>CO4</span>
+        </div>
+      </a>
+
+      <a class="unit-tile" href="unit5.html" style="--uc:#059669">
+        <div class="tile-num">Unit V</div>
+        <h3>Innovation, Value &amp; Communication</h3>
+        <p class="desc">Innovation types, Value Proposition Canvas, Business Model Canvas, IPR, responsible innovation, and pitch.</p>
+        <div class="meta">
+          <span>12 Topics</span>
+          <span>CO5</span>
+        </div>
+      </a>
+
+         <a class="unit-tile" href="studio.html" style="--uc:#EC4899">
+        <div class="tile-num">Practice</div>
+        <h3>Studio Mode — Project Playbook</h3>
+        <p class="desc">Pick a real problem and walk through all 5 units step-by-step. Auto-save + printable project report.</p>
+        <div class="meta">
+          <span>6 Stages</span>
+          <span>26 Steps</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- ===== Practical Activities CTA ===== -->
+    <a class="practical-cta" href="practical.html">
+      <span class="pc-icon">🧪</span>
+      <div class="pc-text">
+        <b>32 Practical Activities</b>
+        <span>Hands-on experiments across all 5 units — observation, interviews, ideation, prototyping, and pitching. Printable as A4 sheets.</span>
+      </div>
+      <span class="pc-btn">Open Practical Activities →</span>
+    </a>
+
+
+    <!-- ================= QUICK LINKS ================= -->
+    <h2 class="section-title"><span class="st-emoji">⚡</span> Quick Links</h2>
+    <div class="quick-links">
+      <a class="quick-link" href="templates.html">
+        <span class="ql-icon">📋</span>
+        <span class="ql-text">
+          <b>Templates</b>
+          <span>Empathy map · POV · VPC · BMC</span>
+        </span>
+      </a>
+      <a class="quick-link" href="resources.html">
+        <span class="ql-icon">📚</span>
+        <span class="ql-text">
+          <b>Resources</b>
+          <span>Books · Web links</span>
+        </span>
+      </a>
+      <a class="quick-link" href="lesson-plan.html">
+        <span class="ql-icon">🗓</span>
+        <span class="ql-text">
+          <b>Lesson Plan</b>
+          <span>Week-wise · Teaching methods</span>
+        </span>
+      </a>
+      <a class="quick-link" href="exam-notes.html">
+        <span class="ql-icon">📝</span>
+        <span class="ql-text">
+          <b>Exam Notes</b>
+          <span>Question bank · All units</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- ================= HOW TO USE ================= -->
+    <h2 class="section-title"><span class="st-emoji">🧭</span> How to Use This Site</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <b>Read &amp; explore</b>
+        <p>Open any unit from the sidebar or above. Each topic has notes, diagrams, and a real-world case.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <b>Practice &amp; test</b>
+        <p>Flip cards, MCQs, audio narrator, Study Buddy quiz bot, and toggle between Learn mode and Exam mode.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <b>Build a project</b>
+        <p>Use Studio Mode to solve a real problem end-to-end. Print a clean exam PDF or a project report at any time.</p>
+      </div>
+    </div>
+
+    <!-- ================= COURSE OUTCOMES ================= -->
+        <h2 class="section-title"><span class="st-emoji">🎯</span> Course Objectives</h2>
+    <div class="card" style="margin-top:0">
+      <p style="margin:0 0 12px;font-size:.9rem;color:#64748B">
+        At the end of the course, students will be able to:
+      </p>
+      <ol style="margin:0;padding-left:22px;line-height:1.9">
+        <li>Understand the principles, mindset, and methodologies of Design Thinking for human-centered problem solving.</li>
+        <li>Observe, empathize, and analyze user needs to formulate well-defined engineering and societal problems.</li>
+        <li>Apply creative and innovative thinking through systematic ideation, concept generation, and evaluation.</li>
+        <li>Develop, prototype, test, and iteratively improve solutions using user feedback and appropriate tools.</li>
+        <li>Identify innovation opportunities, create value propositions, understand basic IPR, and communicate solutions effectively.</li>
+      </ol>
+    </div>
+
+    <h2 class="section-title"><span class="st-emoji">🎯</span> Course Outcomes</h2>
+    <div class="card" style="margin-top:0">
+      <ul style="margin:0;padding-left:20px;line-height:1.9">
+        <li><strong>CO1 (K2):</strong> Explain principles, processes and mindset of Design Thinking.</li>
+        <li><strong>CO2 (K3):</strong> Apply empathy, observation and problem-framing techniques.</li>
+        <li><strong>CO3 (K3):</strong> Apply creative and systematic ideation techniques.</li>
+        <li><strong>CO4 (K4):</strong> Analyze solution concepts and prototypes using user feedback.</li>
+        <li><strong>CO5 (K4):</strong> Analyze innovation potential considering value, feasibility, sustainability, societal impact and IPR.</li>
+      </ul>
+    </div>
+
+    <nav class="pager">
+      <span></span>
+      <a href="unit1.html">Start Unit I →</a>
+    </nav>
+  </main>
+</div>
+
+<!-- Study Buddy -->
+<button class="buddy-fab" id="buddyFab" aria-label="Open Study Buddy">🤖</button>
+<div class="buddy-panel" id="buddyPanel" role="dialog" aria-label="Study Buddy">
+  <div class="buddy-head">
+    <span style="font-size:1.5rem">🤖</span>
+    <div class="bh-title">Study Buddy
+      <small>Reading: <span id="buddyTopic">Home</span></small>
+    </div>
+    <button id="buddyClose" aria-label="Close">✕</button>
+  </div>
+  <div class="buddy-body" id="buddyBody"></div>
+  <div class="buddy-foot">
+    <input id="buddyInput" placeholder="Ask me anything…" />
+    <button id="buddySend">➤</button>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search-index.js"></script>
+<script src="js/search.js"></script>
+<script src="js/slogan.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/study-buddy-bank.js"></script>
+<script src="js/buddy.js"></script>
+<script src="js/extras.js"></script>
+<script src="js/exam-mode.js"></script>
+<script src="js/print.js"></script>
+
+</body>
+</html>

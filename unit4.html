@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit IV — Prototyping, Testing &amp; Validation | DTI Notes</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+<link rel="stylesheet" href="css/exam.css" />
+</head>
+<body data-unit="u4">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<div class="layout">
+  <div id="site-sidebar"></div>
+
+  <main id="main">
+    <nav class="breadcrumb"><a href="index.html">Home</a> › <span>Unit IV</span></nav>
+    <h1>Unit IV — Prototyping, Experimentation &amp; Validation</h1>
+    <p class="badges">
+      <span class="badge">4 Weeks</span>
+      <span class="badge">12 Hours</span>
+      <span class="badge">CO4</span>
+    </p>
+
+    <a class="studio-cta" href="studio.html">
+      <span class="cta-emoji">🎨</span>
+      <span class="cta-text"><b>Try Studio Mode</b><span>Turn this unit into a real design project — step by step</span></span>
+      <span class="cta-arrow">→</span>
+    </a>
+
+    <div class="audio-player">
+      <span class="ap-label">🎧 Listen to Unit IV</span>
+      <button id="apPlay" class="primary" aria-label="Play / Pause">▶</button>
+      <button id="apStop" aria-label="Stop">⏹</button>
+      <div class="ap-progress"><div class="bar"></div></div>
+      <select id="apSpeed" class="ap-speed" aria-label="Speed">
+        <option value="0.75">0.75×</option><option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option><option value="1.5">1.5×</option>
+      </select>
+      <div class="ap-status">Press ▶ to hear the unit summary. Or tap 🔊 on any topic.</div>
+    </div>
+
+    <div class="print-row">
+      <button data-print="full" class="primary">🖨 Print / Save PDF — Full Unit</button>
+      <button data-print="qa">📝 Print Q&amp;A Only</button>
+    </div>
+
+    <div class="card objectives-card">
+      <h2>🎯 Learning Objectives</h2>
+      <ul>
+        <li>Develop various types of prototypes.</li>
+        <li>Conduct user testing and collect feedback.</li>
+        <li>Iterate designs based on user input.</li>
+      </ul>
+    </div>
+
+    <details class="key-defs" open>
+      <summary>📖 Key Definitions — Unit IV (15 terms)</summary>
+      <table>
+        <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+        <tbody>
+          <tr><td>Prototype</td><td>A rough version of a solution built to learn, test, and improve — not to ship.</td></tr>
+          <tr><td>Concept Development</td><td>Refining a chosen idea into a clear, workable solution before building.</td></tr>
+          <tr><td>Paper Prototype</td><td>A hand-drawn sketch of screens or product, used for quick early testing.</td></tr>
+          <tr><td>Physical Prototype</td><td>A real 3D model made with cardboard, clay, or 3D printing.</td></tr>
+          <tr><td>Digital Prototype</td><td>A clickable mock-up built in software (Figma, Adobe XD, Marvel).</td></tr>
+          <tr><td>Storyboard</td><td>A comic-strip style sequence showing how a user will use the product.</td></tr>
+          <tr><td>Role-Play Prototype</td><td>Team acts out the user experience to find friction points.</td></tr>
+          <tr><td>Service Prototype</td><td>Simulation of a service with people and props — used to test invisible service steps.</td></tr>
+          <tr><td>Low-Fidelity (Lo-Fi)</td><td>Rough, cheap, quick prototype — paper or simple mock-up.</td></tr>
+          <tr><td>High-Fidelity (Hi-Fi)</td><td>Close-to-final prototype — realistic visuals and interactions.</td></tr>
+          <tr><td>Rapid Prototyping</td><td>Building and testing multiple versions quickly to learn fast.</td></tr>
+          <tr><td>MVP</td><td>Minimum Viable Prototype — the smallest version that tests the core idea.</td></tr>
+          <tr><td>Think-Aloud Method</td><td>Users speak their thoughts while using the prototype.</td></tr>
+          <tr><td>Iterative Design</td><td>Repeated cycle: design → prototype → test → learn → redesign.</td></tr>
+          <tr><td>Iteration Log</td><td>A document recording every change, its reason, and its result.</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <!-- 4.1 -->
+    <article class="card topic" id="4-1">
+      <div class="topic-head">
+        <span class="big-emoji">🧪</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.1</span>
+          <h2>Concept Development &amp; Prototype Types</h2>
+          <div class="tags"><span class="tag">Concept</span><span class="tag bloom">K2</span><span class="tag">10 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <ul>
+        <li><strong>Concept development:</strong> Refining an idea into a clear solution.</li>
+        <li><strong>Prototype mindset:</strong> Learn by making. Fail early, learn early.</li>
+      </ul>
+      <div class="sketch">
+        <div class="sketch-title">Prototype Fidelity Ladder</div>
+        <div class="flow" style="gap:6px">
+          <div class="step" style="width:auto;padding:8px 12px;border-radius:8px;height:auto;border-color:#7C3AED;color:#6D28D9">📝<br><b style="font-size:.6rem">SKETCH</b></div>
+          <span class="arrow">→</span>
+          <div class="step" style="width:auto;padding:8px 12px;border-radius:8px;height:auto;border-color:#7C3AED;color:#6D28D9">📦<br><b style="font-size:.6rem">CARDBOARD</b></div>
+          <span class="arrow">→</span>
+          <div class="step" style="width:auto;padding:8px 12px;border-radius:8px;height:auto;border-color:#7C3AED;color:#6D28D9">🖥<br><b style="font-size:.6rem">DIGITAL</b></div>
+          <span class="arrow">→</span>
+          <div class="step" style="width:auto;padding:8px 12px;border-radius:8px;height:auto;background:#7C3AED;color:#fff;border-color:#7C3AED">✨<br><b style="font-size:.6rem">FINAL</b></div>
+        </div>
+        <div class="caption">From rough to real — stop when you have enough feedback</div>
+      </div>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Paper</td><td>Sketch on paper</td></tr>
+          <tr><td>Physical</td><td>Cardboard model</td></tr>
+          <tr><td>Digital</td><td>App mockup</td></tr>
+          <tr><td>Storyboard</td><td>Comic-like scenes</td></tr>
+          <tr><td>Role-play</td><td>Act out service</td></tr>
+          <tr><td>Service</td><td>Simulate service steps</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </article>
+
+    <!-- 4.2 -->
+    <article class="card topic" id="4-2">
+      <div class="topic-head">
+        <span class="big-emoji">📐</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.2</span>
+          <h2>Paper Prototype, Physical Prototype, Storyboard</h2>
+          <div class="tags"><span class="tag">Tool</span><span class="tag bloom">K3</span><span class="tag">12 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <h3>Paper Prototype</h3>
+      <p>Draw screens or product on paper. Cheap and fast.</p>
+      <h3>Physical Prototype</h3>
+      <p>Make a real model using cardboard, clay or 3D printing.</p>
+      <h3>Storyboard</h3>
+      <div class="sketch">
+        <div class="sketch-title">A Story in Four Panels</div>
+        <div class="flow" style="gap:6px">
+          <div class="step" style="width:64px;height:64px;font-size:.6rem;border-color:#7C3AED;color:#6D28D9"><span>📱</span>Open</div>
+          <div class="step" style="width:64px;height:64px;font-size:.6rem;border-color:#7C3AED;color:#6D28D9"><span>🔍</span>Search</div>
+          <div class="step" style="width:64px;height:64px;font-size:.6rem;border-color:#7C3AED;color:#6D28D9"><span>🛒</span>Book</div>
+          <div class="step" style="width:64px;height:64px;font-size:.6rem;border-color:#7C3AED;color:#6D28D9"><span>✅</span>Done</div>
+        </div>
+        <div class="caption">Draw the user's story before building anything</div>
+      </div>
+      <div class="callout tip"><span class="label">✅ Tip</span>
+        <p>A storyboard catches problems before you spend a single rupee on building. Fix the story first, then fix the product.</p>
+      </div>
+    </article>
+
+    <!-- 4.3 -->
+    <article class="card topic" id="4-3">
+      <div class="topic-head">
+        <span class="big-emoji">💻</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.3</span>
+          <h2>Digital Prototype, Role-Play, Service Prototype</h2>
+          <div class="tags"><span class="tag">Tool</span><span class="tag bloom">K3</span><span class="tag">10 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <h3>Digital Prototype</h3>
+      <p>Use software like Figma, Adobe XD or Marvel.</p>
+      <h3>Role-Play</h3>
+      <p>Team acts out the user experience.</p>
+      <h3>Service Prototype</h3>
+      <p>Simulate the service steps with people and props.</p>
+      <div class="callout example"><span class="label">💡 Example</span>
+        <p>Act out a hotel check-in process with paper slips, a "receptionist" and a "guest" — spot the friction in minutes, not months.</p>
+      </div>
+      <div class="case-snap">
+        <span class="company">🏨 IDEO · Service Prototyping</span>
+        <div class="story">IDEO famously role-plays service experiences with staff before rolling them out — hospitals, banks, and airports use this to catch broken steps without any real cost.</div>
+        <span class="takeaway">Service design is invisible — prototyping makes it visible.</span>
+      </div>
+    </article>
+
+    <!-- 4.4 -->
+    <article class="card topic" id="4-4">
+      <div class="topic-head">
+        <span class="big-emoji">⚡</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.4</span>
+          <h2>Low-Fidelity vs High-Fidelity &amp; Rapid Prototyping</h2>
+          <div class="tags"><span class="tag">Concept</span><span class="tag bloom">K2</span><span class="tag">10 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <ul>
+        <li><strong>Low-fidelity:</strong> Rough, cheap, quick.</li>
+        <li><strong>High-fidelity:</strong> Close to final product.</li>
+        <li><strong>Rapid prototyping:</strong> Make and test quickly.</li>
+      </ul>
+      <div class="callout example"><span class="label">💡 Example</span>
+        <p>Low-fi: Paper sketch of app. High-fi: Clickable app in Figma.</p>
+      </div>
+      <div class="callout tip"><span class="label">✅ Tip</span>
+        <p>Start low-fi. Save high-fi for ideas that survive real user testing.</p>
+      </div>
+    </article>
+
+    <!-- 4.5 -->
+    <article class="card topic" id="4-5">
+      <div class="topic-head">
+        <span class="big-emoji">🎯</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.5</span>
+          <h2>"Fail Fast, Learn Fast" &amp; MVP</h2>
+          <div class="tags"><span class="tag">Concept</span><span class="tag bloom">K3</span><span class="tag">12 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <ul>
+        <li><strong>Fail fast, learn fast:</strong> Test early so mistakes are cheap.</li>
+        <li><strong>MVP (Minimum Viable Prototype):</strong> Smallest version that tests the main idea.</li>
+      </ul>
+      <div class="sketch">
+        <div class="sketch-title">The MVP Mindset</div>
+        <div class="flow">
+          <div class="step" style="border-color:#7C3AED;color:#6D28D9;width:auto;padding:10px 16px;border-radius:10px;height:auto"><span>🎯</span>Core idea</div>
+          <span class="arrow">→</span>
+          <div class="step" style="border-color:#7C3AED;color:#6D28D9;width:auto;padding:10px 16px;border-radius:10px;height:auto"><span>⚡</span>Tiny build</div>
+          <span class="arrow">→</span>
+          <div class="step" style="border-color:#7C3AED;color:#6D28D9;width:auto;padding:10px 16px;border-radius:10px;height:auto"><span>👥</span>Real users</div>
+          <span class="arrow">→</span>
+          <div class="step" style="background:#7C3AED;color:#fff;border-color:#7C3AED;width:auto;padding:10px 16px;border-radius:10px;height:auto"><span>📈</span>Learn</div>
+        </div>
+        <div class="caption">Test the riskiest assumption first</div>
+      </div>
+      <div class="case-snap">
+        <span class="company">📦 Dropbox · The Video MVP</span>
+        <div class="story">Before building Dropbox, Drew Houston made a 3-minute demo video showing how it <em>would</em> work. 75,000 people signed up overnight — proving demand without writing a single line of product code.</div>
+        <span class="takeaway">The best MVP tests the <em>idea</em>, not the product.</span>
+      </div>
+    </article>
+
+    <!-- 4.6 -->
+    <article class="card topic" id="4-6">
+      <div class="topic-head">
+        <span class="big-emoji">🔬</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.6</span>
+          <h2>Design Experimentation &amp; Prototype Evaluation</h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K4</span><span class="tag">10 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <h3>Design Experimentation</h3>
+      <p>Test your prototype with real users in real contexts.</p>
+      <h3>Prototype Evaluation</h3>
+      <p>Check:</p>
+      <ul>
+        <li>Does it solve the problem?</li>
+        <li>Is it easy to use?</li>
+        <li>Is it affordable?</li>
+      </ul>
+      <p><strong>Methods:</strong> observation, interviews, surveys, metrics (time, error rate, task success).</p>
+      <div class="callout tip"><span class="label">✅ Tip</span>
+        <p>Measure <em>behaviour</em>, not opinions. What users do matters more than what they say they'd do.</p>
+      </div>
+    </article>
+
+    <!-- 4.7 -->
+    <article class="card topic" id="4-7">
+      <div class="topic-head">
+        <span class="big-emoji">🎤</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.7</span>
+          <h2>User Testing, Think-Aloud, Feedback Collection</h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K3</span><span class="tag">14 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <h3>User Testing</h3>
+      <p>Give prototype to users and watch them use it — silently.</p>
+      <h3>Think-Aloud Method</h3>
+      <p>Ask users to speak their thoughts while using it.</p>
+      <div class="callout example"><span class="label">💡 Example</span>
+        <p>"I am looking for the search button… I can't find it." This tells you <em>where</em> they're stuck, not just <em>that</em> they're stuck.</p>
+      </div>
+      <h3>Feedback Collection</h3>
+      <ul>
+        <li>Surveys</li><li>Interviews</li>
+        <li>Observation notes</li><li>Rating scales</li>
+      </ul>
+      <div class="case-snap">
+        <span class="company">🛒 Amazon · 1-Click Checkout</span>
+        <div class="story">Amazon watched users abandon carts at the payment step and turned that observation into "1-Click" ordering — a patented innovation that came directly from user testing.</div>
+        <span class="takeaway">Watch where users pause — that's where the next innovation hides.</span>
+      </div>
+    </article>
+
+    <!-- 4.8 -->
+    <article class="card topic" id="4-8">
+      <div class="topic-head">
+        <span class="big-emoji">🔁</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.8</span>
+          <h2>Usability &amp; Functionality Testing; Iterative Design</h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K4</span><span class="tag">12 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <ul>
+        <li><strong>Usability:</strong> Easy to use.</li>
+        <li><strong>Functionality:</strong> Works correctly.</li>
+        <li><strong>Iterative design:</strong> Improve in cycles.</li>
+      </ul>
+      <div class="sketch">
+        <div class="sketch-title">The Iteration Loop</div>
+        <div class="flow">
+          <div class="step" style="border-color:#7C3AED;color:#6D28D9;width:auto;padding:10px 14px;border-radius:10px;height:auto">✏️<br>Design</div>
+          <span class="arrow">→</span>
+          <div class="step" style="border-color:#7C3AED;color:#6D28D9;width:auto;padding:10px 14px;border-radius:10px;height:auto">🧪<br>Prototype</div>
+          <span class="arrow">→</span>
+          <div class="step" style="border-color:#7C3AED;color:#6D28D9;width:auto;padding:10px 14px;border-radius:10px;height:auto">👥<br>Test</div>
+          <span class="arrow">→</span>
+          <div class="step" style="border-color:#7C3AED;color:#6D28D9;width:auto;padding:10px 14px;border-radius:10px;height:auto">📚<br>Learn</div>
+          <div class="loop">↺ back to Design — every cycle is better</div>
+        </div>
+      </div>
+      <div class="case-snap">
+        <span class="company">📷 Instagram · The Pivot</span>
+        <div class="story">Instagram started as "Burbn" — a check-in app. User testing showed people only used the photo-sharing feature. The team iterated radically, cut everything else, and Instagram was born.</div>
+        <span class="takeaway">Iteration sometimes means <em>removing</em> features, not adding them.</span>
+      </div>
+    </article>
+
+    <!-- 4.9 -->
+    <article class="card topic" id="4-9">
+      <div class="topic-head">
+        <span class="big-emoji">📝</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.9</span>
+          <h2>Design Critique &amp; Documentation of Iterations</h2>
+          <div class="tags"><span class="tag">Review</span><span class="tag bloom">K4</span><span class="tag">10 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <h3>Design Critique</h3>
+      <p>A structured feedback session with peers or mentors.</p>
+      <ul>
+        <li>What works?</li>
+        <li>What does not work?</li>
+        <li>What can be improved?</li>
+      </ul>
+      <h3>Iteration Log Template</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Date</th><th>Version</th><th>Change</th><th>Reason</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>1/10</td><td>v1</td><td>Added search bar</td><td>Users couldn't find items</td><td>Faster search</td></tr>
+          <tr><td>3/10</td><td>v2</td><td>Enlarged wait-time chip</td><td>Users missed it</td><td>More taps on it</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="callout tip"><span class="label">✅ Tip</span>
+        <p>Document every version, even failed ones. Failed iterations are evidence — they prove you tested, learned, and improved.</p>
+      </div>
+    </article>
+
+    <!-- 4.10 -->
+    <article class="card topic" id="4-10">
+      <div class="topic-head">
+        <span class="big-emoji">🖥</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.10</span>
+          <h2>CAD, Simulation &amp; AI-Assisted Visualization</h2>
+          <div class="tags"><span class="tag">Tool</span><span class="tag bloom">K3</span><span class="tag">10 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <ul>
+        <li><strong>CAD:</strong> Computer-Aided Design. Example: Fusion 360, AutoCAD.</li>
+        <li><strong>Simulation:</strong> Test in virtual environment. Example: ANSYS.</li>
+        <li><strong>AI visualization:</strong> Generate images. Example: Midjourney, DALL·E.</li>
+      </ul>
+      <div class="callout example"><span class="label">💡 Example</span>
+        <p>Use CAD to design a chair, simulation to test its strength under weight, and AI to visualize different fabric colours for a client presentation.</p>
+      </div>
+      <div class="case-snap">
+        <span class="company">🚗 Tesla · Simulation First</span>
+        <div class="story">Tesla simulates crash tests and aerodynamic performance in software before building physical prototypes — saving millions of dollars and months of development time.</div>
+        <span class="takeaway">Simulate digitally first, build physically second.</span>
+      </div>
+    </article>
+
+    <!-- 4.11 -->
+    <article class="card topic" id="4-11">
+      <div class="topic-head">
+        <span class="big-emoji">📓</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.11</span>
+          <h2>Iteration Log and Documentation</h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K2</span><span class="tag">8 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <p>Keep a log of:</p>
+      <ul>
+        <li>What changed</li>
+        <li>Why it changed</li>
+        <li>What happened after the change</li>
+        <li>Next step</li>
+      </ul>
+      <h3>Why?</h3>
+      <ul>
+        <li>Helps the team remember.</li>
+        <li>Shows progress.</li>
+        <li>Helps in the final report.</li>
+      </ul>
+    </article>
+
+    <!-- 4.12 -->
+    <article class="card topic" id="4-12">
+      <div class="topic-head">
+        <span class="big-emoji">🧾</span>
+        <div class="head-meta">
+          <span class="sec-no">§ 4.12</span>
+          <h2>Assessment and Reflection</h2>
+          <div class="tags"><span class="tag">Review</span><span class="tag bloom">K2</span><span class="tag">8 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+      <ul>
+        <li><strong>Assessment:</strong> Prototype, user-testing report, iteration log.</li>
+        <li><strong>Reflection:</strong> What did users teach us?</li>
+      </ul>
+      <h3>Reflection questions</h3>
+      <ul>
+        <li>What did we learn that we didn't expect?</li>
+        <li>Which assumption was wrong?</li>
+        <li>What will v2 change?</li>
+      </ul>
+    </article>
+
+    <!-- EXAM Q&A -->
+    <section class="exam-qa" id="exam-qa">
+      <div class="exam-qa-head">
+        <span class="eq-title">📝 EXAM QUESTIONS — UNIT IV</span>
+        <span class="eq-badge">10 × 2-mark</span>
+        <span class="eq-badge">7 × 5-mark</span>
+        <span class="eq-badge">5 × 10-mark</span>
+      </div>
+      <div class="exam-qa-body">
+
+        <div class="exam-qa-group">
+          <h3>📗 2-Mark Questions</h3>
+
+          <div class="exam-q"><span class="qnum">Q1 (2M)</span>
+            <div class="qtext">Define a prototype.</div>
+            <div class="qanswer"><strong>Answer:</strong> A prototype is a rough, early version of a solution built to learn, test, and improve — not to ship. It can be as simple as a paper sketch.</div>
+          </div>
+          <div class="exam-q"><span class="qnum">Q2 (2M)</span>
+            <div class="qtext">List any four types of prototypes.</div>
+            <div class="qanswer"><strong>Answer:</strong> (1) Paper prototype, (2) Physical prototype, (3) Digital prototype, (4) Storyboard. Others: role-play, service prototype.</div>
+          </div>
+          <div class="exam-q"><span class="qnum">Q3 (2M)</span>
+            <div class="qtext">What is an MVP?</div>
+            <div class="qanswer"><strong>Answer:</strong> MVP stands for Minimum Viable Prototype — the smallest version that tests the core idea with real users. Example: Dropbox's demo video.</div>
+          </div>
+          <div class="exam-q"><span class="qnum">Q4 (2M)</span>
+            <div class="qtext">Differentiate between low-fidelity and high-fidelity prototypes.</div>
+            <div class="qanswer"><strong>Answer:</strong> Low-fidelity = rough, cheap, quick (paper sketches). High-fidelity = close to final product (clickable Figma mock-up). Start low-fi, save high-fi for ideas that survive testing.</div>
+          </div>
+          <div class="exam-q"><span class="qnum">Q5 (2M)</span>
+            <div class="qtext">What is the think-aloud method?</div>
+            <div class="qanswer"><strong>Answer:</strong> A user-testing method where users speak their thoughts while using the prototype. It reveals <em>where</em> they get stuck, not just <em>that</em> they get stuck.</div>
+          </div>
+          <div class="exam-q"><span class="qnum">Q6 (2M)</span>
+            <div class="qtext">Define iterative design.</div>
+            <div class="qanswer"><strong>Answer:</strong> Iterative design is a repeated cycle: design → prototype → test → learn → redesign. Each cycle improves the solution based on real feedback.</div>
+          </div>
+          <div class="exam-q"><span class="qnum">Q7 (2M)</span>
+            <div class="qtext">What is an iteration log?</div>
+            <div class="qanswer"><strong>Answer:</strong> A document recording every change made to a prototype — what changed, why, and what happened after. It shows progress and helps in final reporting.</div>
+          </div>
+          <div class="exam-q"><span class="qnum">Q8 (2M)</span>
+            <div class="qtext">What is CAD? Give one example.</div>
+            <div class="qanswer"><strong>Answer:</strong> CAD = Computer-Aided Design — software used to create 3D models. Examples: Fusion 360, AutoCAD, SolidWorks.</div>
+          </div>
+          <div class="exam-q"><span class="qnum">Q9 (2M)</span>
+            <div class="qtext">What is a service prototype?</div>
+            <div class="qanswer"><strong>Answer:</strong> A simulation of a service using people and props — for example, role-playing a hotel check-in process to find broken steps before launch.</div>
+          </div>
+          <div class="exam-q"><span class="qnum">Q10 (2M)</span>
+            <div class="qtext">What does "fail fast, learn fast" mean?</div>
+            <div class="qanswer"><strong>Answer:</strong> Test ideas early so mistakes are cheap and learning is quick. The earlier you fail, the less it costs, and the faster you improve.</div>
+          </div>
+        </div>
+
+        <div class="exam-qa-group">
+          <h3>📘 5-Mark Questions</h3>
+
+          <div class="exam-q"><span class="qnum">Q1 (5M)</span>
+            <div class="qtext">Explain the different types of prototypes with examples.</div>
+            <div class="qanswer"><strong>Answer:</strong> Prototypes vary in fidelity and medium:
+              <ol>
+                <li><strong>Paper prototype:</strong> Hand-drawn screens. Example: a sketch of a mobile app's home screen.</li>
+                <li><strong>Physical prototype:</strong> A 3D model built from cardboard, clay, or 3D printing. Example: a foam model of a new bottle shape.</li>
+                <li><strong>Digital prototype:</strong> Clickable mock-up in Figma or Adobe XD. Example: a working prototype of a food-ordering app.</li>
+                <li><strong>Storyboard:</strong> Comic-strip sequence of scenes. Example: 4 panels showing how a user books a cab.</li>
+                <li><strong>Role-play prototype:</strong> Team acts out the user experience. Example: acting out a hotel check-in.</li>
+              </ol>
+              Each type costs less than building the real product and reveals different kinds of problems.
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q2 (5M)</span>
+            <div class="qtext">Explain the MVP concept with the Dropbox example.</div>
+            <div class="qanswer"><strong>Answer:</strong>
+              <p><strong>MVP (Minimum Viable Prototype):</strong> The smallest version of a solution that can test the core idea with real users. It answers the riskiest question — is this needed? — at the lowest possible cost.</p>
+              <p><strong>Dropbox example:</strong> Before writing a single line of product code, Drew Houston made a 3-minute demo video showing how Dropbox would work. He posted it online. Over 75,000 people signed up overnight, proving demand without any actual product.</p>
+              <p><strong>Why MVP works:</strong></p>
+              <ul>
+                <li>Tests the riskiest assumption first.</li>
+                <li>Saves money and time.</li>
+                <li>Learns from real user interest, not opinions.</li>
+                <li>Attracts early adopters and feedback.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q3 (5M)</span>
+            <div class="qtext">Explain user testing and the think-aloud method.</div>
+            <div class="qanswer"><strong>Answer:</strong>
+              <p><strong>User testing:</strong> Give the prototype to real users and watch them use it. The designer observes without helping — only notes what happens.</p>
+              <p><strong>Think-aloud method:</strong> Users speak their thoughts while using the prototype. Example: "I'm looking for the search button… I can't find it." This reveals the user's mental model and where they get stuck.</p>
+              <p><strong>Steps:</strong></p>
+              <ol>
+                <li>Prepare tasks (e.g., "Book a cab to the airport").</li>
+                <li>Ask user to perform tasks while thinking aloud.</li>
+                <li>Observe and record — no helping.</li>
+                <li>Ask questions after.</li>
+                <li>Note problems and iterate.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q4 (5M)</span>
+            <div class="qtext">Explain iterative design and design critique.</div>
+            <div class="qanswer"><strong>Answer:</strong>
+              <p><strong>Iterative design:</strong> A repeated cycle — design → prototype → test → learn → redesign. Each cycle is better because it responds to real feedback.</p>
+              <p><strong>Design critique:</strong> A structured peer-review session where the team answers:</p>
+              <ul>
+                <li>What works?</li>
+                <li>What does not work?</li>
+                <li>What can be improved?</li>
+              </ul>
+              <p><strong>Example — Instagram:</strong> The original app "Burbn" had many features. User testing showed people only used photo-sharing. The team iterated radically, cut everything else, and Instagram was born.</p>
+              <p><strong>Why both matter:</strong> Critique catches issues early; iteration fixes them systematically.</p>
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q5 (5M)</span>
+            <div class="qtext">Explain prototype evaluation methods.</div>
+            <div class="qanswer"><strong>Answer:</strong> Prototype evaluation checks whether a prototype solves the intended problem. Four common methods:
+              <ol>
+                <li><strong>Observation:</strong> Watch users interact without helping.</li>
+                <li><strong>Interviews:</strong> Ask users what they liked, disliked, and found confusing.</li>
+                <li><strong>Surveys:</strong> Collect ratings and structured feedback from many users.</li>
+                <li><strong>Metrics:</strong> Measure time to complete a task, error rate, task success rate.</li>
+              </ol>
+              <p><strong>Key principle:</strong> Measure behaviour, not opinions. What users <em>do</em> is more reliable than what they say they'd do.</p>
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q6 (5M)</span>
+            <div class="qtext">Explain the role of CAD, simulation and AI in prototyping.</div>
+            <div class="qanswer"><strong>Answer:</strong>
+              <p><strong>CAD (Computer-Aided Design):</strong> Software to create precise 3D models. Example: Fusion 360. Used for mechanical design, architecture, and product design.</p>
+              <p><strong>Simulation:</strong> Virtual testing of a design under real conditions — stress, temperature, airflow. Example: ANSYS. Tesla simulates crash tests before building physical cars, saving millions.</p>
+              <p><strong>AI-assisted visualization:</strong> Tools like Midjourney and DALL·E generate images from text prompts. Used for rapid concept visualization, colour variations, and client presentations.</p>
+              <p><strong>Benefit:</strong> Digital tools let teams test hundreds of variations in hours instead of weeks.</p>
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q7 (5M)</span>
+            <div class="qtext">Explain the iteration log and its importance.</div>
+            <div class="qanswer"><strong>Answer:</strong> An iteration log records every change made to a prototype. Fields include:
+              <ul>
+                <li><strong>Date</strong> — when the change was made.</li>
+                <li><strong>Version</strong> — v1, v2, v3.</li>
+                <li><strong>Change</strong> — what was changed.</li>
+                <li><strong>Reason</strong> — why (usually from user feedback).</li>
+                <li><strong>Result</strong> — what happened after.</li>
+              </ul>
+              <p><strong>Importance:</strong></p>
+              <ul>
+                <li>Team memory — what was tried and what worked.</li>
+                <li>Evidence of progress — for reports and pitches.</li>
+                <li>Prevents repeating failed experiments.</li>
+                <li>Shows discipline — a hallmark of good design teams.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="exam-qa-group">
+          <h3>📕 10-Mark Questions</h3>
+
+          <div class="exam-q"><span class="qnum">Q1 (10M)</span>
+            <div class="qtext">Discuss the different types of prototypes with real-world examples and their role in Design Thinking.</div>
+            <div class="qanswer"><strong>Answer:</strong>
+              <p><strong>Prototype:</strong> A rough version of a solution built to learn, test, and improve — not to ship.</p>
+              <p><strong>Types of prototypes:</strong></p>
+              <ol>
+                <li><strong>Paper prototype:</strong> Hand-drawn screens. Cheap and fast. Used in early testing of apps.</li>
+                <li><strong>Physical prototype:</strong> A 3D model — cardboard, clay, or 3D printed. Used for industrial and product design.</li>
+                <li><strong>Digital prototype:</strong> Clickable Figma or Adobe XD mock-up. Used for apps and websites.</li>
+                <li><strong>Storyboard:</strong> Comic-strip sequence of the user journey. Used to plan before building.</li>
+                <li><strong>Role-play prototype:</strong> Team acts out the experience. Used for service design.</li>
+                <li><strong>Service prototype:</strong> Simulation with people and props — used to test invisible service steps.</li>
+              </ol>
+              <p><strong>Low vs high fidelity:</strong></p>
+              <table>
+                <thead><tr><th>Low-Fi</th><th>High-Fi</th></tr></thead>
+                <tbody>
+                  <tr><td>Rough, cheap, quick</td><td>Close to final product</td></tr>
+                  <tr><td>Paper sketches</td><td>Figma clickable prototype</td></tr>
+                  <tr><td>Tests concepts</td><td>Tests usability and micro-interactions</td></tr>
+                </tbody>
+              </table>
+              <p><strong>Real-world examples:</strong></p>
+              <ul>
+                <li>Dropbox — video MVP.</li>
+                <li>Amazon — paper prototypes for 1-Click.</li>
+                <li>IDEO — service role-plays for hospitals.</li>
+              </ul>
+              <div class="qdiagram"><span class="qdiagram-label">Diagram to draw:</span>
+Paper → Physical → Digital → High-Fidelity → Final
+(concept)  (form)     (interaction) (polish)      (launch)</div>
+              <p><strong>Conclusion:</strong> Prototypes let teams learn cheaply. The type chosen depends on what question needs answering.</p>
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q2 (10M)</span>
+            <div class="qtext">Discuss user testing methods and feedback collection. How does feedback drive iteration?</div>
+            <div class="qanswer"><strong>Answer:</strong>
+              <p><strong>User testing:</strong> Give the prototype to real users and watch them use it. Do not help. Observe and record.</p>
+              <p><strong>Think-aloud method:</strong> Users speak their thoughts while using the prototype. Example: "I'm looking for the search button… I can't find it."</p>
+              <p><strong>Feedback collection methods:</strong></p>
+              <ul>
+                <li>Surveys — quantitative ratings.</li>
+                <li>Interviews — qualitative depth.</li>
+                <li>Observation notes — real behaviour.</li>
+                <li>Metrics — task time, error rate, success rate.</li>
+              </ul>
+              <p><strong>Steps:</strong></p>
+              <ol>
+                <li>Prepare tasks.</li>
+                <li>Ask users to perform tasks.</li>
+                <li>Observe and record.</li>
+                <li>Ask questions after.</li>
+                <li>Note problems.</li>
+                <li>Iterate the prototype.</li>
+              </ol>
+              <p><strong>Real-world example — Amazon 1-Click:</strong> Amazon observed users abandoning carts at the payment step. They redesigned it into one-click ordering. This reduced friction and became a patented feature.</p>
+              <div class="qdiagram"><span class="qdiagram-label">Diagram to draw:</span>
+Prototype → Test → Observe → Feedback → Iterate → Prototype v2
+                          (loop repeats)</div>
+              <p><strong>Conclusion:</strong> Feedback is the raw material of iteration. Without it, designers build what they like, not what users need.</p>
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q3 (10M)</span>
+            <div class="qtext">Discuss iterative design, design critique and documentation. Give an example.</div>
+            <div class="qanswer"><strong>Answer:</strong>
+              <p><strong>Iterative design:</strong> Repeating the cycle design → prototype → test → learn → redesign. Each cycle is better because it's informed by real user feedback.</p>
+              <p><strong>Design critique:</strong> A structured peer review. The team answers three questions: What works? What does not work? What can be improved? It catches problems early.</p>
+              <p><strong>Documentation:</strong> Every change is recorded in an iteration log — date, version, change, reason, result.</p>
+              <p><strong>Why documentation matters:</strong></p>
+              <ul>
+                <li>Team memory — knows what has been tried.</li>
+                <li>Evidence of progress — for reports.</li>
+                <li>Prevents repeating failed experiments.</li>
+                <li>Shows discipline to reviewers and clients.</li>
+              </ul>
+              <p><strong>Example — Instagram pivot:</strong></p>
+              <ol>
+                <li>v1 was "Burbn" — a check-in app with many features.</li>
+                <li>User testing showed people only used the photo-sharing feature.</li>
+                <li>Design critique: cut everything else.</li>
+                <li>Iteration: launched as Instagram — a photo app.</li>
+                <li>Result: one of the fastest-growing apps in history.</li>
+              </ol>
+              <div class="qdiagram"><span class="qdiagram-label">Diagram to draw:</span>
+Design → Prototype → Test → Critique → Learn → Redesign
+   ↑______________________________________|
+              (each loop is documented)</div>
+              <p><strong>Conclusion:</strong> Iteration without critique is slow. Critique without iteration is wasted. Documentation ties both together.</p>
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q4 (10M)</span>
+            <div class="qtext">Discuss CAD, simulation and AI tools in modern prototyping with examples.</div>
+            <div class="qanswer"><strong>Answer:</strong>
+              <p><strong>CAD (Computer-Aided Design):</strong> Software to build precise 3D models. Tools: Fusion 360, AutoCAD, SolidWorks. Used for mechanical parts, architecture, and product design.</p>
+              <p><strong>Simulation:</strong> Testing designs virtually under real-world conditions — stress, temperature, airflow. Tools: ANSYS, COMSOL. Example: Tesla simulates crash tests and aerodynamics in software before building physical cars, saving millions of dollars.</p>
+              <p><strong>AI-assisted visualization:</strong> Tools like Midjourney and DALL·E generate images from prompts. Used for concept exploration, colour variations, and client presentations.</p>
+              <p><strong>Benefits:</strong></p>
+              <ul>
+                <li>Speed — test hundreds of variations in hours.</li>
+                <li>Cost — no material or tooling costs for early tests.</li>
+                <li>Precision — CAD models are accurate to the millimetre.</li>
+                <li>Communication — AI visuals help non-designers understand concepts.</li>
+              </ul>
+              <p><strong>Limitations:</strong></p>
+              <ul>
+                <li>Simulation is only as accurate as its inputs.</li>
+                <li>AI images may not be buildable.</li>
+                <li>Digital models cannot test feel or emotion.</li>
+              </ul>
+              <div class="qdiagram"><span class="qdiagram-label">Diagram to draw:</span>
+Idea → CAD model → Simulation → AI visualization → Physical prototype
+       (form)      (testing)     (communication)     (final check)</div>
+              <p><strong>Conclusion:</strong> Modern digital tools accelerate prototyping, but physical testing remains essential for real-world validation.</p>
+            </div>
+          </div>
+
+          <div class="exam-q"><span class="qnum">Q5 (10M)</span>
+            <div class="qtext">Discuss the complete prototyping process from concept development to validation. Illustrate with an example.</div>
+            <div class="qanswer"><strong>Answer:</strong> The prototyping process moves from rough ideas to validated solutions in cycles.
+              <p><strong>Stages:</strong></p>
+              <ol>
+                <li><strong>Concept development:</strong> Refine the chosen idea into a clear solution. Write down what it does, for whom, and why.</li>
+                <li><strong>Prototype mindset:</strong> Accept that the first version will be wrong. The goal is learning, not perfection.</li>
+                <li><strong>Choose fidelity:</strong> Start low-fidelity (paper) and increase only as ideas survive testing.</li>
+                <li><strong>Build prototype:</strong> Paper, physical, digital, storyboard, or role-play — whichever answers the current question.</li>
+                <li><strong>Design experimentation:</strong> Set up a test with real users. Prepare tasks.</li>
+                <li><strong>User testing:</strong> Watch users, use think-aloud, note friction points.</li>
+                <li><strong>Feedback collection:</strong> Surveys, interviews, metrics.</li>
+                <li><strong>Iteration:</strong> Update the prototype based on findings.</li>
+                <li><strong>Design critique:</strong> Peers review — what works, what doesn't, what can improve.</li>
+                <li><strong>Validation:</strong> Once the prototype consistently succeeds, it's ready to build.</li>
+              </ol>
+              <p><strong>Example — campus canteen app:</strong></p>
+              <ul>
+                <li>Concept: pre-order from phone, skip the queue.</li>
+                <li>Prototype v1: paper sketch of 5 screens.</li>
+                <li>Test: 5 students try it. Feedback: "Back button missing."</li>
+                <li>Prototype v2: added back button, enlarged wait-time chip.</li>
+                <li>Test v2: 4/5 students complete the task in under 60 seconds.</li>
+                <li>Validate: high task success rate → proceed to digital build.</li>
+              </ul>
+              <div class="qdiagram"><span class="qdiagram-label">Diagram to draw:</span>
+Concept → Prototype → Test → Feedback → Iterate → Validate → Ship
+             (v1)                        (v2, v3)</div>
+              <p><strong>Conclusion:</strong> Prototyping is not a step — it's a continuous mindset. Every version teaches something the previous one couldn't.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-qa-actions">
+        <button data-print="qa" class="primary">🖨 Print Q&amp;A Only</button>
+        <button data-print="full">🖨 Print Full Unit</button>
+        <button class="toggle-answers-btn">👁 Hide Answers</button>
+      </div>
+    </section>
+
+    <!-- SELF-CHECK -->
+    <section class="self-check" id="self-check">
+      <h2>🎮 Self-Check · Unit IV</h2>
+      <p class="sub">Flip the cards · then answer 10 MCQs.</p>
+
+            <div class="flip-grid">
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">🧪</div>What is a prototype?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">A rough version of a solution made to learn, test, and improve.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">📐</div>Low-fidelity prototype?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">Rough, cheap, quick — like a paper sketch.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">⚡</div>What is MVP?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">Minimum Viable Prototype — smallest version that tests the idea.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">🎤</div>Think-Aloud method?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">Users speak their thoughts while using the prototype.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">🔁</div>Iterative design?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">Improve in cycles: design → prototype → test → learn → redesign.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">📝</div>Why keep an iteration log?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">To track what changed, why, and what happened.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">🖥</div>What is CAD?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">Computer-Aided Design — 3D modelling software.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">🎯</div>What does "fail fast" mean?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">Test early so mistakes are cheap and learning is fast.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">🎬</div>What is a storyboard?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">A comic-strip sequence showing how the user experiences the solution.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">💻</div>Digital prototype?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">A clickable mock-up built in Figma, Adobe XD, or Marvel.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">🏨</div>What is a service prototype?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">Simulate service steps with people and props — like a hotel check-in rehearsal.</div>
+        </div></div>
+        <div class="flip-card"><div class="flip-inner">
+          <div class="flip-front"><div class="fc-emoji">🎯</div>What is a design critique?<div class="fc-hint">Tap to flip</div></div>
+          <div class="flip-back">Structured feedback session: what works, what doesn't, what to improve.</div>
+        </div></div>
+      </div>
+
+      <div class="quiz-box">
+        <div class="quiz-q" data-correct="1">
+          <div class="q-text">Q1. An MVP is…</div>
+          <div class="options">
+            <div class="opt">A. Most Valuable Player</div><div class="opt">B. Minimum Viable Prototype</div>
+            <div class="opt">C. Maximum Value Product</div><div class="opt">D. Main Visual Plan</div>
+          </div>
+          <div class="explain">✅ MVP = smallest version that tests the idea.</div>
+        </div>
+        <div class="quiz-q" data-correct="1">
+          <div class="q-text">Q2. Low-fidelity prototype is…</div>
+          <div class="options">
+            <div class="opt">A. Final product</div><div class="opt">B. Rough, cheap, quick</div>
+            <div class="opt">C. Software only</div><div class="opt">D. Always digital</div>
+          </div>
+          <div class="explain">✅ Low-fi = fast and rough.</div>
+        </div>
+        <div class="quiz-q" data-correct="1">
+          <div class="q-text">Q3. Think-Aloud method means…</div>
+          <div class="options">
+            <div class="opt">A. Users stay silent</div><div class="opt">B. Users speak thoughts while using</div>
+            <div class="opt">C. Designers think aloud</div><div class="opt">D. Skip testing</div>
+          </div>
+          <div class="explain">✅ Users say what they think in real time.</div>
+        </div>
+        <div class="quiz-q" data-correct="2">
+          <div class="q-text">Q4. Dropbox's famous MVP was…</div>
+          <div class="options">
+            <div class="opt">A. A full working app</div><div class="opt">B. A paid product</div>
+            <div class="opt">C. A 3-minute demo video</div><div class="opt">D. An ad campaign</div>
+          </div>
+          <div class="explain">✅ The video tested demand before any code was written.</div>
+        </div>
+        <div class="quiz-q" data-correct="1">
+          <div class="q-text">Q5. 'Fail fast, learn fast' means…</div>
+          <div class="options">
+            <div class="opt">A. Avoid failure</div><div class="opt">B. Test early so mistakes are cheap</div>
+            <div class="opt">C. Give up quickly</div><div class="opt">D. Never fail</div>
+          </div>
+          <div class="explain">✅ Cheap mistakes = fast learning.</div>
+        </div>
+        <div class="quiz-q" data-correct="0">
+          <div class="q-text">Q6. CAD stands for…</div>
+          <div class="options">
+            <div class="opt">A. Computer-Aided Design</div><div class="opt">B. Cardboard Assembled Design</div>
+            <div class="opt">C. Creative Art Design</div><div class="opt">D. Customer Added Data</div>
+          </div>
+          <div class="explain">✅ CAD = Computer-Aided Design.</div>
+        </div>
+        <div class="quiz-q" data-correct="3">
+          <div class="q-text">Q7. Usability means…</div>
+          <div class="options">
+            <div class="opt">A. Cheap price</div><div class="opt">B. New features</div>
+            <div class="opt">C. High quality</div><div class="opt">D. Easy to use</div>
+          </div>
+          <div class="explain">✅ Usability = how easily people can use it.</div>
+        </div>
+        <div class="quiz-q" data-correct="1">
+          <div class="q-text">Q8. Iterative design means…</div>
+          <div class="options">
+            <div class="opt">A. One big launch</div><div class="opt">B. Improving in cycles based on feedback</div>
+            <div class="opt">C. Skipping user tests</div><div class="opt">D. Copying competitors</div>
+          </div>
+          <div class="explain">✅ Iteration = repeated improvement.</div>
+        </div>
+        <div class="quiz-q" data-correct="2">
+          <div class="q-text">Q9. A storyboard shows…</div>
+          <div class="options">
+            <div class="opt">A. The company's finances</div><div class="opt">B. The code</div>
+            <div class="opt">C. The user's journey in scenes</div><div class="opt">D. The office layout</div>
+          </div>
+          <div class="explain">✅ Storyboard = comic strip of the user's experience.</div>
+        </div>
+        <div class="quiz-q" data-correct="0">
+          <div class="q-text">Q10. An iteration log should record…</div>
+          <div class="options">
+            <div class="opt">A. Change, reason, result</div><div class="opt">B. Only the final version</div>
+            <div class="opt">C. Only successes</div><div class="opt">D. Nothing</div>
+          </div>
+          <div class="explain">✅ Even failures belong in the log.</div>
+        </div>
+      </div>
+
+      <div class="quiz-score" id="quizScore">Answer the questions above to see your score.</div>
+      <div class="quiz-actions"><button id="quizReset">🔄 Try again</button></div>
+    </section>
+
+    <nav class="pager">
+      <a href="unit3.html">← Unit III</a>
+      <a href="unit5.html">Unit V →</a>
+    </nav>
+  </main>
+</div>
+
+<button class="buddy-fab" id="buddyFab" aria-label="Open Study Buddy">🤖</button>
+<div class="buddy-panel" id="buddyPanel" role="dialog" aria-label="Study Buddy">
+  <div class="buddy-head">
+    <span style="font-size:1.5rem">🤖</span>
+    <div class="bh-title">Study Buddy<small>Reading: <span id="buddyTopic">Unit IV</span></small></div>
+    <button id="buddyClose" aria-label="Close">✕</button>
+  </div>
+  <div class="buddy-body" id="buddyBody"></div>
+  <div class="buddy-foot">
+    <input id="buddyInput" placeholder="Ask me anything…" />
+    <button id="buddySend">➤</button>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search-index.js"></script>
+<script src="js/search.js"></script>
+<script src="js/slogan.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/study-buddy-bank.js"></script>
+<script src="js/buddy.js"></script>
+<script src="js/extras.js"></script>
+<script src="js/exam-mode.js"></script>
+<script src="js/print.js"></script>
+
+<script>
+document.addEventListener('click', function(e){
+  if (e.target.closest('.toggle-answers-btn')){
+    const qa = document.getElementById('exam-qa');
+    qa.classList.toggle('hide-answers');
+    const hidden = qa.classList.contains('hide-answers');
+    document.querySelectorAll('.toggle-answers-btn')
+      .forEach(b => b.textContent = hidden ? '👁 Show Answers' : '👁 Hide Answers');
+  }
+  if (e.target.closest('.exam-qa-head') && !document.body.classList.contains('exam-mode')){
+    document.getElementById('exam-qa').classList.toggle('open');
+  }
+});
+</script>
+
+</body>
+</html>

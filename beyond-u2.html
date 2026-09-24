@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit II — Extra Topics | Beyond the Syllabus</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+</head>
+<body data-unit="b" data-page="beyond-u">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<div class="layout">
+  <div id="site-sidebar"></div>
+
+  <main id="main">
+    <nav class="breadcrumb"><a href="index.html">Home</a> › <a href="beyond.html">Beyond the Syllabus</a> › <span>Unit II</span></nav>
+
+    <section class="beyond-hero compact">
+      <div class="bh-tag">🎯 Unit II · Extra Topics</div>
+      <h1>Unit II — Problem Definition &amp; Opportunity</h1>
+      <p>Seven advanced frameworks for framing problems and spotting opportunities — from JTBD to systems thinking.</p>
+      <span class="bh-note">7 topics · ~50 min read</span>
+    </section>
+
+    <div class="audio-player">
+      <span class="ap-label">🎧 Listen to Unit II Extra</span>
+      <button id="apPlay" class="primary" aria-label="Play / Pause">▶</button>
+      <button id="apStop" aria-label="Stop">⏹</button>
+      <div class="ap-progress"><div class="bar"></div></div>
+      <select id="apSpeed" class="ap-speed" aria-label="Speed">
+        <option value="0.75">0.75×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+      </select>
+      <div class="ap-status">Press ▶ to hear all topics, or tap 🔊 on any topic.</div>
+    </div>
+
+    <div class="card objectives-card">
+      <h2>📖 About this page</h2>
+      <p>These seven topics are <strong>not part of the exam syllabus</strong>. They appear in professional problem-framing work — strategy teams, product teams, and management consulting. Each follows the same format as your unit notes.</p>
+    </div>
+
+    <!-- ============ B-II.1 — JOBS TO BE DONE ============ -->
+    <article class="card topic" id="B-II-1">
+      <div class="topic-head">
+        <span class="big-emoji">💼</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-II.1</span>
+          <h2>Jobs to Be Done (JTBD) <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Framework</span><span class="tag bloom">K3</span><span class="tag">8 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>JTBD is a way of understanding users not by who they are, but by <strong>what they're trying to accomplish</strong>. People don't "want" a drill — they want a hole in the wall.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>A framework that reframes every purchase as "hiring" a product to do a job. It focuses on the <em>progress</em> a user wants to make in a specific circumstance.</p>
+      </div>
+
+      <h3>The core insight</h3>
+      <p>Customers don't buy products — they hire them to make progress. When a better "employee" comes along for the same job, they switch.</p>
+
+      <div class="callout example">
+        <span class="label">💡 Classic example — Milkshake</span>
+        <p>McDonald's studied milkshake sales. Interviews didn't help. But observing <em>when</em> people bought revealed the pattern: half the shakes were bought before 9 am by solo drivers with long commutes. They were <strong>hiring the milkshake</strong> to make a boring drive interesting and stay full until lunch.</p>
+        <p>Competing products weren't other milkshakes — they were bananas, bagels, and coffee. That reframing changed the entire product strategy.</p>
+      </div>
+
+      <h3>The JTBD statement format</h3>
+      <pre style="background:#fff;border:1px solid #EBE9E6;font-size:.82rem;padding:14px 18px">When [situation],
+I want to [motivation],
+So I can [expected outcome].</pre>
+
+      <div class="callout example">
+        <span class="label">💡 Campus example</span>
+        <p>When I'm between two back-to-back classes, I want to grab a quick snack without waiting in line, so I can reach the next lecture on time.</p>
+      </div>
+
+      <h3>JTBD vs Persona</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Persona</th><th>JTBD</th></tr></thead>
+        <tbody>
+          <tr><td>Answers "who is the user?"</td><td>Answers "what job are they hiring us for?"</td></tr>
+          <tr><td>Demographics, habits, goals</td><td>Circumstance, motivation, progress</td></tr>
+          <tr><td>One persona = one type of person</td><td>One job = many kinds of people</td></tr>
+          <tr><td>Best for design direction</td><td>Best for product strategy</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🚗 Uber · "Get from A to B"</span>
+        <div class="story">Uber's JTBD wasn't "ride-hailing". It was "get from A to B safely, quickly, at a fair price". That job competes with taxis, buses, personal cars, bikes — not just other apps.</div>
+        <span class="takeaway">Define your job broadly, or you'll miss your real competition.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Interview users <em>during</em> the moment of purchase. Memory re-writes motivation. What they say they did last month is less reliable than what they're doing right now.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>JTBD is not a persona replacement — it's a complement. Use personas to design the experience; use JTBD to decide which product to build.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit2.html#2-2" style="color:#0D9488">Unit II § 2.2 — Problem Statements</a> · <a href="unit1.html#1-11" style="color:#0D9488">Unit I § 1.11 — Personas</a></p>
+    </article>
+
+    <!-- ============ B-II.2 — KANO MODEL ============ -->
+    <article class="card topic" id="B-II-2">
+      <div class="topic-head">
+        <span class="big-emoji">📈</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-II.2</span>
+          <h2>Kano Model <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Tool</span><span class="tag bloom">K3</span><span class="tag">7 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>The <strong>Kano Model</strong> classifies product features by how much they affect customer satisfaction. It replaces the assumption "more features = happier customers".</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>A model that sorts features into five categories — Must-be, Performance, Attractive, Indifferent, Reverse — each affecting satisfaction differently.</p>
+      </div>
+
+      <h3>The five categories</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Meaning</th><th>If missing</th><th>If present</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Must-be</strong></td><td>Basic expectations</td><td>Furious</td><td>Neutral (taken for granted)</td></tr>
+          <tr><td><strong>Performance</strong></td><td>More is better</td><td>Unhappy</td><td>Satisfied — scales linearly</td></tr>
+          <tr><td><strong>Attractive</strong></td><td>Delighters</td><td>Neutral</td><td>Wow!</td></tr>
+          <tr><td><strong>Indifferent</strong></td><td>Not noticed</td><td>Neutral</td><td>Neutral</td></tr>
+          <tr><td><strong>Reverse</strong></td><td>Some want it, some don't</td><td>Relief for some</td><td>Anger for others</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Food delivery app</span>
+        <ul>
+          <li><strong>Must-be:</strong> Food arrives; app works.</li>
+          <li><strong>Performance:</strong> Delivery speed; number of restaurants.</li>
+          <li><strong>Attractive:</strong> Live GPS tracking (in 2018); AI meal suggestions.</li>
+          <li><strong>Indifferent:</strong> Dark mode toggle.</li>
+          <li><strong>Reverse:</strong> Frequent push notifications — some love them, some hate them.</li>
+        </ul>
+      </div>
+
+      <h3>Why it matters</h3>
+      <ul>
+        <li>Stop over-investing in Must-be features — no one thanks you for them.</li>
+        <li>Invest in Attractive features that create delight — they drive word of mouth.</li>
+        <li>Watch for features that drift from Attractive to Performance to Must-be over time (e.g., GPS tracking on delivery apps).</li>
+      </ul>
+
+      <div class="case-snap">
+        <span class="company">📱 Smartphone camera</span>
+        <div class="story">A camera was once an <em>Attractive</em> feature (delight). Then it became <em>Performance</em> (megapixels sold phones). Now it's <em>Must-be</em> (no camera = no sale). The same feature shifted categories over 20 years.</div>
+        <span class="takeaway">Feature categories are not permanent.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Use Kano to decide where to invest engineering effort — not to decide what to build at all. Combine with JTBD for the full picture.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Kano is based on user surveys — and users are bad at predicting their own future feelings. Validate with behaviour, not just answers.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit3.html#3-7" style="color:#0D9488">Unit III § 3.7 — Impact-Feasibility Matrix</a></p>
+    </article>
+
+    <!-- ============ B-II.3 — FISHBONE ============ -->
+    <article class="card topic" id="B-II-3">
+      <div class="topic-head">
+        <span class="big-emoji">🐟</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-II.3</span>
+          <h2>Fishbone (Ishikawa) Diagram <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Tool</span><span class="tag bloom">K3</span><span class="tag">7 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>The <strong>Fishbone Diagram</strong> (also called the Ishikawa Diagram or Cause-and-Effect Diagram) organises many possible causes of a problem into visual categories.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>A visual tool that lists every possible cause of a problem grouped under standard categories, arranged to look like a fish skeleton — problem at the head, causes on the bones.</p>
+      </div>
+
+      <h3>Classic 6 categories (6 M's)</h3>
+      <ul>
+        <li><strong>Man</strong> (people) — skills, training, motivation</li>
+        <li><strong>Machine</strong> — equipment, tools, tech</li>
+        <li><strong>Method</strong> — process, steps, procedure</li>
+        <li><strong>Material</strong> — inputs, quality, source</li>
+        <li><strong>Measurement</strong> — data, metrics, feedback</li>
+        <li><strong>Mother Nature</strong> — environment, timing, weather</li>
+      </ul>
+
+      <h3>Visual</h3>
+      <pre style="background:#fff;border:1px solid #EBE9E6;font-size:.78rem;padding:14px 18px;text-align:center">
+  Man        Machine       Method
+   ╲           │             ╱
+    ╲          │            ╱
+     ╲─────────┼───────────╱────────▶ PROBLEM
+     ╱         │            ╲
+    ╱          │             ╲
+   ╱           │              ╲
+Material   Measurement    Environment</pre>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Campus canteen queue</span>
+        <p>Problem: queue takes too long at lunch.</p>
+        <ul>
+          <li><strong>Man:</strong> Only 2 servers at peak.</li>
+          <li><strong>Machine:</strong> Old billing computer freezes.</li>
+          <li><strong>Method:</strong> Orders taken one at a time, verbally.</li>
+          <li><strong>Material:</strong> Cash-only — no UPI option.</li>
+          <li><strong>Measurement:</strong> No visible wait-time info.</li>
+          <li><strong>Environment:</strong> Peak hour 12:45–1:00 pm, single counter.</li>
+        </ul>
+      </div>
+
+      <h3>Fishbone vs 5 Whys</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>5 Whys</th><th>Fishbone</th></tr></thead>
+        <tbody>
+          <tr><td>Single chain of causes</td><td>Many parallel causes</td></tr>
+          <tr><td>Deep-dive one branch</td><td>Wide map of all branches</td></tr>
+          <tr><td>Fast — 10 min</td><td>Thorough — 30+ min</td></tr>
+          <tr><td>Best for one root cause</td><td>Best for complex problems with many causes</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🏭 Toyota Production System</span>
+        <div class="story">Ishikawa developed the diagram at Kawasaki Steel in the 1960s. It became a standard quality-control tool in Japanese manufacturing, and Toyota embedded it into its world-famous production system.</div>
+        <span class="takeaway">Good tools travel — Fishbone crossed from steel to software to services.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Use Fishbone <em>before</em> 5 Whys. The fishbone surfaces all candidates; the 5 Whys then drills into the most likely one.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Don't stop at listing causes. The value comes from picking 2–3 to investigate further with data.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit2.html#2-4" style="color:#0D9488">Unit II § 2.4 — 5 Whys &amp; Root-Cause Analysis</a></p>
+    </article>
+
+    <!-- ============ B-II.4 — PARETO ANALYSIS ============ -->
+    <article class="card topic" id="B-II-4">
+      <div class="topic-head">
+        <span class="big-emoji">📊</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-II.4</span>
+          <h2>Pareto Analysis (80/20 Rule) <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Tool</span><span class="tag bloom">K3</span><span class="tag">5 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>In most systems, a small number of causes produce most of the effect. <strong>Pareto Analysis</strong> finds that small number so you can focus effort where it matters.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>The observation that roughly 80% of effects come from 20% of causes. The Pareto chart ranks causes by impact so the top few stand out.</p>
+      </div>
+
+      <h3>Where the 80/20 rule shows up</h3>
+      <ul>
+        <li>20% of customers generate 80% of revenue.</li>
+        <li>20% of bugs cause 80% of crashes.</li>
+        <li>20% of features are used 80% of the time.</li>
+        <li>20% of complaints come from 80% of a specific problem type.</li>
+      </ul>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Campus complaints</span>
+        <p>A college administration logs 200 complaints in a semester. Sorting them reveals:</p>
+        <ul>
+          <li>Canteen queues — 62 complaints</li>
+          <li>Wi-Fi reliability — 48 complaints</li>
+          <li>Library timings — 35 complaints</li>
+          <li>Classroom AC — 20 complaints</li>
+          <li>Everything else — 35 complaints</li>
+        </ul>
+        <p>The top 3 categories = 73% of all complaints. Fix those three, and the college covers most of the frustration.</p>
+      </div>
+
+      <h3>How to build a Pareto chart</h3>
+      <ol>
+        <li>List all problem categories.</li>
+        <li>Count the frequency of each.</li>
+        <li>Sort descending.</li>
+        <li>Compute cumulative percentage.</li>
+        <li>Mark where the cumulative curve hits ~80%.</li>
+      </ol>
+
+      <div class="case-snap">
+        <span class="company">📞 Microsoft · Bugs</span>
+        <div class="story">A famous Microsoft internal study found that fixing the top 20% of reported bugs eliminated 80% of user crashes. Teams stopped trying to fix every bug and started fixing the right ones.</div>
+        <span class="takeaway">Prioritisation is a design skill, not just a management one.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Pareto is not a law — sometimes it's 90/10, sometimes 70/30. The point is that the distribution is almost never flat.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Don't blindly ignore the long tail. In safety-critical systems (aviation, medicine), rare events can matter more than frequent ones.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit2.html#2-5" style="color:#0D9488">Unit II § 2.5 — Problem Prioritization</a></p>
+    </article>
+
+    <!-- ============ B-II.5 — SYSTEMS THINKING ============ -->
+    <article class="card topic" id="B-II-5">
+      <div class="topic-head">
+        <span class="big-emoji">🕸️</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-II.5</span>
+          <h2>Systems Thinking <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Mindset</span><span class="tag bloom">K4</span><span class="tag">9 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p><strong>Systems Thinking</strong> sees problems as part of interconnected systems — not isolated events. It asks: what else is connected to this, and what happens when I change one part?</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>An approach that views a problem as a system of parts — actors, flows, feedback loops — rather than a single cause-effect chain. It focuses on <em>relationships</em>, not just parts.</p>
+      </div>
+
+      <h3>Key ideas</h3>
+      <ul>
+        <li><strong>Feedback loops</strong> — a change in A affects B, which affects A back.</li>
+        <li><strong>Delays</strong> — effects appear much later than causes.</li>
+        <li><strong>Emergence</strong> — the system behaves in ways no single part predicts.</li>
+        <li><strong>Leverage points</strong> — small interventions that shift the whole system.</li>
+      </ul>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Traffic jam</span>
+        <p>Adding more lanes often <em>increases</em> traffic. Why? Because wider roads encourage more driving, which fills the new capacity — a feedback loop. The real fix is usually in public transport, work-from-home policies, or staggered timings.</p>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🚦 Waze · Induced demand</span>
+        <div class="story">Waze's traffic routing creates a system effect: as users are diverted off highways, side streets fill with traffic, causing new jams on roads that weren't previously congested. The system adapts. Simple cause-effect reasoning missed this.</div>
+        <span class="takeaway">In a system, your fix becomes someone else's problem.</span>
+      </div>
+
+      <h3>Systems Thinking vs Linear Thinking</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Linear</th><th>Systems</th></tr></thead>
+        <tbody>
+          <tr><td>A causes B</td><td>A ↔ B (mutual influence)</td></tr>
+          <tr><td>Fix the event</td><td>Fix the structure that produces the event</td></tr>
+          <tr><td>Fast, simple</td><td>Slow, thorough</td></tr>
+          <tr><td>Works for isolated problems</td><td>Works for wicked problems</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Ask "And then what?" three times. Every solution has second-order effects. Systems Thinking is about seeing those before you ship.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Don't use systems language as an excuse to avoid decisions. At some point, you still have to act.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit2.html#2-7" style="color:#0D9488">Unit II § 2.7 — Sustainability Considerations</a></p>
+    </article>
+
+    <!-- ============ B-II.6 — LADDERING ============ -->
+    <article class="card topic" id="B-II-6">
+      <div class="topic-head">
+        <span class="big-emoji">🎯</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-II.6</span>
+          <h2>Laddering (Why → How) <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K3</span><span class="tag">6 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p><strong>Laddering</strong> is a structured questioning technique to move from surface wants to deeper goals — or from abstract goals down to concrete choices. It's a close cousin of Abstraction Laddering (Unit I extra).</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>A research technique where you repeatedly ask "Why?" to uncover deeper motivations, or "How?" to uncover concrete preferences — moving up and down a ladder of meaning.</p>
+      </div>
+
+      <h3>Up-laddering (values)</h3>
+      <p>Move from product attributes → functional consequences → emotional values.</p>
+      <pre style="background:#fff;border:1px solid #EBE9E6;font-size:.82rem;padding:14px 18px">Attribute    ▸ Buys an iPhone
+Consequence  ▸ Takes good photos
+Goal         ▸ Wants to remember trips
+Value        ▸ Feels close to family
+             ▲ Why?  ▲ Why?  ▲ Why?</pre>
+
+      <h3>Down-laddering (choices)</h3>
+      <p>Move from abstract values down to specific product requirements.</p>
+      <pre style="background:#fff;border:1px solid #EBE9E6;font-size:.82rem;padding:14px 18px">Value        ▸ Wants to feel safe online
+Goal         ▸ Protect personal data
+Consequence  ▸ Use strong passwords
+Attribute    ▸ Wants a password manager
+             ▼ How?  ▼ How?  ▼ How?</pre>
+
+      <div class="callout example">
+        <span class="label">💡 Interview question chain</span>
+        <ul>
+          <li><em>Q: Why do you use this app?</em> → "Because it's easy."</li>
+          <li><em>Why does easy matter?</em> → "Because I use it when I'm rushing."</li>
+          <li><em>Why are you rushing?</em> → "Because I'm always late for class."</li>
+          <li><em>Why does lateness bother you?</em> → "Because I don't want to seem unreliable."</li>
+        </ul>
+        <p>The real value isn't "easy" — it's <strong>reputation</strong>. That changes the design brief entirely.</p>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🍫 Cadbury · Values laddering</span>
+        <div class="story">When Cadbury asked why people bought chocolate, answers ranged from "taste" to "gift". Laddering revealed the deepest value: <em>belonging</em> — sharing chocolate is an act of connection. That insight shaped the advertising for decades.</div>
+        <span class="takeaway">Ladder up to value, then design back down.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Stop laddering when the answer becomes "because that's just who I am" or "I don't know" — that's the edge of useful insight.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Rapid-fire "why" can feel like an interrogation. Ask gently, and share the reasoning with the user.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit1.html#1-12" style="color:#0D9488">Unit I § 1.12 — Latent Needs</a> · <a href="beyond-u1.html#B-I-4" style="color:#0D9488">Beyond Unit I § B-I.4 — Abstraction Laddering</a></p>
+    </article>
+
+    <!-- ============ B-II.7 — REFRAMING THE PROBLEM ============ -->
+    <article class="card topic" id="B-II-7">
+      <div class="topic-head">
+        <span class="big-emoji">🔍</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-II.7</span>
+          <h2>Reframing the Problem <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Mindset</span><span class="tag bloom">K4</span><span class="tag">7 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>Reframing the problem is the deepest skill in Design Thinking. The way you frame a problem determines the solutions you can imagine. Change the frame, and a whole new solution space opens.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>Deliberately restating a problem in a different way — changing the user, the goal, the scale, or the assumption — to unlock new approaches.</p>
+      </div>
+
+      <h3>Four ways to reframe</h3>
+      <ol>
+        <li><strong>Change the user.</strong> "How do we make students read more?" → "How do we make reading less effort than scrolling?"</li>
+        <li><strong>Change the goal.</strong> "How do we reduce queues?" → "How do we make waiting feel shorter?"</li>
+        <li><strong>Change the scale.</strong> "How do we fix India's traffic?" → "How do we make one Bengaluru junction flow better?"</li>
+        <li><strong>Change the assumption.</strong> "How do we sell more books?" → "How do we sell reading experiences?"</li>
+      </ol>
+
+      <div class="case-snap">
+        <span class="company">📖 Amazon Kindle · Reframed reading</span>
+        <div class="story">Books were a product (physical object). Amazon reframed the problem: "How do we let people carry every book they'll ever read?" Kindle wasn't a better book — it was a new framing of what reading could be.</div>
+        <span class="takeaway">The best innovations reframe, not improve.</span>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🚗 Ford · Reframed "faster horses"</span>
+        <div class="story">Henry Ford didn't build a faster horse. He reframed: "How do we move people faster than animals can?" The frame flip made the automobile obvious.</div>
+        <span class="takeaway">Customers describe solutions; designers must find the real problem behind them.</span>
+      </div>
+
+      <h3>How to reframe systematically</h3>
+      <ol>
+        <li><strong>Listen for the emotional complaint</strong> behind the functional one.</li>
+        <li><strong>Ask:</strong> "If this problem were solved, what would be different?"</li>
+        <li><strong>Ask:</strong> "What if the constraint disappeared?"</li>
+        <li><strong>Ask:</strong> "What is the opposite of this problem?"</li>
+        <li>Rewrite the problem statement from three different angles.</li>
+        <li>Pick the frame that opens the most interesting solutions.</li>
+      </ol>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Reframe <em>before</em> ideation, never after. If you reframe during ideation, the team loses momentum. Make it a defined step between Define and Ideate.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Reframing is powerful but risky. If the new frame doesn't serve the same user with the same underlying need, you've changed the problem, not reframed it.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit2.html#2-3" style="color:#0D9488">Unit II § 2.3 — POV Statements</a> · <a href="beyond-u1.html#B-I-6" style="color:#0D9488">Beyond Unit I § B-I.6 — Reframing</a></p>
+    </article>
+
+    <nav class="pager">
+      <a href="beyond-u1.html">← Unit I Extra Topics</a>
+      <a href="beyond-u3.html">Unit III Extra Topics →</a>
+    </nav>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search-index.js"></script>
+<script src="js/search.js"></script>
+<script src="js/slogan.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/extras.js"></script>
+
+</body>
+</html>

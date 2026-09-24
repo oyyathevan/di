@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactive Tool Playground | DTI Notes</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+<style>
+/* ==================== HERO ==================== */
+.pg-hero{background:linear-gradient(135deg,#0F766E 0%,#1E3A8A 100%);color:#fff;padding:32px 36px;border-radius:18px;margin:0 0 22px;box-shadow:0 10px 28px rgba(15,118,110,.22);position:relative;overflow:hidden}
+.pg-hero::before{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%);pointer-events:none}
+.pg-hero .pg-tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;opacity:.85;margin-bottom:10px}
+.pg-hero h1{font-family:'Source Serif 4',Georgia,serif;color:#fff;font-size:1.9rem;font-weight:700;letter-spacing:-.02em;margin:0 0 10px;line-height:1.15}
+.pg-hero p{opacity:.92;font-size:.95rem;line-height:1.6;max-width:640px;margin:0 0 14px}
+.pg-hero .pg-hint{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;font-size:.78rem;font-weight:600}
+
+/* ==================== TABS + PANEL ==================== */
+.pg-tabs{display:flex;gap:6px;margin:0 0 20px;padding:6px;background:#FBFAF8;border:1px solid #EBE9E6;border-radius:14px;overflow-x:auto;flex-wrap:wrap}
+.pg-tab{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border:none;background:transparent;border-radius:10px;font-family:inherit;font-size:.85rem;font-weight:600;color:#6B7280;cursor:pointer;white-space:nowrap}
+.pg-tab:hover{background:rgba(0,0,0,.03);color:#1A1A1A}
+.pg-tab.active{background:#fff;color:#1A1A1A;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.pg-tab .pg-tab-emoji{font-size:1.05rem}
+.pg-panel{display:none}
+.pg-panel.active{display:block}
+.pg-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 18px;background:#fff;border:1px solid #EBE9E6;border-bottom:none;border-radius:12px 12px 0 0}
+.pg-toolbar .pg-toolbar-title{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;font-weight:700;color:#1A1A1A;margin-right:auto}
+.pg-toolbar button{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:8px;border:1px solid #EBE9E6;background:#FBFAF8;color:#6B7280;font-family:inherit;font-size:.78rem;font-weight:600;cursor:pointer}
+.pg-toolbar button:hover{border-color:#EA580C;color:#EA580C;background:#fff}
+.pg-toolbar button.danger:hover{border-color:#EF4444;color:#EF4444}
+.pg-save-status{font-size:.72rem;color:#10B981;font-weight:600;min-width:60px}
+.pg-canvas{background:#fff;border:1px solid #EBE9E6;border-radius:0 0 12px 12px;padding:22px 24px 26px;min-height:400px}
+
+/* ==================== EMPATHY MAP ==================== */
+.pg-empathy-user{margin-bottom:20px}
+.pg-empathy-user label{display:block;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6B7280;margin-bottom:6px}
+.pg-empathy-user input{width:100%;padding:11px 14px;border:1.5px solid #EBE9E6;border-radius:10px;background:#FBFAF8;color:#1A1A1A;font-family:inherit;font-size:.92rem;outline:none;box-sizing:border-box}
+.pg-empathy-user input:focus{border-color:#EA580C;background:#fff}
+.pg-empathy-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pg-quadrant{background:#FBFAF8;border:1.5px dashed #E7E5E4;border-radius:12px;padding:14px 16px 16px;min-height:180px;display:flex;flex-direction:column}
+.pg-quadrant[data-q="says"]{border-color:rgba(37,99,235,.35)}
+.pg-quadrant[data-q="thinks"]{border-color:rgba(124,58,237,.35)}
+.pg-quadrant[data-q="does"]{border-color:rgba(217,119,6,.35)}
+.pg-quadrant[data-q="feels"]{border-color:rgba(225,29,72,.35)}
+.pg-quadrant-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#6B7280}
+.pg-notes{display:flex;flex-direction:column;gap:8px;flex:1}
+.pg-note{display:flex;align-items:flex-start;gap:6px;padding:10px 12px;background:#FEF3C7;border-radius:8px;box-shadow:1px 2px 4px rgba(0,0,0,.06);font-size:.88rem;line-height:1.5;color:#78350F}
+.pg-note:nth-child(even){background:#DBEAFE;color:#1E3A8A}
+.pg-note:nth-child(3n){background:#D1FAE5;color:#065F46}
+.pg-note-text{flex:1;outline:none;min-height:1.5em;cursor:text;word-break:break-word}
+.pg-note-text:empty::before{content:"Type here…";opacity:.5;font-style:italic}
+.pg-note-del{background:none;border:none;cursor:pointer;padding:0;color:inherit;opacity:.4;font-size:.85rem;line-height:1;flex-shrink:0}
+.pg-note-del:hover{opacity:1}
+.pg-add-note{margin-top:8px;padding:8px 14px;border:1.5px dashed #E7E5E4;border-radius:8px;background:transparent;color:#6B7280;font-family:inherit;font-size:.78rem;font-weight:600;cursor:pointer;align-self:flex-start}
+.pg-add-note:hover{border-color:#EA580C;color:#EA580C}
+
+/* ==================== PERSONA ==================== */
+.pg-persona-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pg-persona-form label{display:block;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6B7280;margin:12px 0 6px}
+.pg-persona-form label:first-child{margin-top:0}
+.pg-persona-form input,.pg-persona-form textarea{width:100%;padding:10px 14px;border:1.5px solid #EBE9E6;border-radius:9px;background:#FBFAF8;color:#1A1A1A;font-family:inherit;font-size:.88rem;outline:none;resize:vertical;box-sizing:border-box}
+.pg-persona-form textarea{min-height:60px;line-height:1.55}
+.pg-persona-form input:focus,.pg-persona-form textarea:focus{border-color:#EA580C;background:#fff}
+.pg-persona-preview{background:linear-gradient(135deg,#EEF2FF,#F5F3FF);border:1px solid #C7D2FE;border-radius:14px;padding:26px 28px;height:fit-content;position:sticky;top:24px}
+.pg-persona-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;font-size:1.9rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-family:'Source Serif 4',Georgia,serif}
+.pg-persona-name{font-family:'Source Serif 4',Georgia,serif;font-size:1.35rem;font-weight:700;color:#1F2937;margin:0 0 4px;text-align:center}
+.pg-persona-role{font-size:.85rem;color:#64748B;font-style:italic;text-align:center;margin-bottom:16px}
+.pg-persona-quote{margin:0 0 20px;padding:12px 16px;background:#fff;border-left:3px solid #7C3AED;border-radius:6px;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:.95rem;color:#334155;line-height:1.55}
+.pg-persona-row{padding:10px 0;border-bottom:1px solid rgba(124,58,237,.15)}
+.pg-persona-row:last-child{border-bottom:none}
+.pg-persona-row b{display:block;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#7C3AED;margin-bottom:4px}
+.pg-persona-row span{font-size:.88rem;line-height:1.55;color:#1F2937}
+.pg-persona-row span:empty::before{content:"—";color:#94A3B8}
+
+/* ==================== JOURNEY ==================== */
+.pg-journey-stages{display:flex;gap:12px;overflow-x:auto;padding:8px 4px 20px}
+.pg-journey-stage{flex-shrink:0;width:220px;background:#FBFAF8;border:1px solid #EBE9E6;border-radius:12px;padding:14px 16px;position:relative}
+.pg-journey-stage::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:#E7E5E4;font-size:1.2rem;font-weight:700}
+.pg-journey-stage:last-child::after{display:none}
+.pg-journey-stage-num{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;color:#EA580C;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.pg-journey-stage-del{background:none;border:none;color:#6B7280;cursor:pointer;font-size:.8rem;padding:0;opacity:.5}
+.pg-journey-stage-del:hover{opacity:1;color:#EF4444}
+.pg-journey-stage input,.pg-journey-stage textarea{width:100%;padding:8px 10px;border:1px solid #EBE9E6;border-radius:7px;background:#fff;color:#1A1A1A;font-family:inherit;font-size:.84rem;margin-bottom:8px;outline:none;resize:vertical;box-sizing:border-box}
+.pg-journey-stage textarea{min-height:52px}
+.pg-journey-stage input:focus,.pg-journey-stage textarea:focus{border-color:#EA580C}
+.pg-journey-feeling{display:flex;gap:6px;justify-content:center;padding-top:6px}
+.pg-journey-feeling button{font-size:1.3rem;padding:4px 8px;border:1.5px solid transparent;border-radius:8px;background:transparent;cursor:pointer;line-height:1}
+.pg-journey-feeling button:hover{background:rgba(0,0,0,.04)}
+.pg-journey-feeling button.active{background:#fff;border-color:#EA580C}
+.pg-journey-add{margin:8px 4px 0;padding:12px 22px;border:1.5px dashed #E7E5E4;border-radius:10px;background:transparent;color:#6B7280;font-family:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
+.pg-journey-add:hover{border-color:#EA580C;color:#EA580C}
+
+/* ==================== AFFINITY ==================== */
+.pg-affinity{display:flex;flex-direction:column;gap:18px}
+.pg-affinity-section-title{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6B7280;margin-bottom:10px}
+.pg-affinity-themes{display:flex;flex-direction:column;gap:14px}
+.pg-affinity-theme{background:#FBFAF8;border:1.5px dashed #E7E5E4;border-radius:12px;padding:14px 16px}
+.pg-affinity-theme-head{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.pg-affinity-theme-head input{flex:1;padding:9px 12px;border:1px solid #EBE9E6;border-radius:8px;background:#fff;color:#1A1A1A;font-family:inherit;font-size:.9rem;font-weight:700;outline:none;box-sizing:border-box}
+.pg-affinity-theme-head input:focus{border-color:#EA580C}
+.pg-affinity-theme-del{width:30px;height:30px;border-radius:8px;border:1px solid #EBE9E6;background:#fff;color:#6B7280;cursor:pointer;font-size:.85rem}
+.pg-affinity-theme-del:hover{color:#EF4444;border-color:#EF4444}
+.pg-affinity-notes{display:flex;flex-wrap:wrap;gap:8px;min-height:32px}
+.pg-affinity-notes .pg-note{max-width:280px}
+.pg-affinity-ungrouped{background:#FFFBEB;border:1.5px dashed #FCD34D;border-radius:12px;padding:14px 16px}
+
+/* ==================== STAKEHOLDER ==================== */
+.pg-sh-info{font-size:.82rem;color:#6B7280;margin:0 0 16px;line-height:1.6}
+.pg-sh-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:40px 0 30px 30px;margin-top:8px}
+.pg-sh-axis-y{position:absolute;left:0;top:40px;bottom:30px;width:22px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#6B7280;writing-mode:vertical-rl;transform:rotate(180deg)}
+.pg-sh-axis-x{position:absolute;left:30px;right:0;bottom:8px;height:22px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#6B7280}
+.pg-sh-quad{background:#FBFAF8;border:1.5px dashed #E7E5E4;border-radius:12px;padding:14px 16px;min-height:180px;display:flex;flex-direction:column}
+.pg-sh-quad-head{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#6B7280}
+.pg-sh-items{display:flex;flex-direction:column;gap:8px;flex:1}
+.pg-sh-item{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#fff;border:1px solid #EBE9E6;border-radius:8px;font-size:.86rem}
+.pg-sh-item-text{flex:1;outline:none;min-height:1.4em;cursor:text}
+.pg-sh-item-text:empty::before{content:"Type stakeholder…";opacity:.5;font-style:italic}
+.pg-sh-item-del{background:none;border:none;cursor:pointer;color:#6B7280;opacity:.4;font-size:.85rem;padding:0}
+.pg-sh-item-del:hover{opacity:1;color:#EF4444}
+
+/* ==================== 5 WHYS ==================== */
+.pg-5whys{max-width:720px;margin:0 auto}
+.pg-5whys-problem{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border:2px solid #F59E0B;border-radius:12px;padding:16px 20px;margin-bottom:20px}
+.pg-5whys-problem label{display:block;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#78350F;margin-bottom:8px}
+.pg-5whys-problem textarea{width:100%;padding:10px 14px;border:1.5px solid rgba(245,158,11,.4);border-radius:9px;background:#fff;color:#1F2937;font-family:inherit;font-size:.95rem;outline:none;resize:vertical;min-height:60px;line-height:1.55;box-sizing:border-box}
+.pg-5whys-problem textarea:focus{border-color:#D97706}
+.pg-5whys-chain{display:flex;flex-direction:column}
+.pg-5whys-step{position:relative;padding-left:44px;padding-bottom:12px}
+.pg-5whys-step::before{content:"";position:absolute;left:15px;top:34px;bottom:0;width:2px;background:#E7E5E4}
+.pg-5whys-step:last-child::before{display:none}
+.pg-5whys-step:last-child{padding-bottom:0}
+.pg-5whys-num{position:absolute;left:0;top:6px;width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid #EA580C;color:#EA580C;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.pg-5whys-step.root .pg-5whys-num{background:#10B981;border-color:#10B981;color:#fff}
+.pg-5whys-box{background:#fff;border:1px solid #EBE9E6;border-radius:10px;padding:12px 14px}
+.pg-5whys-step.root .pg-5whys-box{border-color:#10B981;border-left:4px solid #10B981;background:linear-gradient(135deg,#F0FDF4,#DCFCE7)}
+.pg-5whys-label{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6B7280;margin-bottom:6px}
+.pg-5whys-step.root .pg-5whys-label{color:#065F46}
+.pg-5whys-box textarea{width:100%;padding:9px 12px;border:1px solid #EBE9E6;border-radius:7px;background:#FBFAF8;color:#1A1A1A;font-family:inherit;font-size:.9rem;outline:none;resize:vertical;box-sizing:border-box;min-height:44px}
+.pg-5whys-box textarea:focus{border-color:#EA580C;background:#fff}
+.pg-5whys-counter{margin-top:20px;padding:16px 20px;background:linear-gradient(135deg,#EEF2FF,#EDE9FE);border:1.5px dashed #A5B4FC;border-radius:12px}
+.pg-5whys-counter label{display:block;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#4338CA;margin-bottom:8px}
+.pg-5whys-counter textarea{width:100%;padding:10px 14px;border:1.5px solid #C7D2FE;border-radius:9px;background:#fff;color:#1F2937;font-family:inherit;font-size:.9rem;outline:none;resize:vertical;min-height:60px;box-sizing:border-box}
+.pg-5whys-counter textarea:focus{border-color:#6366F1}
+
+/* ==================== SCAMPER ==================== */
+.pg-scamper-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.pg-scamper-card{background:#FBFAF8;border:1.5px dashed #E7E5E4;border-radius:12px;padding:16px;display:flex;flex-direction:column}
+.pg-scamper-letter{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#EA580C,#D97706);color:#fff;font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.pg-scamper-name{font-family:'Source Serif 4',Georgia,serif;font-size:1rem;font-weight:700;color:#1F2937;margin:0 0 4px}
+.pg-scamper-prompt{font-size:.78rem;color:#6B7280;font-style:italic;margin:0 0 10px;line-height:1.5;flex:1}
+.pg-scamper-card textarea{width:100%;padding:9px 12px;border:1px solid #EBE9E6;border-radius:8px;background:#fff;color:#1A1A1A;font-family:inherit;font-size:.86rem;outline:none;resize:vertical;min-height:70px;box-sizing:border-box;line-height:1.5}
+.pg-scamper-card textarea:focus{border-color:#EA580C}
+
+/* ==================== DECISION MATRIX ==================== */
+.pg-decision-wrap{overflow-x:auto;padding-bottom:6px}
+.pg-decision-table{width:100%;border-collapse:collapse;font-size:.86rem;background:#fff;border:1px solid #EBE9E6;border-radius:10px;overflow:hidden;min-width:560px}
+.pg-decision-table th,.pg-decision-table td{padding:10px;border:1px solid #EBE9E6;text-align:center;vertical-align:middle;position:relative}
+.pg-decision-table th{background:#FBFAF8;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#6B7280}
+.pg-decision-table input[type="text"]{width:100%;padding:7px 26px 7px 8px;border:1px solid #EBE9E6;border-radius:6px;background:#FBFAF8;font-family:inherit;font-size:.85rem;font-weight:600;outline:none;box-sizing:border-box;text-align:center;color:#1A1A1A}
+.pg-decision-table td input[type="text"]{padding:7px 8px;text-align:left}
+.pg-decision-table input[type="number"]{width:58px;padding:6px 4px;border:1px solid #EBE9E6;border-radius:6px;background:#FBFAF8;font-family:monospace;font-size:.85rem;font-weight:700;text-align:center;outline:none;color:#1A1A1A}
+.pg-decision-table input:focus{border-color:#EA580C;background:#fff;box-shadow:0 0 0 3px rgba(234,88,12,.08)}
+.pg-decision-total{background:#ECFDF5 !important;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:.95rem;color:#065F46}
+.pg-decision-winner{background:#FEF3C7 !important;border-color:#F59E0B !important;color:#78350F}
+.pg-decision-row-del{width:24px;height:24px;border-radius:6px;border:1px solid #EBE9E6;background:#fff;color:#94A3B8;cursor:pointer;font-size:.78rem;padding:0;display:inline-flex;align-items:center;justify-content:center;transition:.15s}
+.pg-decision-row-del:hover{background:#FEE2E2;border-color:#EF4444;color:#EF4444}
+.pg-decision-col-del{position:absolute;top:50%;right:5px;transform:translateY(-50%);width:22px;height:22px;border-radius:5px;border:none;background:transparent;color:#94A3B8;cursor:pointer;font-size:.75rem;padding:0;display:inline-flex;align-items:center;justify-content:center;transition:.15s}
+.pg-decision-col-del:hover{background:#FEE2E2;color:#EF4444}
+.pg-decision-actions{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.pg-decision-warn{background:#FEF3C7;border-left:4px solid #F59E0B;color:#78350F;padding:10px 14px;border-radius:8px;font-size:.82rem;margin-bottom:14px;font-weight:600}
+
+/* ==================== IMPACT ==================== */
+.pg-impact-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:40px 0 30px 30px;margin-top:8px}
+.pg-impact-axis-y{position:absolute;left:0;top:40px;bottom:30px;width:22px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#6B7280;writing-mode:vertical-rl;transform:rotate(180deg)}
+.pg-impact-axis-x{position:absolute;left:30px;right:0;bottom:8px;height:22px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#6B7280}
+.pg-impact-quad{background:#FBFAF8;border:1.5px dashed #E7E5E4;border-radius:12px;padding:14px 16px;min-height:180px;display:flex;flex-direction:column}
+.pg-impact-quad[data-quad-key="bigBets"]{border-color:rgba(37,99,235,.35);background:linear-gradient(135deg,#EFF6FF,#FBFBFE)}
+.pg-impact-quad[data-quad-key="quickWins"]{border-color:rgba(16,185,129,.4);background:linear-gradient(135deg,#F0FDF4,#FBFEFC)}
+.pg-impact-quad[data-quad-key="avoid"]{border-color:rgba(239,68,68,.35);background:linear-gradient(135deg,#FEF2F2,#FFFBFB)}
+.pg-impact-quad[data-quad-key="fillIns"]{border-color:rgba(245,158,11,.35);background:linear-gradient(135deg,#FFFBEB,#FFFDF5)}
+.pg-impact-quad-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.pg-impact-quad-head .q-emoji{font-size:1.3rem;line-height:1}
+.pg-impact-label{font-family:'Source Serif 4',Georgia,serif;font-size:.95rem;font-weight:700;color:#1F2937;line-height:1.1}
+.pg-impact-sub{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#6B7280;font-weight:600;margin-top:2px}
+.pg-impact-items{display:flex;flex-direction:column;gap:8px;flex:1}
+.pg-impact-item{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#fff;border:1px solid #EBE9E6;border-radius:8px;font-size:.86rem}
+.pg-impact-item-text{flex:1;outline:none;min-height:1.4em;cursor:text;word-break:break-word}
+.pg-impact-item-text:empty::before{content:"Type idea…";opacity:.5;font-style:italic}
+.pg-impact-item-del{background:none;border:none;cursor:pointer;color:#6B7280;opacity:.4;font-size:.85rem;padding:0}
+.pg-impact-item-del:hover{opacity:1;color:#EF4444}
+
+/* ==================== VPC & BMC ==================== */
+.pg-vpc-tabs{display:flex;gap:6px;margin-bottom:16px;padding:5px;background:#FBFAF8;border:1px solid #EBE9E6;border-radius:10px}
+.pg-vpc-tab{flex:1;padding:9px 14px;border:none;background:transparent;border-radius:7px;font-family:inherit;font-size:.82rem;font-weight:600;color:#6B7280;cursor:pointer}
+.pg-vpc-tab.active{background:#fff;color:#1A1A1A;font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.pg-vpc-layout{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start}
+.pg-vpc-side{background:#FBFAF8;border:1.5px solid #EBE9E6;border-radius:12px;padding:16px 18px}
+.pg-vpc-customer{border-top:3px solid #2563EB}
+.pg-vpc-value{border-top:3px solid #10B981}
+.pg-vpc-side h4{font-family:'Source Serif 4',Georgia,serif;font-size:.95rem;font-weight:700;color:#1F2937;margin:0 0 12px;padding-bottom:8px;border-bottom:1px dashed #EBE9E6}
+.pg-vpc-arrow{align-self:center;font-size:1.4rem;color:#94A3B8;padding:0 4px}
+.pg-vpc-block{margin-bottom:12px}
+.pg-vpc-block:last-child{margin-bottom:0}
+.pg-vpc-block label{display:block;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;letter-spacing:.05em;color:#475569;margin-bottom:5px}
+.pg-vpc-block textarea{width:100%;padding:8px 11px;border:1px solid #EBE9E6;border-radius:7px;background:#fff;color:#1A1A1A;font-family:inherit;font-size:.83rem;outline:none;resize:vertical;min-height:64px;line-height:1.5;box-sizing:border-box}
+.pg-vpc-block textarea:focus{border-color:#EA580C}
+.pg-vpc-hint{font-size:.78rem;color:#6B7280;text-align:center;font-style:italic;margin:16px 0 0}
+.pg-bmc{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:auto auto auto;grid-template-areas:"partners activities value rels segments" "partners resources value channels segments" "cost cost cost revenue revenue";gap:8px}
+.pg-bmc-block{background:#FBFAF8;border:1px solid #EBE9E6;border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;min-height:110px}
+.pg-bmc-block label{display:block;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:800;letter-spacing:.04em;color:#475569;margin-bottom:6px;text-transform:uppercase}
+.pg-bmc-block textarea{flex:1;width:100%;padding:7px 9px;border:1px solid #EBE9E6;border-radius:6px;background:#fff;color:#1A1A1A;font-family:inherit;font-size:.78rem;outline:none;resize:vertical;line-height:1.45;min-height:60px;box-sizing:border-box}
+.pg-bmc-block textarea:focus{border-color:#EA580C}
+
+/* ==================== DARK MODE ==================== */
+[data-theme="dark"] .pg-tabs,[data-theme="dark"] .pg-toolbar,[data-theme="dark"] .pg-canvas,[data-theme="dark"] .pg-vpc-tabs,[data-theme="dark"] .pg-vpc-side,[data-theme="dark"] .pg-bmc-block,[data-theme="dark"] .pg-affinity-theme,[data-theme="dark"] .pg-sh-quad,[data-theme="dark"] .pg-impact-quad,[data-theme="dark"] .pg-journey-stage,[data-theme="dark"] .pg-quadrant,[data-theme="dark"] .pg-scamper-card{background:#1A1614;border-color:#2E2823}
+[data-theme="dark"] .pg-tab.active,[data-theme="dark"] .pg-vpc-tab.active{background:#232019;color:#E8E6E3}
+[data-theme="dark"] .pg-decision-table{background:#232019;border-color:#2E2823}
+[data-theme="dark"] .pg-decision-table th{background:#1A1614;color:#94A3B8}
+[data-theme="dark"] .pg-decision-table th,[data-theme="dark"] .pg-decision-table td{border-color:#2E2823}
+[data-theme="dark"] .pg-decision-table input{background:#0F172A;color:#E8E6E3;border-color:#2E2823}
+[data-theme="dark"] .pg-decision-total{background:#064E3B !important;color:#A7F3D0}
+[data-theme="dark"] .pg-decision-winner{background:#78350F !important;color:#FDE68A}
+[data-theme="dark"] .pg-decision-row-del{background:#1A1614;border-color:#2E2823;color:#94A3B8}
+[data-theme="dark"] .pg-decision-row-del:hover{background:#450A0A;border-color:#EF4444;color:#F87171}
+
+/* ==================== MOBILE ==================== */
+@media(max-width:800px){
+  .pg-hero{padding:24px 20px;border-radius:14px}
+  .pg-hero h1{font-size:1.5rem}
+  .pg-empathy-grid,.pg-persona-layout,.pg-vpc-layout{grid-template-columns:1fr}
+  .pg-impact-grid,.pg-sh-grid{grid-template-columns:1fr;padding:30px 0 30px 26px}
+  .pg-bmc{grid-template-columns:1fr;grid-template-areas:"partners" "activities" "resources" "value" "rels" "channels" "segments" "cost" "revenue"}
+  .pg-persona-preview{position:static}
+  .pg-vpc-arrow{transform:rotate(90deg);text-align:center}
+  .pg-canvas{padding:18px 16px}
+  .pg-scamper-grid{grid-template-columns:1fr}
+}
+
+/* ==================== PRINT ==================== */
+@media print{
+  .pg-tabs,.pg-toolbar button,.pg-add-note,.pg-journey-add,.pg-journey-stage-del,.pg-note-del,.pg-save-status,.pg-decision-row-del,.pg-decision-col-del,.pg-impact-item-del,.pg-sh-item-del,.pg-affinity-theme-del,
+  .topbar,.sidebar,.footer,#toTop,.buddy-fab,.buddy-panel,.lang-switch,.slogan-pill,.exam-toggle,.author,.brand,#search,#searchCounter,.breadcrumb,.pager,.pg-hero{display:none !important}
+  .pg-canvas,.pg-toolbar{border:1px solid #000 !important;border-radius:0 !important;background:#fff !important}
+  .pg-toolbar{border-bottom:none !important;padding:4mm !important}
+}
+</style>
+</head>
+<body data-unit="b" data-page="playground">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<div class="layout">
+  <div id="site-sidebar"></div>
+
+  <main id="main">
+    <nav class="breadcrumb"><a href="index.html">Home</a> › <span>Playground</span></nav>
+
+    <section class="pg-hero">
+      <div class="pg-tag">🛠 Interactive Tools</div>
+      <h1>Design Tool Playground</h1>
+      <p>Use the classic Design Thinking tools digitally — fill them, save them, print them. Everything stays in your browser.</p>
+      <span class="pg-hint">💾 Auto-saves · 🖨 Printable</span>
+    </section>
+
+    <div class="pg-tabs" id="pgTabs"></div>
+    <div id="pgPanels"></div>
+
+    <nav class="pager">
+      <a href="toolbox.html">← Toolbox</a>
+      <a href="practical.html">Practical Activities →</a>
+    </nav>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search-index.js"></script>
+<script src="js/search.js"></script>
+<script src="js/slogan.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/extras.js"></script>
+
+<script>
+(function(){
+  'use strict';
+
+  /* =========================================================
+     CONFIG
+     ========================================================= */
+  var TOOLS = [
+    { id:'empathy-map', emoji:'🗺️', name:'Empathy Map' },
+    { id:'persona',     emoji:'👤', name:'Persona Builder' },
+    { id:'journey',     emoji:'🛤️', name:'Journey Mapper' },
+    { id:'affinity',    emoji:'📊', name:'Affinity Map' },
+    { id:'stakeholder', emoji:'🌳', name:'Stakeholder Grid' },
+    { id:'5whys',       emoji:'🔽', name:'5 Whys Chain' },
+    { id:'scamper',     emoji:'🎨', name:'SCAMPER Board' },
+    { id:'decision',    emoji:'📊', name:'Decision Matrix' },
+    { id:'impact',      emoji:'📈', name:'Impact-Feasibility' },
+    { id:'vpc-bmc',     emoji:'⚖️', name:'VPC & BMC' }
+  ];
+
+  var KEY = 'dti-pg4-';
+  var timers = {};
+
+  var DEF = {
+    'empathy-map': { user:'', says:[], thinks:[], does:[], feels:[] },
+    'persona':     { name:'', age:'', role:'', location:'', goal:'', frustration:'', quote:'', bio:'' },
+    'journey':     { stages: [] },
+    'affinity':    { themes:[{ id:'t1', name:'Theme 1' }], notes:[] },
+    'stakeholder': { keepSatisfied:[], manageClosely:[], monitor:[], keepInformed:[] },
+    '5whys':       { problem:'', answers:['','','','',''], countermeasure:'' },
+    'scamper':     { substitute:'', combine:'', adapt:'', modify:'', put:'', eliminate:'', reverse:'' },
+    'decision':    {
+      concepts:[{ id:'A', name:'Concept A' },{ id:'B', name:'Concept B' },{ id:'C', name:'Concept C' }],
+      criteria:[{ id:'c1', name:'Cost', weight:30 },{ id:'c2', name:'Usability', weight:40 },{ id:'c3', name:'Safety', weight:30 }],
+      scores:{ 'c1':{'A':3,'B':5,'C':4}, 'c2':{'A':5,'B':3,'C':4}, 'c3':{'A':4,'B':4,'C':5} }
+    },
+    'impact':      { quickWins:[], bigBets:[], fillIns:[], avoid:[] },
+    'vpc-bmc':     { jobs:'', pains:'', gains:'', products:'', relievers:'', creators:'',
+                     keyPartners:'', keyActivities:'', keyResources:'', valueProps:'',
+                     customerRels:'', channels:'', customerSegments:'', costStructure:'', revenueStreams:'' }
+  };
+
+  /* =========================================================
+     UTILITIES
+     ========================================================= */
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
+  }
+  function uid(){ return 'n' + Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+  function clone(o){ return JSON.parse(JSON.stringify(o)); }
+
+  function load(id){
+    try {
+      var raw = localStorage.getItem(KEY + id);
+      return raw ? JSON.parse(raw) : clone(DEF[id]);
+    } catch(e){ return clone(DEF[id]); }
+  }
+  function saveNow(id, data){
+    try {
+      localStorage.setItem(KEY + id, JSON.stringify(data));
+      var el = $('[data-save-status="' + id + '"]');
+      if (el){
+        el.textContent = '✓ Saved';
+        el.classList.remove('saving');
+        clearTimeout(el._t);
+        el._t = setTimeout(function(){ el.textContent = ''; }, 1500);
+      }
+    } catch(e){ console.warn(e); }
+  }
+  function saveDebounced(id, data){
+    var el = $('[data-save-status="' + id + '"]');
+    if (el){ el.textContent = '● Saving…'; el.classList.add('saving'); }
+    clearTimeout(timers[id]);
+    timers[id] = setTimeout(function(){ saveNow(id, data); }, 400);
+  }
+
+  /* =========================================================
+     EMPATHY MAP
+     ========================================================= */
+  function empathyRender(c){
+    var d = load('empathy-map');
+    var quads = [{k:'says',e:'💬',l:'Says'},{k:'thinks',e:'🧠',l:'Thinks'},{k:'does',e:'🏃',l:'Does'},{k:'feels',e:'❤️',l:'Feels'}];
+    var h = '<div class="pg-empathy-user"><label>Whose empathy map?</label>'
+          + '<input type="text" data-empathy-user value="' + esc(d.user) + '" placeholder="e.g., Arjun, 20, engineering student"></div>'
+          + '<div class="pg-empathy-grid">';
+    quads.forEach(function(q){
+      h += '<div class="pg-quadrant" data-q="' + q.k + '">'
+         + '<div class="pg-quadrant-head"><span>' + q.e + '</span><span>' + q.l + '</span></div>'
+         + '<div class="pg-notes" data-notes="' + q.k + '">';
+      d[q.k].forEach(function(n){ h += noteHTML(n, q.k); });
+      h += '</div><button type="button" class="pg-add-note" data-add-note="' + q.k + '">+ Add note</button></div>';
+    });
+    c.innerHTML = h + '</div>';
+  }
+  function noteHTML(n, q){
+    return '<div class="pg-note" data-note-id="' + esc(n.id) + '" data-q="' + esc(q) + '">'
+         + '<div class="pg-note-text" contenteditable="true" data-note-text="' + esc(n.id) + '">' + esc(n.text) + '</div>'
+         + '<button type="button" class="pg-note-del" data-del-note="' + esc(n.id) + '">✕</button>'
+         + '</div>';
+  }
+  function empathyBind(c){
+    c.addEventListener('input', function(e){
+      var d = load('empathy-map');
+      if (e.target.matches('[data-empathy-user]')){ d.user = e.target.value; saveDebounced('empathy-map', d); return; }
+      var nid = e.target.dataset.noteText;
+      if (nid){
+        var q = e.target.closest('.pg-note').dataset.q;
+        var n = d[q].find(function(x){ return x.id === nid; });
+        if (n){ n.text = e.target.innerText || ''; saveDebounced('empathy-map', d); }
+      }
+    });
+    c.addEventListener('click', function(e){
+      var add = e.target.closest('[data-add-note]');
+      if (add){
+        var d = load('empathy-map');
+        var q = add.dataset.addNote;
+        var n = { id:uid(), text:'' };
+        d[q].push(n);
+        var el = c.querySelector('[data-notes="' + q + '"]');
+        if (el){
+          el.insertAdjacentHTML('beforeend', noteHTML(n, q));
+          var t = el.querySelector('[data-note-id="' + n.id + '"] .pg-note-text');
+          if (t) t.focus();
+        }
+        saveDebounced('empathy-map', d);
+        return;
+      }
+      var del = e.target.closest('[data-del-note]');
+      if (del){
+        var d2 = load('empathy-map');
+        var nid = del.dataset.delNote;
+        var el2 = del.closest('.pg-note');
+        var q2 = el2.dataset.q;
+        d2[q2] = d2[q2].filter(function(x){ return x.id !== nid; });
+        el2.remove();
+        saveDebounced('empathy-map', d2);
+      }
+    });
+  }
+
+  /* =========================================================
+     PERSONA
+     ========================================================= */
+  function personaRender(c){
+    var d = load('persona');
+    var init = (d.name && d.name.charAt(0).toUpperCase()) || '?';
+    c.innerHTML = ''
+      + '<div class="pg-persona-layout">'
+      +   '<div class="pg-persona-form">'
+      +     '<label>Name</label><input type="text" data-persona="name" value="' + esc(d.name) + '" placeholder="e.g., Arjun">'
+      +     '<label>Age</label><input type="text" data-persona="age" value="' + esc(d.age) + '" placeholder="e.g., 20">'
+      +     '<label>Role</label><input type="text" data-persona="role" value="' + esc(d.role) + '" placeholder="e.g., Second-year engineering student">'
+      +     '<label>Location</label><input type="text" data-persona="location" value="' + esc(d.location) + '" placeholder="e.g., Chennai">'
+      +     '<label>Goal</label><textarea data-persona="goal" placeholder="What are they trying to achieve?">' + esc(d.goal) + '</textarea>'
+      +     '<label>Top frustration</label><textarea data-persona="frustration" placeholder="Biggest pain point?">' + esc(d.frustration) + '</textarea>'
+      +     '<label>Signature quote</label><input type="text" data-persona="quote" value="' + esc(d.quote) + '" placeholder="e.g., I never have enough time.">'
+      +     '<label>Day in the life</label><textarea data-persona="bio" placeholder="e.g., Rushes between classes, eats lunch at desk.">' + esc(d.bio) + '</textarea>'
+      +   '</div>'
+      +   '<div class="pg-persona-preview">'
+      +     '<div class="pg-persona-avatar" data-pv="avatar">' + esc(init) + '</div>'
+      +     '<h3 class="pg-persona-name" data-pv="name">' + (esc(d.name) || 'Unnamed persona') + '</h3>'
+      +     '<div class="pg-persona-role" data-pv="role">' + (esc(d.role) || '—') + '</div>'
+      +     '<div class="pg-persona-quote" data-pv="quote">' + (esc(d.quote) || '"…"') + '</div>'
+      +     '<div class="pg-persona-row"><b>Goal</b><span data-pv="goal">' + esc(d.goal) + '</span></div>'
+      +     '<div class="pg-persona-row"><b>Top frustration</b><span data-pv="frustration">' + esc(d.frustration) + '</span></div>'
+      +     '<div class="pg-persona-row"><b>Day in the life</b><span data-pv="bio">' + esc(d.bio) + '</span></div>'
+      +   '</div>'
+      + '</div>';
+  }
+  function personaBind(c){
+    c.addEventListener('input', function(e){
+      var k = e.target.dataset.persona;
+      if (!k) return;
+      var d = load('persona');
+      d[k] = e.target.value;
+      saveDebounced('persona', d);
+      var pv = c.querySelector('[data-pv="' + k + '"]');
+      if (pv){
+        var fb = '';
+        if (k === 'name') fb = 'Unnamed persona';
+        else if (k === 'quote') fb = '"…"';
+        else if (k === 'role') fb = '—';
+        pv.textContent = e.target.value || fb;
+        if (k === 'name'){
+          var av = c.querySelector('[data-pv="avatar"]');
+          if (av) av.textContent = (e.target.value && e.target.value.charAt(0).toUpperCase()) || '?';
+        }
+      }
+    });
+  }
+
+  /* =========================================================
+     JOURNEY
+     ========================================================= */
+  var FEELINGS = [
+    { id:'happy', emoji:'😊' },
+    { id:'neutral', emoji:'😐' },
+    { id:'sad', emoji:'😖' },
+    { id:'angry', emoji:'😡' },
+    { id:'love', emoji:'🤩' }
+  ];
+  function journeyRender(c){
+    var d = load('journey');
+    var h = '<div class="pg-journey-stages">';
+    d.stages.forEach(function(s, i){ h += journeyStageHTML(s, i); });
+    h += '</div><button type="button" class="pg-journey-add" data-add-stage>+ Add stage</button>';
+    c.innerHTML = h;
+  }
+  function journeyStageHTML(s, i){
+    var fh = FEELINGS.map(function(f){
+      return '<button type="button" data-feel="' + f.id + '" class="' + (s.feeling === f.id ? 'active' : '') + '">' + f.emoji + '</button>';
+    }).join('');
+    return '<div class="pg-journey-stage" data-stage-id="' + esc(s.id) + '">'
+         + '<div class="pg-journey-stage-num"><span>Stage ' + (i+1) + '</span>'
+         + '<button type="button" class="pg-journey-stage-del" data-del-stage="' + esc(s.id) + '">✕</button></div>'
+         + '<input type="text" data-stage="name" placeholder="Stage name" value="' + esc(s.name) + '">'
+         + '<textarea data-stage="action" placeholder="What does the user do?">' + esc(s.action) + '</textarea>'
+         + '<div class="pg-journey-feeling">' + fh + '</div>'
+         + '</div>';
+  }
+  function journeyBind(c){
+    c.addEventListener('input', function(e){
+      var k = e.target.dataset.stage;
+      if (!k) return;
+      var s = e.target.closest('.pg-journey-stage');
+      if (!s) return;
+      var d = load('journey');
+      var st = d.stages.find(function(x){ return x.id === s.dataset.stageId; });
+      if (st){ st[k] = e.target.value; saveDebounced('journey', d); }
+    });
+    c.addEventListener('click', function(e){
+      var f = e.target.closest('[data-feel]');
+      if (f){
+        var s = f.closest('.pg-journey-stage');
+        var d = load('journey');
+        var st = d.stages.find(function(x){ return x.id === s.dataset.stageId; });
+        if (st){
+          st.feeling = f.dataset.feel;
+          $$('[data-feel]', s).forEach(function(b){ b.classList.toggle('active', b === f); });
+          saveDebounced('journey', d);
+        }
+        return;
+      }
+      if (e.target.closest('[data-add-stage]')){
+        var d2 = load('journey');
+        d2.stages.push({ id:uid(), name:'', action:'', feeling:'' });
+        saveDebounced('journey', d2);
+        journeyRender(c);
+        var last = c.querySelector('.pg-journey-stage:last-child');
+        if (last){
+          var inp = last.querySelector('[data-stage="name"]');
+          if (inp) inp.focus();
+        }
+        return;
+      }
+      var del = e.target.closest('[data-del-stage]');
+      if (del){
+        var s2 = del.closest('.pg-journey-stage');
+        var d3 = load('journey');
+        d3.stages = d3.stages.filter(function(x){ return x.id !== s2.dataset.stageId; });
+        saveDebounced('journey', d3);
+        journeyRender(c);
+      }
+    });
+  }
+
+  /* =========================================================
+     AFFINITY
+     ========================================================= */
+  function affinityRender(c){
+    var d = load('affinity');
+    var themesHTML = d.themes.map(function(t){
+      var notes = d.notes.filter(function(n){ return n.themeId === t.id; })
+                         .map(function(n){ return affinityNoteHTML(n, d.themes); }).join('');
+      return '<div class="pg-affinity-theme" data-theme-id="' + esc(t.id) + '">'
+           + '<div class="pg-affinity-theme-head">'
+           + '<input type="text" data-theme-name value="' + esc(t.name) + '" placeholder="Theme name">'
+           + '<button type="button" class="pg-affinity-theme-del" data-del-theme="' + esc(t.id) + '">✕</button>'
+           + '</div>'
+           + '<div class="pg-affinity-notes" data-notes="' + esc(t.id) + '">' + notes + '</div>'
+           + '<button type="button" class="pg-add-note" data-add-note-theme="' + esc(t.id) + '">+ Add note here</button>'
+           + '</div>';
+    }).join('');
+    var un = d.notes.filter(function(n){ return !n.themeId || !d.themes.some(function(t){ return t.id === n.themeId; }); });
+    var unHTML = un.map(function(n){ return affinityNoteHTML(n, d.themes); }).join('');
+    c.innerHTML = '<div class="pg-affinity">'
+                + '<button type="button" class="pg-journey-add" data-add-theme>+ Add theme</button>'
+                + '<div class="pg-affinity-ungrouped"><div class="pg-affinity-section-title">Ungrouped notes · assign to a theme</div>'
+                + '<div class="pg-affinity-notes" data-notes="ungrouped">' + unHTML + '</div>'
+                + '<button type="button" class="pg-add-note" data-add-note-ungrouped>+ Add ungrouped note</button></div>'
+                + '<div><div class="pg-affinity-section-title">Themes</div>'
+                + '<div class="pg-affinity-themes">' + themesHTML + '</div></div></div>';
+  }
+  function affinityNoteHTML(n, themes){
+    var picker = '';
+    if (!n.themeId){
+      picker = '<select data-note-theme="' + esc(n.id) + '" style="font-size:.7rem;padding:2px 6px;border-radius:6px;border:1px solid #CBD5E1;background:#fff;margin-top:4px">'
+             + '<option value="">— assign to —</option>'
+             + themes.map(function(t){ return '<option value="' + esc(t.id) + '">' + esc(t.name) + '</option>'; }).join('')
+             + '</select>';
+    }
+    return '<div class="pg-note" data-note-id="' + esc(n.id) + '">'
+         + '<div style="flex:1;min-width:0">'
+         + '<div class="pg-note-text" contenteditable="true" data-note-text="' + esc(n.id) + '">' + esc(n.text) + '</div>'
+         + picker + '</div>'
+         + '<button type="button" class="pg-note-del" data-del-note="' + esc(n.id) + '">✕</button></div>';
+  }
+  function affinityBind(c){
+    c.addEventListener('input', function(e){
+      var d = load('affinity');
+      if (e.target.matches('[data-theme-name]')){
+        var el = e.target.closest('.pg-affinity-theme');
+        var t = d.themes.find(function(x){ return x.id === el.dataset.themeId; });
+        if (t){ t.name = e.target.value; saveDebounced('affinity', d); }
+        return;
+      }
+      var nid = e.target.dataset.noteText;
+      if (nid){
+        var n = d.notes.find(function(x){ return x.id === nid; });
+        if (n){ n.text = e.target.innerText || ''; saveDebounced('affinity', d); }
+      }
+    });
+    c.addEventListener('change', function(e){
+      var sel = e.target.closest('[data-note-theme]');
+      if (!sel) return;
+      var d = load('affinity');
+      var n = d.notes.find(function(x){ return x.id === sel.dataset.noteTheme; });
+      if (n){ n.themeId = sel.value || null; saveDebounced('affinity', d); affinityRender(c); }
+    });
+    c.addEventListener('click', function(e){
+      if (e.target.closest('[data-add-theme]')){
+        var d = load('affinity');
+        d.themes.push({ id:uid(), name:'Theme ' + (d.themes.length + 1) });
+        saveDebounced('affinity', d);
+        affinityRender(c);
+        return;
+      }
+      var dt = e.target.closest('[data-del-theme]');
+      if (dt){
+        var d2 = load('affinity');
+        var tid = dt.dataset.delTheme;
+        d2.themes = d2.themes.filter(function(x){ return x.id !== tid; });
+        d2.notes.forEach(function(n){ if (n.themeId === tid) n.themeId = null; });
+        saveDebounced('affinity', d2);
+        affinityRender(c);
+        return;
+      }
+      var at = e.target.closest('[data-add-note-theme]');
+      if (at){
+        var d3 = load('affinity');
+        var tid2 = at.dataset.addNoteTheme;
+        var n = { id:uid(), text:'', themeId:tid2 };
+        d3.notes.push(n);
+        saveDebounced('affinity', d3);
+        var el = c.querySelector('[data-notes="' + tid2 + '"]');
+        if (el){
+          el.insertAdjacentHTML('beforeend', affinityNoteHTML(n, d3.themes));
+          var t = el.querySelector('[data-note-id="' + n.id + '"] .pg-note-text');
+          if (t) t.focus();
+        }
+        return;
+      }
+      if (e.target.closest('[data-add-note-ungrouped]')){
+        var d4 = load('affinity');
+        d4.notes.push({ id:uid(), text:'', themeId:null });
+        saveDebounced('affinity', d4);
+        affinityRender(c);
+        return;
+      }
+      var dn = e.target.closest('[data-del-note]');
+      if (dn){
+        var d5 = load('affinity');
+        var nid = dn.dataset.delNote;
+        d5.notes = d5.notes.filter(function(x){ return x.id !== nid; });
+        saveDebounced('affinity', d5);
+        var ne = dn.closest('.pg-note');
+        if (ne) ne.remove();
+      }
+    });
+  }
+
+  /* =========================================================
+     STAKEHOLDER GRID
+     ========================================================= */
+  function shRender(c){
+    var d = load('stakeholder');
+    var quads = [
+      {k:'keepSatisfied',e:'👥',l:'Keep Satisfied'},
+      {k:'manageClosely',e:'⭐',l:'Manage Closely'},
+      {k:'monitor',e:'👀',l:'Monitor'},
+      {k:'keepInformed',e:'📢',l:'Keep Informed'}
+    ];
+    var qh = quads.map(function(q){
+      var items = (d[q.k] || []).map(function(s){ return shItemHTML(s); }).join('');
+      return '<div class="pg-sh-quad" data-quad-key="' + q.k + '">'
+           + '<div class="pg-sh-quad-head"><span>' + q.e + '</span><span>' + q.l + '</span></div>'
+           + '<div class="pg-sh-items" data-items="' + q.k + '">' + items + '</div>'
+           + '<button type="button" class="pg-add-note" data-add-sh="' + q.k + '">+ Add</button></div>';
+    }).join('');
+    c.innerHTML = '<p class="pg-sh-info">Place each stakeholder — <strong>influence</strong> (top/bottom) × <strong>interest</strong> (left/right).</p>'
+                + '<div class="pg-sh-grid"><div class="pg-sh-axis-y">↑ Influence</div><div class="pg-sh-axis-x">Interest →</div>'
+                + qh + '</div>';
+  }
+  function shItemHTML(s){
+    return '<div class="pg-sh-item" data-sh-id="' + esc(s.id) + '">'
+         + '<div class="pg-sh-item-text" contenteditable="true" data-sh-text="' + esc(s.id) + '">' + esc(s.text) + '</div>'
+         + '<button type="button" class="pg-sh-item-del" data-del-sh="' + esc(s.id) + '">✕</button></div>';
+  }
+  function shBind(c){
+    c.addEventListener('input', function(e){
+      var nid = e.target.dataset.shText;
+      if (!nid) return;
+      var d = load('stakeholder');
+      ['keepSatisfied','manageClosely','monitor','keepInformed'].forEach(function(k){
+        var s = d[k].find(function(x){ return x.id === nid; });
+        if (s){ s.text = e.target.innerText || ''; saveDebounced('stakeholder', d); }
+      });
+    });
+    c.addEventListener('click', function(e){
+      var add = e.target.closest('[data-add-sh]');
+      if (add){
+        var d = load('stakeholder');
+        var k = add.dataset.addSh;
+        var item = { id:uid(), text:'' };
+        if (!d[k]) d[k] = [];
+        d[k].push(item);
+        saveDebounced('stakeholder', d);
+        var el = c.querySelector('[data-items="' + k + '"]');
+        if (el){
+          el.insertAdjacentHTML('beforeend', shItemHTML(item));
+          var t = el.querySelector('[data-sh-id="' + item.id + '"] .pg-sh-item-text');
+          if (t) t.focus();
+        }
+        return;
+      }
+      var del = e.target.closest('[data-del-sh]');
+      if (del){
+        var d2 = load('stakeholder');
+        var id = del.dataset.delSh;
+        ['keepSatisfied','manageClosely','monitor','keepInformed'].forEach(function(k){
+          d2[k] = d2[k].filter(function(x){ return x.id !== id; });
+        });
+        saveDebounced('stakeholder', d2);
+        var el2 = del.closest('.pg-sh-item');
+        if (el2) el2.remove();
+      }
+    });
+  }
+
+  /* =========================================================
+     5 WHYS
+     ========================================================= */
+  function whysRender(c){
+    var d = load('5whys');
+    var chain = d.answers.map(function(a, i){
+      var root = i === d.answers.length - 1;
+      return '<div class="pg-5whys-step' + (root ? ' root' : '') + '">'
+           + '<div class="pg-5whys-num">' + (root ? '🎯' : (i+1)) + '</div>'
+           + '<div class="pg-5whys-box"><div class="pg-5whys-label">' + (root ? 'Root cause' : ('Why #' + (i+1))) + '</div>'
+           + '<textarea data-why="' + i + '" placeholder="' + (root ? 'Deepest cause — fix this and the problem cannot recur.' : 'Why does the previous answer happen?') + '">' + esc(a) + '</textarea>'
+           + '</div></div>';
+    }).join('');
+    c.innerHTML = '<div class="pg-5whys">'
+                + '<div class="pg-5whys-problem"><label>🔴 The visible problem</label>'
+                + '<textarea data-5whys="problem" placeholder="e.g., Customer orders arrive late.">' + esc(d.problem) + '</textarea></div>'
+                + '<div class="pg-5whys-chain">' + chain + '</div>'
+                + '<div class="pg-5whys-counter"><label>💡 Proposed countermeasure</label>'
+                + '<textarea data-5whys="countermeasure" placeholder="What would you change to fix the root cause?">' + esc(d.countermeasure) + '</textarea></div></div>';
+  }
+  function whysBind(c){
+    c.addEventListener('input', function(e){
+      var d = load('5whys');
+      var k = e.target.dataset['5whys'];
+      if (k){ d[k] = e.target.value; saveDebounced('5whys', d); return; }
+      if (e.target.dataset.why !== undefined){
+        d.answers[parseInt(e.target.dataset.why, 10)] = e.target.value;
+        saveDebounced('5whys', d);
+      }
+    });
+  }
+
+  /* =========================================================
+     SCAMPER
+     ========================================================= */
+  var SCAMPER = [
+    { k:'substitute', letter:'S', emoji:'🔁', name:'Substitute', prompt:'What part could you swap out — material, user, channel?' },
+    { k:'combine',    letter:'C', emoji:'➕', name:'Combine',    prompt:'What two things could be merged to add value?' },
+    { k:'adapt',      letter:'A', emoji:'🔄', name:'Adapt',      prompt:'What idea from another field could you borrow?' },
+    { k:'modify',     letter:'M', emoji:'✏️', name:'Modify',     prompt:'What could you change about shape, size, or quality?' },
+    { k:'put',        letter:'P', emoji:'🎯', name:'Put to another use', prompt:'What else could this be used for?' },
+    { k:'eliminate',  letter:'E', emoji:'✂️', name:'Eliminate',  prompt:'What could you remove to simplify or cut cost?' },
+    { k:'reverse',    letter:'R', emoji:'↩️', name:'Reverse',    prompt:'What if you flipped the order, roles, or assumptions?' }
+  ];
+  function scamperRender(c){
+    var d = load('scamper');
+    var cards = SCAMPER.map(function(L){
+      return '<div class="pg-scamper-card">'
+           + '<div class="pg-scamper-letter">' + L.letter + '</div>'
+           + '<h4 class="pg-scamper-name">' + L.emoji + ' ' + L.name + '</h4>'
+           + '<p class="pg-scamper-prompt">' + L.prompt + '</p>'
+           + '<textarea data-scamper="' + L.k + '" placeholder="Write ideas here…">' + esc(d[L.k]) + '</textarea></div>';
+    }).join('');
+    c.innerHTML = '<div class="pg-scamper-grid">' + cards + '</div>';
+  }
+  function scamperBind(c){
+    c.addEventListener('input', function(e){
+      var k = e.target.dataset.scamper;
+      if (!k) return;
+      var d = load('scamper');
+      d[k] = e.target.value;
+      saveDebounced('scamper', d);
+    });
+  }
+
+  /* =========================================================
+     DECISION MATRIX
+     ========================================================= */
+  function decisionRender(c){
+    var d = load('decision');
+
+    var totals = {};
+    d.concepts.forEach(function(x){ totals[x.id] = 0; });
+    d.criteria.forEach(function(cr){
+      d.concepts.forEach(function(x){
+        var s = (d.scores[cr.id] && d.scores[cr.id][x.id]) || 0;
+        totals[x.id] += s * ((cr.weight || 0) / 100);
+      });
+    });
+    var best = -Infinity, winner = null;
+    d.concepts.forEach(function(x){
+      if (totals[x.id] > best){ best = totals[x.id]; winner = x.id; }
+    });
+
+    /* Header row */
+    var head = '<th style="width:22%">Criteria</th><th style="width:12%">Weight %</th>';
+    d.concepts.forEach(function(x){
+      head += '<th style="min-width:110px">'
+            + '<input type="text" data-concept-name="' + esc(x.id) + '" value="' + esc(x.name) + '">'
+            + '<button type="button" class="pg-decision-col-del" data-del-concept="' + esc(x.id) + '" title="Remove concept">✕</button>'
+            + '</th>';
+    });
+    head += '<th style="width:50px"></th>';
+
+    /* Body rows */
+    var rows = d.criteria.map(function(cr){
+      var cells = '<td><input type="text" data-crit-name="' + esc(cr.id) + '" value="' + esc(cr.name) + '" style="text-align:left"></td>'
+                + '<td><input type="number" data-crit-weight="' + esc(cr.id) + '" value="' + cr.weight + '" min="0" max="100" step="5"></td>';
+      d.concepts.forEach(function(x){
+        var v = (d.scores[cr.id] && d.scores[cr.id][x.id]) || 3;
+        cells += '<td><input type="number" data-score="' + esc(cr.id) + ':' + esc(x.id) + '" value="' + v + '" min="1" max="5" step="1"></td>';
+      });
+      cells += '<td><button type="button" class="pg-decision-row-del" data-del-crit="' + esc(cr.id) + '" title="Remove criterion">✕</button></td>';
+      return '<tr>' + cells + '</tr>';
+    }).join('');
+
+    /* Totals row */
+    var totalRow = '<td colspan="2" class="pg-decision-total" style="text-align:right">Weighted total →</td>';
+    d.concepts.forEach(function(x){
+      var isW = x.id === winner;
+      totalRow += '<td class="pg-decision-total' + (isW ? ' pg-decision-winner' : '') + '">'
+                + totals[x.id].toFixed(2) + (isW ? ' ★' : '')
+                + '</td>';
+    });
+    totalRow += '<td></td>';
+
+    var sumW = d.criteria.reduce(function(s, x){ return s + (x.weight || 0); }, 0);
+    var warn = sumW !== 100
+      ? '<div class="pg-decision-warn">⚠️ Weights sum to ' + sumW + '%. Usually they should total 100%.</div>'
+      : '';
+
+    c.innerHTML = warn
+      + '<div class="pg-decision-wrap">'
+      + '<table class="pg-decision-table">'
+      + '<thead><tr>' + head + '</tr></thead>'
+      + '<tbody>' + rows + '<tr>' + totalRow + '</tr></tbody>'
+      + '</table>'
+      + '</div>'
+      + '<div class="pg-decision-actions">'
+      + '<button type="button" class="pg-add-note" data-add-crit>+ Add criterion</button>'
+      + '<button type="button" class="pg-add-note" data-add-concept>+ Add concept</button>'
+      + '</div>';
+  }
+
+  /* Read all live DOM input values into the data object */
+  function decisionSyncFromDOM(c, d){
+    c.querySelectorAll('[data-concept-name]').forEach(function(inp){
+      var x = d.concepts.find(function(y){ return y.id === inp.dataset.conceptName; });
+      if (x) x.name = inp.value;
+    });
+    c.querySelectorAll('[data-crit-name]').forEach(function(inp){
+      var cr = d.criteria.find(function(y){ return y.id === inp.dataset.critName; });
+      if (cr) cr.name = inp.value;
+    });
+    c.querySelectorAll('[data-crit-weight]').forEach(function(inp){
+      var cr = d.criteria.find(function(y){ return y.id === inp.dataset.critWeight; });
+      if (cr) cr.weight = Math.max(0, Math.min(100, parseInt(inp.value, 10) || 0));
+    });
+    c.querySelectorAll('[data-score]').forEach(function(inp){
+      var p = inp.dataset.score.split(':');
+      if (!d.scores[p[0]]) d.scores[p[0]] = {};
+      d.scores[p[0]][p[1]] = Math.max(1, Math.min(5, parseInt(inp.value, 10) || 1));
+    });
+  }
+
+  /* Recompute totals + weight warning WITHOUT re-rendering the table */
+  function decisionRepaintTotals(c, d){
+    var totals = {};
+    d.concepts.forEach(function(x){ totals[x.id] = 0; });
+    d.criteria.forEach(function(cr){
+      d.concepts.forEach(function(x){
+        var s = (d.scores[cr.id] && d.scores[cr.id][x.id]) || 0;
+        totals[x.id] += s * ((cr.weight || 0) / 100);
+      });
+    });
+    var best = -Infinity, winner = null;
+    d.concepts.forEach(function(x){
+      if (totals[x.id] > best){ best = totals[x.id]; winner = x.id; }
+    });
+
+    var table = c.querySelector('.pg-decision-table');
+    if (table){
+      var tbody = table.querySelector('tbody');
+      var trs = tbody ? tbody.querySelectorAll('tr') : [];
+      var lastRow = trs.length ? trs[trs.length - 1] : null;
+      if (lastRow){
+        var cells = lastRow.querySelectorAll('td');
+        /* The total row layout is: td(colspan=2) + one td per concept + td(empty) */
+        d.concepts.forEach(function(x, i){
+          var cell = cells[i + 1];
+          if (!cell) return;
+          var isW = x.id === winner;
+          cell.textContent = totals[x.id].toFixed(2) + (isW ? ' ★' : '');
+          cell.classList.toggle('pg-decision-winner', isW);
+        });
+      }
+    }
+
+    /* Warning */
+    var sumW = d.criteria.reduce(function(s, x){ return s + (x.weight || 0); }, 0);
+    var warn = c.querySelector('.pg-decision-warn');
+    if (sumW === 100){
+      if (warn) warn.remove();
+    } else {
+      var msg = '⚠️ Weights sum to ' + sumW + '%. Usually they should total 100%.';
+      if (warn) warn.textContent = msg;
+      else {
+        var wrap = c.querySelector('.pg-decision-wrap');
+        if (wrap) wrap.insertAdjacentHTML('beforebegin', '<div class="pg-decision-warn">' + msg + '</div>');
+      }
+    }
+  }
+
+  function decisionBind(c){
+    /* Inputs — sync, save, repaint totals */
+    c.addEventListener('input', function(e){
+      var d = load('decision');
+      if (e.target.dataset.conceptName){
+        var x = d.concepts.find(function(y){ return y.id === e.target.dataset.conceptName; });
+        if (x) x.name = e.target.value;
+      } else if (e.target.dataset.critName){
+        var cr = d.criteria.find(function(y){ return y.id === e.target.dataset.critName; });
+        if (cr) cr.name = e.target.value;
+      } else if (e.target.dataset.critWeight){
+        var cr2 = d.criteria.find(function(y){ return y.id === e.target.dataset.critWeight; });
+        if (cr2) cr2.weight = Math.max(0, Math.min(100, parseInt(e.target.value, 10) || 0));
+      } else if (e.target.dataset.score){
+        var p = e.target.dataset.score.split(':');
+        if (!d.scores[p[0]]) d.scores[p[0]] = {};
+        d.scores[p[0]][p[1]] = Math.max(1, Math.min(5, parseInt(e.target.value, 10) || 1));
+      } else {
+        return;
+      }
+      saveDebounced('decision', d);
+      decisionRepaintTotals(c, d);
+    });
+
+    /* Change — flush instantly */
+    c.addEventListener('change', function(e){
+      if (!e.target.closest('.pg-decision-table')) return;
+      var d = load('decision');
+      decisionSyncFromDOM(c, d);
+      saveNow('decision', d);
+    });
+
+    /* Click — add/delete rows/cols (sync DOM first) */
+    c.addEventListener('click', function(e){
+      var d = load('decision');
+      decisionSyncFromDOM(c, d);
+      saveNow('decision', d);
+
+      if (e.target.closest('[data-add-crit]')){
+        var crid = 'c' + Date.now().toString(36);
+        d.criteria.push({ id:crid, name:'New criterion', weight:10 });
+        d.scores[crid] = {};
+        d.concepts.forEach(function(x){ d.scores[crid][x.id] = 3; });
+        saveNow('decision', d);
+        decisionRender(c);
+        return;
+      }
+      if (e.target.closest('[data-add-concept]')){
+        if (d.concepts.length >= 5){ alert('Maximum 5 concepts.'); return; }
+        var l = String.fromCharCode(65 + d.concepts.length);
+        d.concepts.push({ id:l, name:'Concept ' + l });
+        d.criteria.forEach(function(cr){
+          if (!d.scores[cr.id]) d.scores[cr.id] = {};
+          d.scores[cr.id][l] = 3;
+        });
+        saveNow('decision', d);
+        decisionRender(c);
+        return;
+      }
+      var dc = e.target.closest('[data-del-crit]');
+      if (dc){
+        var crid2 = dc.dataset.delCrit;
+        d.criteria = d.criteria.filter(function(x){ return x.id !== crid2; });
+        delete d.scores[crid2];
+        saveNow('decision', d);
+        decisionRender(c);
+        return;
+      }
+      var dcn = e.target.closest('[data-del-concept]');
+      if (dcn){
+        var cid = dcn.dataset.delConcept;
+        if (d.concepts.length <= 2){
+          alert('Keep at least 2 concepts so a comparison is possible.');
+          return;
+        }
+        var cName = (d.concepts.find(function(x){ return x.id === cid; }) || {}).name || cid;
+        if (!confirm('Delete "' + cName + '"?')) return;
+        d.concepts = d.concepts.filter(function(x){ return x.id !== cid; });
+        Object.keys(d.scores).forEach(function(k){ delete d.scores[k][cid]; });
+        saveNow('decision', d);
+        decisionRender(c);
+      }
+    });
+  }
+
+  /* =========================================================
+     IMPACT-FEASIBILITY
+     ========================================================= */
+  function impactRender(c){
+    var d = load('impact');
+    var quads = [
+      { k:'bigBets',   e:'🎯', l:'Big Bets',   sub:'High impact · Low feasibility' },
+      { k:'quickWins', e:'⚡', l:'Quick Wins',  sub:'High impact · High feasibility' },
+      { k:'avoid',     e:'🚫', l:'Avoid',       sub:'Low impact · Low feasibility' },
+      { k:'fillIns',   e:'📋', l:'Fill-ins',    sub:'Low impact · High feasibility' }
+    ];
+    var qh = quads.map(function(q){
+      var items = (d[q.k] || []).map(function(s){ return impactItemHTML(s); }).join('');
+      return '<div class="pg-impact-quad" data-quad-key="' + q.k + '">'
+           + '<div class="pg-impact-quad-head"><span class="q-emoji">' + q.e + '</span>'
+           + '<div><div class="pg-impact-label">' + q.l + '</div>'
+           + '<div class="pg-impact-sub">' + q.sub + '</div></div></div>'
+           + '<div class="pg-impact-items" data-items="' + q.k + '">' + items + '</div>'
+           + '<button type="button" class="pg-add-note" data-add-impact="' + q.k + '">+ Add idea</button>'
+           + '</div>';
+    }).join('');
+    c.innerHTML = '<p class="pg-sh-info">Place each idea by <strong>impact</strong> (top = high) × <strong>feasibility</strong> (right = high). Start with Quick Wins.</p>'
+                + '<div class="pg-impact-grid"><div class="pg-impact-axis-y">↑ Impact</div>'
+                + '<div class="pg-impact-axis-x">Feasibility →</div>' + qh + '</div>';
+  }
+  function impactItemHTML(s){
+    return '<div class="pg-impact-item" data-impact-id="' + esc(s.id) + '">'
+         + '<div class="pg-impact-item-text" contenteditable="true" data-impact-text="' + esc(s.id) + '">' + esc(s.text) + '</div>'
+         + '<button type="button" class="pg-impact-item-del" data-del-impact="' + esc(s.id) + '">✕</button></div>';
+  }
+  function impactBind(c){
+    c.addEventListener('input', function(e){
+      var id = e.target.dataset.impactText;
+      if (!id) return;
+      var d = load('impact');
+      ['quickWins','bigBets','fillIns','avoid'].forEach(function(k){
+        var s = d[k].find(function(x){ return x.id === id; });
+        if (s){ s.text = e.target.innerText || ''; saveDebounced('impact', d); }
+      });
+    });
+    c.addEventListener('click', function(e){
+      var add = e.target.closest('[data-add-impact]');
+      if (add){
+        var d = load('impact');
+        var k = add.dataset.addImpact;
+        var item = { id:uid(), text:'' };
+        if (!d[k]) d[k] = [];
+        d[k].push(item);
+        saveDebounced('impact', d);
+        var el = c.querySelector('[data-items="' + k + '"]');
+        if (el){
+          el.insertAdjacentHTML('beforeend', impactItemHTML(item));
+          var t = el.querySelector('[data-impact-id="' + item.id + '"] .pg-impact-item-text');
+          if (t) t.focus();
+        }
+        return;
+      }
+      var del = e.target.closest('[data-del-impact]');
+      if (del){
+        var d2 = load('impact');
+        var id = del.dataset.delImpact;
+        ['quickWins','bigBets','fillIns','avoid'].forEach(function(k){
+          d2[k] = d2[k].filter(function(x){ return x.id !== id; });
+        });
+        saveDebounced('impact', d2);
+        var el2 = del.closest('.pg-impact-item');
+        if (el2) el2.remove();
+      }
+    });
+  }
+
+  /* =========================================================
+     VPC & BMC
+     ========================================================= */
+  var vpcView = { view: 'vpc' };
+  function vpcRender(c){
+    var d = load('vpc-bmc');
+    var tabs = '<div class="pg-vpc-tabs">'
+             + '<button type="button" class="pg-vpc-tab' + (vpcView.view === 'vpc' ? ' active' : '') + '" data-vpc-view="vpc">⚖️ Value Proposition Canvas</button>'
+             + '<button type="button" class="pg-vpc-tab' + (vpcView.view === 'bmc' ? ' active' : '') + '" data-vpc-view="bmc">📋 Business Model Canvas</button>'
+             + '</div>';
+    var body = '';
+    if (vpcView.view === 'vpc'){
+      body = '<div class="pg-vpc-layout">'
+           + '<div class="pg-vpc-side pg-vpc-customer"><h4>👤 Customer Profile</h4>'
+           + '<div class="pg-vpc-block"><label>💼 Jobs</label><textarea data-vpc="jobs" placeholder="What is the user trying to do?">' + esc(d.jobs) + '</textarea></div>'
+           + '<div class="pg-vpc-block"><label>😖 Pains</label><textarea data-vpc="pains" placeholder="What frustrates them?">' + esc(d.pains) + '</textarea></div>'
+           + '<div class="pg-vpc-block"><label>🎯 Gains</label><textarea data-vpc="gains" placeholder="What outcomes do they want?">' + esc(d.gains) + '</textarea></div>'
+           + '</div>'
+           + '<div class="pg-vpc-arrow">⟷</div>'
+           + '<div class="pg-vpc-side pg-vpc-value"><h4>📦 Value Map</h4>'
+           + '<div class="pg-vpc-block"><label>🛠 Products &amp; Services</label><textarea data-vpc="products" placeholder="What do you offer?">' + esc(d.products) + '</textarea></div>'
+           + '<div class="pg-vpc-block"><label>💊 Pain Relievers</label><textarea data-vpc="relievers" placeholder="How do you remove pains?">' + esc(d.relievers) + '</textarea></div>'
+           + '<div class="pg-vpc-block"><label>✨ Gain Creators</label><textarea data-vpc="creators" placeholder="How do you create gains?">' + esc(d.creators) + '</textarea></div>'
+           + '</div></div>'
+           + '<p class="pg-vpc-hint">💡 The better the match between the two sides, the stronger your value proposition.</p>';
+    } else {
+      var blocks = [
+        { k:'keyPartners',      l:'🤝 Key Partners',            a:'partners'   },
+        { k:'keyActivities',    l:'⚙️ Key Activities',          a:'activities' },
+        { k:'keyResources',     l:'🔑 Key Resources',           a:'resources'  },
+        { k:'valueProps',       l:'💎 Value Propositions',      a:'value'      },
+        { k:'customerRels',     l:'💬 Customer Relationships',  a:'rels'       },
+        { k:'channels',         l:'📢 Channels',                a:'channels'   },
+        { k:'customerSegments', l:'👥 Customer Segments',       a:'segments'   },
+        { k:'costStructure',    l:'📉 Cost Structure',          a:'cost'       },
+        { k:'revenueStreams',   l:'💰 Revenue Streams',         a:'revenue'    }
+      ];
+      body = '<div class="pg-bmc">';
+      blocks.forEach(function(b){
+        body += '<div class="pg-bmc-block" style="grid-area:' + b.a + '">'
+              + '<label>' + b.l + '</label>'
+              + '<textarea data-vpc="' + b.k + '" placeholder="Type here…">' + esc(d[b.k]) + '</textarea></div>';
+      });
+      body += '</div>';
+    }
+    c.innerHTML = tabs + body;
+  }
+  function vpcBind(c){
+    c.addEventListener('click', function(e){
+      var vt = e.target.closest('[data-vpc-view]');
+      if (vt){
+        vpcView.view = vt.dataset.vpcView;
+        vpcRender(c);
+      }
+    });
+    c.addEventListener('input', function(e){
+      var k = e.target.dataset.vpc;
+      if (!k) return;
+      var d = load('vpc-bmc');
+      d[k] = e.target.value;
+      saveDebounced('vpc-bmc', d);
+    });
+  }
+
+  /* =========================================================
+     BUILD
+     ========================================================= */
+  var RENDERERS = {
+    'empathy-map': empathyRender,
+    'persona':     personaRender,
+    'journey':     journeyRender,
+    'affinity':    affinityRender,
+    'stakeholder': shRender,
+    '5whys':       whysRender,
+    'scamper':     scamperRender,
+    'decision':    decisionRender,
+    'impact':      impactRender,
+    'vpc-bmc':     vpcRender
+  };
+  var BINDERS = {
+    'empathy-map': empathyBind,
+    'persona':     personaBind,
+    'journey':     journeyBind,
+    'affinity':    affinityBind,
+    'stakeholder': shBind,
+    '5whys':       whysBind,
+    'scamper':     scamperBind,
+    'decision':    decisionBind,
+    'impact':      impactBind,
+    'vpc-bmc':     vpcBind
+  };
+
+  function build(){
+    var tabsEl = document.getElementById('pgTabs');
+    var panelsEl = document.getElementById('pgPanels');
+    if (!tabsEl || !panelsEl){ console.error('[playground] containers not found'); return; }
+
+    var hash = (location.hash || '').replace('#','');
+    var activeId = TOOLS.some(function(t){ return t.id === hash; }) ? hash : TOOLS[0].id;
+
+    var th = '', ph = '';
+    TOOLS.forEach(function(t){
+      th += '<button type="button" class="pg-tab' + (t.id === activeId ? ' active' : '') + '" data-tool="' + t.id + '">'
+          + '<span class="pg-tab-emoji">' + t.emoji + '</span><span>' + t.name + '</span></button>';
+      ph += '<section class="pg-panel' + (t.id === activeId ? ' active' : '') + '" data-tool="' + t.id + '">'
+          + '<div class="pg-toolbar">'
+          +   '<span class="pg-toolbar-title">' + t.emoji + ' ' + t.name + '</span>'
+          +   '<span class="pg-save-status" data-save-status="' + t.id + '"></span>'
+          +   '<button type="button" data-action="reset" class="danger">↺ Reset</button>'
+          +   '<button type="button" data-action="print">🖨 Print</button>'
+          + '</div>'
+          + '<div class="pg-canvas" data-canvas="' + t.id + '"></div>'
+          + '</section>';
+    });
+
+    tabsEl.innerHTML = th;
+    panelsEl.innerHTML = ph;
+
+    /* Render + bind every tool */
+    TOOLS.forEach(function(t){
+      var canvas = document.querySelector('[data-canvas="' + t.id + '"]');
+      if (!canvas) return;
+      if (RENDERERS[t.id]) RENDERERS[t.id](canvas);
+      if (BINDERS[t.id]) BINDERS[t.id](canvas);
+    });
+
+    /* Tab switching + URL hash update */
+    tabsEl.addEventListener('click', function(e){
+      var tab = e.target.closest('.pg-tab');
+      if (!tab) return;
+      $$('.pg-tab').forEach(function(x){ x.classList.toggle('active', x === tab); });
+      $$('.pg-panel').forEach(function(x){ x.classList.toggle('active', x.dataset.tool === tab.dataset.tool); });
+      try { history.replaceState({}, '', '#' + tab.dataset.tool); } catch(_){}
+    });
+
+    /* Toolbar actions */
+    $$('.pg-toolbar button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var a = btn.dataset.action;
+        var panel = btn.closest('.pg-panel');
+        var toolId = panel.dataset.tool;
+        if (a === 'reset'){
+          if (!confirm('Clear all data in this tool?')) return;
+          try { localStorage.removeItem(KEY + toolId); } catch(e){}
+          var canvas = panel.querySelector('.pg-canvas');
+          if (RENDERERS[toolId]) RENDERERS[toolId](canvas);
+        } else if (a === 'print'){
+          window.print();
+        }
+      });
+    });
+
+    console.log('[playground] ready — tools:', TOOLS.length);
+  }
+
+  if (document.readyState === 'loading')
+    document.addEventListener('DOMContentLoaded', build);
+  else
+    build();
+})();
+</script>
+
+</body>
+</html>

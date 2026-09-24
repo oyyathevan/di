@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit IV — Extra Topics | Beyond the Syllabus</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+</head>
+<body data-unit="b" data-page="beyond-u">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<div class="layout">
+  <div id="site-sidebar"></div>
+
+  <main id="main">
+    <nav class="breadcrumb"><a href="index.html">Home</a> › <a href="beyond.html">Beyond the Syllabus</a> › <span>Unit IV</span></nav>
+
+    <section class="beyond-hero compact">
+      <div class="bh-tag">🧪 Unit IV · Extra Topics</div>
+      <h1>Unit IV — Prototyping, Testing &amp; Validation</h1>
+      <p>Seven methods professional design teams use to test, measure, and refine prototypes at scale.</p>
+      <span class="bh-note">7 topics · ~50 min read</span>
+    </section>
+
+    <div class="audio-player">
+      <span class="ap-label">🎧 Listen to Unit IV Extra</span>
+      <button id="apPlay" class="primary" aria-label="Play / Pause">▶</button>
+      <button id="apStop" aria-label="Stop">⏹</button>
+      <div class="ap-progress"><div class="bar"></div></div>
+      <select id="apSpeed" class="ap-speed" aria-label="Speed">
+        <option value="0.75">0.75×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+      </select>
+      <div class="ap-status">Press ▶ to hear all topics, or tap 🔊 on any topic.</div>
+    </div>
+
+    <div class="card objectives-card">
+      <h2>📖 About this page</h2>
+      <p>These seven methods <strong>extend the prototyping and testing toolkit</strong> in Unit IV. They're standard practice in product teams, UX studios, and R&amp;D labs — but not tested in your exams.</p>
+    </div>
+
+    <!-- ============ B-IV.1 — WIZARD OF OZ ============ -->
+    <article class="card topic" id="B-IV-1">
+      <div class="topic-head">
+        <span class="big-emoji">🧙</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-IV.1</span>
+          <h2>Wizard of Oz Prototyping <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K3</span><span class="tag">7 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>Wizard of Oz prototyping simulates a finished product using a human hidden "behind the curtain". Users think they're interacting with the real thing — but a person is doing the work manually.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>A prototyping technique where the front-end looks real to the user, but the back-end is manually operated by a designer. Tests the experience before any complex technology is built.</p>
+      </div>
+
+      <h3>How it works</h3>
+      <ol>
+        <li>Build only the interface the user sees.</li>
+        <li>Have a team member hidden with a laptop and a script.</li>
+        <li>When the user types a query or presses a button, the operator manually responds.</li>
+        <li>Users believe they're using a working AI or automated system.</li>
+        <li>Observe their behaviour, emotions, and expectations.</li>
+      </ol>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Voice assistant test</span>
+        <p>Before building any NLP, a team sets up a booth. Users speak into a mic. Behind the wall, a person types the response and it plays through a speaker. In 2 hours, the team learns what users <em>expect</em> to be able to say — before spending months on the AI.</p>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🗣️ IBM · Speech-to-text</span>
+        <div class="story">IBM's early speech-recognition demos used exactly this technique. A human typist transcribed speech in real time. The demo "proved" the concept to investors before the technology was ready.</div>
+        <span class="takeaway">The feeling of a product can be tested before the product exists.</span>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🚗 Ather Energy · Early demos</span>
+        <div class="story">Early electric-scooter startups simulated dashboard behaviour using tethered phones before building real firmware. Users rode prototypes with a hidden laptop responding to throttle inputs.</div>
+        <span class="takeaway">Simulate the experience, then engineer it.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Use Wizard of Oz when the front-end experience is more uncertain than the back-end technology. If the risk is the tech, this won't help.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Never deceive users permanently. Disclose the simulation after the test — it's an ethical requirement.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit4.html#4-5" style="color:#7C3AED">Unit IV § 4.5 — MVP</a></p>
+    </article>
+
+    <!-- ============ B-IV.2 — BODYSTORMING ============ -->
+    <article class="card topic" id="B-IV-2">
+      <div class="topic-head">
+        <span class="big-emoji">🕺</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-IV.2</span>
+          <h2>Bodystorming <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K2</span><span class="tag">6 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>Bodystorming is role-play prototyping where the team <em>physically acts out</em> the user experience in the real environment — with real props, real spaces, and real movement.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>A physical role-play technique where participants act out a service or product experience in a real or simulated environment to uncover friction points that paper prototyping misses.</p>
+      </div>
+
+      <h3>How it differs from role-play</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Role-Play</th><th>Bodystorming</th></tr></thead>
+        <tbody>
+          <tr><td>Seated, imagined scenario</td><td>Standing, in the real space</td></tr>
+          <tr><td>Verbal dialogue</td><td>Physical movement + props</td></tr>
+          <tr><td>Fast, casual</td><td>Structured, immersive</td></tr>
+          <tr><td>Tests conversation flow</td><td>Tests physical flow and space</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Hospital reception</span>
+        <p>A team stands in an actual hospital lobby. One plays a patient arriving; another plays the receptionist; a third plays a nurse. They move through the space exactly as a real patient would — walking to the desk, waiting, being redirected, sitting, being called. They discover that the queue is invisible from the door, and the signage is behind the patient. No amount of paper sketching reveals this.</p>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🏥 IDEO · Healthcare design</span>
+        <div class="story">IDEO famously bodystormed hospital services by sending designers to stand in queues, sit in waiting rooms, and walk corridors. Their redesigns often came from discovering spatial problems the client had never noticed.</div>
+        <span class="takeaway">Space is a material. Feel it to design it.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Videotape bodystorming sessions. Small movements and hesitations are easy to miss live but obvious on replay.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Bodystorming feels awkward at first. Give participants permission to be silly — the awkwardness disappears after 2 minutes.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit4.html#4-3" style="color:#7C3AED">Unit IV § 4.3 — Role-Play Prototype</a></p>
+    </article>
+
+    <!-- ============ B-IV.3 — A/B TESTING ============ -->
+    <article class="card topic" id="B-IV-3">
+      <div class="topic-head">
+        <span class="big-emoji">🅰️</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-IV.3</span>
+          <h2>A/B Testing <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K3</span><span class="tag">7 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>A/B testing (or split testing) shows two versions of a design to two groups of users and measures which performs better. It replaces opinion with evidence.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>A controlled experiment where users are randomly split between version A and version B, and a defined metric (clicks, conversions, time) determines the winner.</p>
+      </div>
+
+      <h3>How to run a valid A/B test</h3>
+      <ol>
+        <li>Pick a <strong>single metric</strong> — "sign-up rate", not "engagement".</li>
+        <li>Change <strong>one variable</strong> between A and B — button colour, headline, layout.</li>
+        <li>Randomly assign users — no cherry-picking.</li>
+        <li>Run long enough to reach statistical significance (usually ~1000 users per variant).</li>
+        <li>Analyse. Adopt the winner. Log the learning.</li>
+      </ol>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Button colour test</span>
+        <p>A campus app tests "Sign Up" button colours — blue (A) and orange (B) — on 2000 visitors. Variant B's conversion is 12% vs A's 9%. Statistically significant → adopt orange, log the finding.</p>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🔵 Google · 41 shades of blue</span>
+        <div class="story">Google famously tested 41 shades of blue on search-result link colours. The winning shade generated an estimated $200 million in additional ad revenue per year. The single-pixel difference mattered — because the scale was huge.</div>
+        <span class="takeaway">Small design decisions have outsized impact at scale.</span>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">📧 Obama 2008 campaign</span>
+        <div class="story">The Obama campaign A/B-tested landing page designs for donations. The winning variant raised an additional $60 million over the losing variant.</div>
+        <span class="takeaway">A/B testing isn't only for tech companies.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Combine A/B testing with qualitative research. Numbers tell you <em>what</em> happened; interviews tell you <em>why</em>.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Stop worrying about "peeking" too early — but do stop before you have statistical significance. Small sample sizes produce random winners.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit4.html#4-6" style="color:#7C3AED">Unit IV § 4.6 — Design Experimentation</a></p>
+    </article>
+
+    <!-- ============ B-IV.4 — USABILITY METRICS ============ -->
+    <article class="card topic" id="B-IV-4">
+      <div class="topic-head">
+        <span class="big-emoji">📏</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-IV.4</span>
+          <h2>Usability Metrics (SUS, NPS) <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Tool</span><span class="tag bloom">K3</span><span class="tag">8 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>Usability metrics turn "it feels nice" into a number. Two of the most widely used are <strong>SUS</strong> and <strong>NPS</strong>.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p><strong>SUS</strong> (System Usability Scale) — a 10-question survey scored 0–100, measuring perceived usability. <strong>NPS</strong> (Net Promoter Score) — a single question ("How likely are you to recommend?") scored −100 to +100, measuring customer loyalty.</p>
+      </div>
+
+      <h3>SUS — System Usability Scale</h3>
+      <p>10 statements rated 1–5. Example:</p>
+      <ul>
+        <li>"I think that I would like to use this system frequently."</li>
+        <li>"I found the system unnecessarily complex."</li>
+        <li>"I thought the system was easy to use."</li>
+      </ul>
+      <p>Final score 0–100. Benchmarks:</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Score</th><th>Grade</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>85+</td><td>A+</td><td>Best-in-class</td></tr>
+          <tr><td>72–84</td><td>B</td><td>Good</td></tr>
+          <tr><td>68</td><td>C</td><td>Average</td></tr>
+          <tr><td>50–67</td><td>D</td><td>Below average</td></tr>
+          <tr><td>Below 50</td><td>F</td><td>Poor</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>NPS — Net Promoter Score</h3>
+      <p>One question: "On a scale of 0–10, how likely are you to recommend this to a friend?"</p>
+      <ul>
+        <li><strong>9–10:</strong> Promoters</li>
+        <li><strong>7–8:</strong> Passives</li>
+        <li><strong>0–6:</strong> Detractors</li>
+      </ul>
+      <p>NPS = % Promoters − % Detractors. Range: −100 to +100.</p>
+
+      <div class="case-snap">
+        <span class="company">🚗 Tesla · NPS ~97</span>
+        <div class="story">Tesla has recorded NPS scores above 95 — some of the highest in the automotive industry. That single number became a marketing asset, quoted in investor calls and press releases.</div>
+        <span class="takeaway">A well-chosen metric can become a brand signal.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Use SUS for <em>your product</em> against itself across versions. Use NPS for <em>your product</em> against competitors.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Metrics can be gamed. If you tie a bonus to NPS, teams start asking only happy customers. Always pair numbers with qualitative research.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit4.html#4-6" style="color:#7C3AED">Unit IV § 4.6 — Prototype Evaluation</a></p>
+    </article>
+
+    <!-- ============ B-IV.5 — HEURISTIC EVALUATION ============ -->
+    <article class="card topic" id="B-IV-5">
+      <div class="topic-head">
+        <span class="big-emoji">🔎</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-IV.5</span>
+          <h2>Heuristic Evaluation <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K3</span><span class="tag">8 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>Heuristic Evaluation is a usability inspection method where experts review a design against a fixed list of principles — without needing real users.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>A method where 3–5 expert reviewers independently inspect a user interface against a list of usability heuristics, then combine findings to prioritise fixes.</p>
+      </div>
+
+      <h3>Nielsen's 10 usability heuristics</h3>
+      <ol>
+        <li><strong>Visibility of system status</strong> — users know what's happening (loading, saved).</li>
+        <li><strong>Match between system and real world</strong> — use familiar language and concepts.</li>
+        <li><strong>User control and freedom</strong> — undo, redo, exit easily.</li>
+        <li><strong>Consistency and standards</strong> — same words and actions mean the same thing.</li>
+        <li><strong>Error prevention</strong> — prevent mistakes before they happen.</li>
+        <li><strong>Recognition rather than recall</strong> — don't make users memorise.</li>
+        <li><strong>Flexibility and efficiency</strong> — shortcuts for experts; clarity for beginners.</li>
+        <li><strong>Aesthetic and minimalist design</strong> — every extra element competes with the important ones.</li>
+        <li><strong>Help users recognise and recover from errors</strong> — plain-language errors, clear fix.</li>
+        <li><strong>Help and documentation</strong> — easy to search, focused on the task.</li>
+      </ol>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Evaluating a login form</span>
+        <p>An evaluator finds:</p>
+        <ul>
+          <li>Heuristic 1: no loading spinner after tapping "Login" — user unsure if it worked.</li>
+          <li>Heuristic 5: password rules shown only after failure — should be shown before typing.</li>
+          <li>Heuristic 9: error says "Auth failed" — should say "Incorrect password. Try again or reset."</li>
+        </ul>
+        <p>Result: 3 concrete fixes, found in 30 minutes, no users needed.</p>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">👨‍🔬 Jakob Nielsen · 1990</span>
+        <div class="story">Nielsen developed the heuristics after analysing 249 usability problems. His research showed that 3–5 evaluators catch around 75% of usability issues — a huge return for a few hours of expert review.</div>
+        <span class="takeaway">Expert review is fast, cheap, and catches most problems.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Have each evaluator work <em>independently</em> first. Group discussion before individual review contaminates the findings.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Heuristic evaluation finds problems, not solutions. It tells you what's wrong, not how to fix it — that requires design work.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit4.html#4-8" style="color:#7C3AED">Unit IV § 4.8 — Usability Testing</a></p>
+    </article>
+
+    <!-- ============ B-IV.6 — COGNITIVE WALKTHROUGH ============ -->
+    <article class="card topic" id="B-IV-6">
+      <div class="topic-head">
+        <span class="big-emoji">🧠</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-IV.6</span>
+          <h2>Cognitive Walkthrough <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K3</span><span class="tag">6 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>Cognitive Walkthrough is a structured usability inspection where the reviewer <em>steps through</em> each action a user would take and asks a small set of questions at each step.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p>A task-based expert review method that examines whether users can figure out, at each step, what to do next — without training.</p>
+      </div>
+
+      <h3>The four questions at each step</h3>
+      <ol>
+        <li>Will the user try to achieve the right effect?</li>
+        <li>Will the user notice the correct action is available?</li>
+        <li>Will the user associate the correct action with the desired effect?</li>
+        <li>If the correct action is performed, will the user see that progress is being made?</li>
+      </ol>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Booking a train ticket</span>
+        <p>Task: "Book a train from Chennai to Bengaluru."</p>
+        <p>Step 1 — Enter source/destination:</p>
+        <ul>
+          <li>Q1: Will they try to enter cities? Yes, obvious.</li>
+          <li>Q2: Is the "From" field visible? Yes.</li>
+          <li>Q3: Do they associate "From/To" with journey? Yes.</li>
+          <li>Q4: Do they see any confirmation? No — the app doesn't highlight the entered cities. <strong>Fix: show entered cities as chips.</strong></li>
+        </ul>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🖥️ Lewis &amp; Polson · 1990</span>
+        <div class="story">Cognitive Walkthrough was developed at IBM by Clayton Lewis and Peter Polson to help non-designer developers assess usability. It remains one of the cheapest methods to catch first-time-user problems.</div>
+        <span class="takeaway">First-time-user problems are best caught by first-time-user thinking.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Use Cognitive Walkthrough for <strong>new users</strong> — onboarding flows, first-time checkout, first launch. For expert users, other methods work better.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Reviewers must genuinely forget what they know about the product. Designers who built it find their own design obvious.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit4.html#4-8" style="color:#7C3AED">Unit IV § 4.8 — Usability &amp; Functionality Testing</a></p>
+    </article>
+
+    <!-- ============ B-IV.7 — REMOTE / UNMODERATED TESTING ============ -->
+    <article class="card topic" id="B-IV-7">
+      <div class="topic-head">
+        <span class="big-emoji">🌐</span>
+        <div class="head-meta">
+          <span class="sec-no">§ B-IV.7</span>
+          <h2>Remote &amp; Unmoderated Testing <span class="beyond-badge">Extra</span></h2>
+          <div class="tags"><span class="tag">Method</span><span class="tag bloom">K3</span><span class="tag">7 min</span></div>
+        </div>
+        <button class="listen-btn" aria-label="Listen">🔊</button>
+      </div>
+
+      <p>Remote and unmoderated testing let you run user tests without being in the room — at scale, across geographies, on the user's own devices.</p>
+
+      <div class="callout definition">
+        <span class="label">📘 Definition</span>
+        <p><strong>Remote testing</strong> — sessions run via video call with a facilitator. <strong>Unmoderated testing</strong> — sessions run automatically; users follow instructions on screen and record themselves.</p>
+      </div>
+
+      <h3>Moderated vs unmoderated</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Moderated (in-person)</th><th>Unmoderated (remote)</th></tr></thead>
+        <tbody>
+          <tr><td>5–8 users per round</td><td>20–100+ users per round</td></tr>
+          <tr><td>Deep qualitative insight</td><td>Broad behavioural data</td></tr>
+          <tr><td>Expensive (lab, travel)</td><td>Cheap (~$10/user on platforms)</td></tr>
+          <tr><td>Weeks to organise</td><td>Hours to organise</td></tr>
+          <tr><td>Facilitator can probe</td><td>No follow-up questions</td></tr>
+          <tr><td>Best for: exploring why</td><td>Best for: testing at scale</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="callout example">
+        <span class="label">💡 Example — Landing page test</span>
+        <p>An app team wants to know if their new signup flow works for 100 users. Instead of running 100 moderated sessions over two months, they use a remote platform. 100 users complete the flow in 3 days. The team reviews videos and notes where users hesitate, in less than a week.</p>
+      </div>
+
+      <div class="case-snap">
+        <span class="company">🔬 UserTesting, Maze, Lookback</span>
+        <div class="story">Platforms like UserTesting, Maze, and Lookback built multi-billion-dollar businesses on remote testing. Product teams now routinely test with users in 5 countries without leaving the office.</div>
+        <span class="takeaway">Distance is no longer a constraint on user research.</span>
+      </div>
+
+      <div class="callout tip">
+        <span class="label">✅ Tip</span>
+        <p>Write clear task prompts. Without a facilitator, ambiguity kills the session. Test prompts internally before sending them to users.</p>
+      </div>
+
+      <div class="callout warning">
+        <span class="label">⚠️ Watch out</span>
+        <p>Unmoderated tests miss emotions. Users skip frustration silently. Always supplement with qualitative interviews.</p>
+      </div>
+
+      <p><strong>Related in syllabus:</strong> <a href="unit4.html#4-7" style="color:#7C3AED">Unit IV § 4.7 — User Testing</a></p>
+    </article>
+
+    <nav class="pager">
+      <a href="beyond-u3.html">← Unit III Extra Topics</a>
+      <a href="beyond-u5.html">Unit V Extra Topics →</a>
+    </nav>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search-index.js"></script>
+<script src="js/search.js"></script>
+<script src="js/slogan.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/extras.js"></script>
+
+</body>
+</html>

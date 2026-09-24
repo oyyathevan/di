@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Practical Activities | DTI Notes</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/extras.css" />
+<link rel="stylesheet" href="css/exam.css" />
+<link rel="stylesheet" href="css/print-activities.css" />
+
+<style>
+.prac-hero{
+  background:linear-gradient(135deg,#1E3A8A 0%,#7C3AED 100%);
+  color:#fff;padding:32px 36px;border-radius:16px;margin:0 0 24px;
+  box-shadow:0 10px 28px rgba(30,58,138,.22);
+}
+.prac-hero h1{color:#fff;font-size:1.8rem;margin:0 0 10px;font-weight:800}
+.prac-hero p{opacity:.92;margin:0 0 6px;font-size:.95rem;line-height:1.6;max-width:720px}
+.prac-hero .prac-stats{
+  display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;
+  padding-top:16px;border-top:1px solid rgba(255,255,255,.2);
+  font-size:.82rem;opacity:.9;
+}
+.prac-hero .prac-stats strong{font-weight:800;font-size:1rem;opacity:1}
+
+.prac-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:16px;margin:0 0 24px;
+}
+.prac-card{
+  display:block;text-decoration:none;color:inherit;
+  background:#fff;border:1px solid #E2E8F0;border-radius:14px;
+  padding:22px 24px;border-left:5px solid var(--uc,#2563EB);
+  transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+.prac-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 24px rgba(0,0,0,.1);
+  border-color:var(--uc,#2563EB);
+}
+.prac-card .pc-tag{
+  font-size:.7rem;font-weight:800;letter-spacing:.6px;
+  text-transform:uppercase;color:var(--uc,#2563EB);margin-bottom:6px;
+}
+.prac-card h3{margin:0 0 8px;font-size:1.05rem;color:#1F2937;line-height:1.35}
+.prac-card .pc-count{font-size:.8rem;color:#64748B;margin:0 0 12px}
+.prac-card .pc-list{margin:0;padding:0;list-style:none;font-size:.82rem;color:#64748B}
+.prac-card .pc-list li{padding:3px 0 3px 16px;position:relative;line-height:1.4}
+.prac-card .pc-list li::before{
+  content:"•";position:absolute;left:0;color:var(--uc,#2563EB);font-weight:700;
+}
+.prac-card .pc-cta{
+  display:inline-block;margin-top:14px;font-size:.82rem;
+  font-weight:700;color:var(--uc,#2563EB);
+}
+
+.outcomes-block{
+  background:#F8FAFC;border:1.5px dashed #CBD5E1;border-radius:14px;
+  padding:22px 26px;margin:24px 0;
+}
+.outcomes-block h2{
+  font-size:1.05rem;margin:0 0 16px;color:#1F2937;
+  display:flex;align-items:center;gap:8px;
+}
+.outcomes-block h3{font-size:.9rem;margin:14px 0 6px;color:#1E3A8A}
+.outcomes-block p{margin:0;font-size:.86rem;color:#475569;line-height:1.65}
+.outcomes-block h3:first-of-type{margin-top:0}
+
+[data-theme="dark"] .prac-card{background:#1E293B;border-color:#334155}
+[data-theme="dark"] .prac-card h3{color:#E2E8F0}
+[data-theme="dark"] .outcomes-block{background:#0F172A;border-color:#334155}
+[data-theme="dark"] .outcomes-block h2{color:#E2E8F0}
+[data-theme="dark"] .outcomes-block h3{color:#93C5FD}
+[data-theme="dark"] .outcomes-block p{color:#CBD5E1}
+</style>
+</head>
+<body data-unit="u1">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<div class="layout">
+  <div id="site-sidebar"></div>
+
+  <main id="main">
+    <nav class="breadcrumb"><a href="index.html">Home</a> › <span>Practical Activities</span></nav>
+
+    <section class="prac-hero">
+      <h1>🧪 Practical Activities</h1>
+      <p>Every hands-on exercise from the syllabus — written as lab-ready experiments with objectives, materials, steps, and reflection prompts. Print them as A4 activity sheets for class or self-study.</p>
+      <div class="prac-stats">
+        <div><strong>32</strong> Activities</div>
+        <div><strong>5</strong> Units</div>
+        <div><strong>A4</strong> Print sheets</div>
+        <div><strong>2</strong> Print modes</div>
+      </div>
+    </section>
+
+    <h2 style="font-size:1.1rem;margin:0 0 14px">Pick a Unit</h2>
+    <div class="prac-grid">
+
+      <a class="prac-card" href="practical-u1.html" style="--uc:#2563EB">
+        <div class="pc-tag">Unit I</div>
+        <h3>Foundations &amp; Empathy</h3>
+        <div class="pc-count">5 activities</div>
+        <ul class="pc-list">
+          <li>Observation of a real-life problem</li>
+          <li>Conducting user interviews</li>
+          <li>Preparing an empathy map</li>
+          <li>Developing a persona</li>
+          <li>Preparing a user journey map</li>
+        </ul>
+        <span class="pc-cta">Open Unit I activities →</span>
+      </a>
+
+      <a class="prac-card" href="practical-u2.html" style="--uc:#0D9488">
+        <div class="pc-tag">Unit II</div>
+        <h3>Problem Definition &amp; Opportunity</h3>
+        <div class="pc-count">6 activities</div>
+        <ul class="pc-list">
+          <li>Affinity mapping of interview data</li>
+          <li>Develop three alternative problem statements</li>
+          <li>Prepare POV and HMW statements</li>
+          <li>Stakeholder map</li>
+          <li>Root-cause analysis</li>
+          <li>Select and validate one problem</li>
+        </ul>
+        <span class="pc-cta">Open Unit II activities →</span>
+      </a>
+
+      <a class="prac-card" href="practical-u3.html" style="--uc:#D97706">
+        <div class="pc-tag">Unit III</div>
+        <h3>Creativity, Ideation &amp; Concept</h3>
+        <div class="pc-count">7 activities</div>
+        <ul class="pc-list">
+          <li>Generate 20–30 ideas</li>
+          <li>SCAMPER exercise</li>
+          <li>Brainwriting exercise</li>
+          <li>Biomimicry-based ideation</li>
+          <li>AI-assisted idea generation</li>
+          <li>Idea-selection matrix</li>
+          <li>Select top 2–3 concepts</li>
+        </ul>
+        <span class="pc-cta">Open Unit III activities →</span>
+      </a>
+
+      <a class="prac-card" href="practical-u4.html" style="--uc:#7C3AED">
+        <div class="pc-tag">Unit IV</div>
+        <h3>Prototyping, Testing &amp; Validation</h3>
+        <div class="pc-count">7 activities</div>
+        <ul class="pc-list">
+          <li>Develop a low-fidelity prototype</li>
+          <li>Prepare a storyboard</li>
+          <li>Build a physical/digital prototype</li>
+          <li>Conduct user testing</li>
+          <li>Collect structured feedback</li>
+          <li>Modify the prototype</li>
+          <li>Prepare an iteration log</li>
+        </ul>
+        <span class="pc-cta">Open Unit IV activities →</span>
+      </a>
+
+      <a class="prac-card" href="practical-u5.html" style="--uc:#059669">
+        <div class="pc-tag">Unit V</div>
+        <h3>Innovation, Value &amp; Communication</h3>
+        <div class="pc-count">7 activities</div>
+        <ul class="pc-list">
+          <li>Classify products as incremental / disruptive / radical</li>
+          <li>Identify three innovation opportunities</li>
+          <li>Prepare a Value Proposition Canvas</li>
+          <li>Validate innovation with users</li>
+          <li>Prepare a Business Model Canvas</li>
+          <li>Identify possible IPR protection</li>
+          <li>Prepare and deliver a 3-minute pitch</li>
+        </ul>
+        <span class="pc-cta">Open Unit V activities →</span>
+      </a>
+
+    </div>
+
+    <section class="outcomes-block">
+      <h2>🎯 Unit Outcomes</h2>
+
+      <h3>Unit I — Foundations &amp; Empathy</h3>
+      <p>Students will be able to understand users, identify their needs, and translate observations into meaningful design opportunities.</p>
+
+      <h3>Unit II — Problem Definition, Analysis &amp; Opportunity Identification</h3>
+      <p>Students will be able to analyze user research, identify root causes, frame well-defined problems, and recognize opportunities for innovative solutions.</p>
+
+      <h3>Unit III — Creativity, Ideation &amp; Concept Development</h3>
+      <p>Students will be able to generate diverse solution concepts using creative techniques and systematically select promising ideas based on defined criteria.</p>
+
+      <h3>Unit IV — Prototyping, Experimentation &amp; Validation</h3>
+      <p>Students will be able to develop, prototype, and iteratively improve solutions using user feedback and appropriate physical or digital tools.</p>
+
+      <h3>Unit V — Innovation, Value Creation &amp; Communication</h3>
+      <p>Students will be able to identify innovation opportunities, create value propositions, understand basic IPR, and communicate innovative solutions effectively.</p>
+    </section>
+
+    <nav class="pager">
+      <a href="index.html">← Home</a>
+      <a href="practical-u1.html">Unit I Activities →</a>
+    </nav>
+  </main>
+</div>
+
+<div id="site-footer"></div>
+<button id="toTop" aria-label="Back to top">↑</button>
+
+<script src="js/layout.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search-index.js"></script>
+<script src="js/search.js"></script>
+<script src="js/slogan.js"></script>
+<script src="js/translate.js"></script>
+<script src="js/extras.js"></script>
+
+</body>
+</html>

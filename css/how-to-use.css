@@ -1,0 +1,365 @@
+/* =========================================================
+   HOW TO USE — complete guide
+   ========================================================= */
+
+/* ---------- HERO ---------- */
+.htu-hero{
+  background: linear-gradient(135deg, #1E3A8A 0%, #7C3AED 100%);
+  color:#fff; padding:34px 38px; border-radius:18px;
+  margin:0 0 24px; position:relative; overflow:hidden;
+  box-shadow:0 10px 28px rgba(30,58,138,.22);
+}
+.htu-hero::before{
+  content:""; position:absolute; right:-70px; top:-70px;
+  width:260px; height:260px; border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%);
+  pointer-events:none;
+}
+.htu-hero .htu-tag{
+  font-family:'JetBrains Mono',monospace; font-size:.72rem;
+  font-weight:700; letter-spacing:1.4px; text-transform:uppercase;
+  opacity:.85; margin-bottom:10px;
+}
+.htu-hero h1{
+  font-family:'Source Serif 4',Georgia,serif;
+  color:#fff; font-size:2rem; font-weight:700;
+  letter-spacing:-.02em; margin:0 0 10px; line-height:1.15;
+}
+.htu-hero p{
+  opacity:.92; font-size:.95rem; line-height:1.6;
+  max-width:620px; margin:0 0 18px;
+}
+.htu-hero-stats{
+  display:flex; gap:22px; flex-wrap:wrap;
+  padding-top:16px; border-top:1px solid rgba(255,255,255,.2);
+  font-size:.8rem; opacity:.9;
+}
+.htu-hero-stats strong{ font-weight:800; font-size:1rem; opacity:1; }
+
+/* ---------- ROLE TABS ---------- */
+.htu-role-tabs{
+  display:flex; gap:8px; margin:0 0 24px;
+  padding:6px; background:#FBFAF8;
+  border:1px solid #EBE9E6; border-radius:14px;
+  flex-wrap:wrap;
+}
+.htu-role-tab{
+  flex:1; min-width:120px;
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:8px; padding:13px 18px;
+  background:transparent; border:none; border-radius:10px;
+  font-family:inherit; font-size:.92rem; font-weight:600;
+  color:#6B7280; cursor:pointer; transition:.2s;
+}
+.htu-role-tab:hover{ background:rgba(0,0,0,.03); color:#1A1A1A; }
+.htu-role-tab.active{
+  background:linear-gradient(135deg,#1E3A8A,#7C3AED);
+  color:#fff; font-weight:700;
+  box-shadow:0 4px 12px rgba(30,58,138,.28);
+}
+
+/* ---------- QUICK START ---------- */
+.htu-quickstart{
+  background:linear-gradient(135deg,#EEF2FF,#F5F3FF);
+  border:1.5px solid #C7D2FE;
+  border-radius:14px; padding:24px 28px;
+  margin:0 0 32px;
+}
+.htu-quickstart h2{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1.2rem; font-weight:700; margin:0 0 6px;
+  color:#1F2937; border:none; padding:0;
+}
+.htu-quickstart p.sub{
+  font-size:.85rem; color:#6B7280; margin:0 0 16px;
+}
+.htu-quickstart .qs-steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+}
+.htu-quickstart .qs-step{
+  display:flex; gap:12px; align-items:flex-start;
+  padding:14px 16px; background:#fff;
+  border:1px solid #E2E8F0; border-radius:10px;
+}
+.htu-quickstart .qs-num{
+  flex-shrink:0; width:28px; height:28px;
+  border-radius:50%; background:linear-gradient(135deg,#7C3AED,#2563EB);
+  color:#fff; font-family:'JetBrains Mono',monospace;
+  font-size:.78rem; font-weight:800;
+  display:flex; align-items:center; justify-content:center;
+}
+.htu-quickstart .qs-text{ flex:1; }
+.htu-quickstart .qs-text b{
+  display:block; font-size:.88rem; color:#1F2937; margin-bottom:3px;
+}
+.htu-quickstart .qs-text span{
+  font-size:.78rem; color:#6B7280; line-height:1.5;
+}
+.htu-quickstart .qs-text a{
+  font-size:.78rem; color:#7C3AED; font-weight:600;
+  text-decoration:none; margin-top:4px; display:inline-block;
+}
+.htu-quickstart .qs-text a:hover{ text-decoration:underline; }
+
+/* ---------- SECTION ---------- */
+.htu-category{ margin:0 0 36px; }
+.htu-category-head{
+  display:flex; align-items:center; gap:12px;
+  margin:0 0 4px;
+}
+.htu-category-head .cat-emoji{ font-size:1.5rem; }
+.htu-category-head h2{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1.35rem; font-weight:700; margin:0;
+  color:#1F2937; letter-spacing:-.01em;
+  border:none; padding:0;
+}
+.htu-category-desc{
+  font-size:.85rem; color:#6B7280; margin:0 0 16px;
+  padding-left:44px; line-height:1.55;
+}
+
+/* ---------- FEATURE GRID ---------- */
+.htu-feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:14px;
+}
+.htu-feature-card{
+  background:#fff;
+  border:1px solid #EBE9E6;
+  border-radius:12px;
+  padding:18px 20px;
+  display:flex; flex-direction:column;
+  transition:box-shadow .2s, transform .2s, border-color .2s;
+}
+.htu-feature-card:hover{
+  box-shadow:0 4px 12px rgba(0,0,0,.06),
+             0 12px 24px rgba(0,0,0,.04);
+  transform:translateY(-2px);
+  border-color:#C7D2FE;
+}
+.htu-feature-card-head{
+  display:flex; align-items:flex-start; gap:10px;
+  margin-bottom:8px;
+}
+.htu-feature-card-head .fc-emoji{
+  font-size:1.5rem; line-height:1;
+}
+.htu-feature-card-head .fc-title{
+  flex:1;
+}
+.htu-feature-card-head .fc-title h3{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1rem; font-weight:700; margin:0 0 3px;
+  color:#1F2937; line-height:1.25; border:none; padding:0;
+}
+.htu-feature-card-head .fc-title .fc-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem; font-weight:800;
+  letter-spacing:.06em; text-transform:uppercase;
+  color:#7C3AED;
+}
+.htu-feature-card p{
+  font-size:.82rem; color:#6B7280; line-height:1.55;
+  margin:0 0 12px; flex:1;
+}
+.htu-feature-card .fc-actions{
+  display:flex; gap:8px; flex-wrap:wrap;
+  padding-top:12px; border-top:1px dashed #EBE9E6;
+}
+.htu-feature-card .fc-actions a,
+.htu-feature-card .fc-actions button{
+  display:inline-flex; align-items:center; gap:4px;
+  padding:6px 12px; border-radius:7px;
+  font-size:.76rem; font-weight:700;
+  text-decoration:none; cursor:pointer;
+  border:1px solid #EBE9E6; background:#FBFAF8;
+  color:#475569; font-family:inherit;
+  transition:.15s;
+}
+.htu-feature-card .fc-actions a:hover,
+.htu-feature-card .fc-actions button:hover{
+  border-color:#7C3AED; color:#7C3AED; background:#fff;
+}
+.htu-feature-card .fc-actions a.primary{
+  background:#7C3AED; color:#fff; border-color:#7C3AED;
+}
+.htu-feature-card .fc-actions a.primary:hover{
+  background:#6D28D9;
+}
+
+/* Role badges on cards */
+.htu-feature-card .fc-roles{
+  display:flex; gap:6px; margin-bottom:10px;
+}
+.htu-feature-card .fc-role{
+  display:inline-flex; align-items:center; gap:4px;
+  padding:2px 8px; border-radius:999px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem; font-weight:700;
+  letter-spacing:.04em; text-transform:uppercase;
+}
+.htu-feature-card .fc-role.staff{ background:#FEF3C7; color:#92400E; }
+.htu-feature-card .fc-role.student{ background:#DBEAFE; color:#1E40AF; }
+.htu-feature-card .fc-role.both{ background:#D1FAE5; color:#065F46; }
+
+/* ---------- WORKFLOWS ---------- */
+.htu-workflow{
+  background:#fff; border:1px solid #EBE9E6;
+  border-radius:12px; padding:22px 24px;
+  margin:0 0 16px;
+}
+.htu-workflow-head{
+  display:flex; align-items:center; gap:10px;
+  margin-bottom:14px;
+}
+.htu-workflow-head .wf-emoji{ font-size:1.5rem; }
+.htu-workflow-head h3{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1.1rem; font-weight:700; margin:0;
+  color:#1F2937; border:none; padding:0;
+}
+.htu-workflow ol{
+  margin:0; padding-left:20px;
+  font-size:.88rem; line-height:1.75;
+  color:#334155;
+}
+.htu-workflow ol li{ margin-bottom:6px; }
+.htu-workflow ol li b{ color:#7C3AED; }
+
+/* ---------- SHORTCUTS ---------- */
+.htu-shortcuts{
+  width:100%; border-collapse:collapse;
+  background:#fff; border:1px solid #EBE9E6;
+  border-radius:12px; overflow:hidden;
+  font-size:.86rem; margin:0 0 32px;
+}
+.htu-shortcuts th,.htu-shortcuts td{
+  padding:11px 14px; text-align:left;
+  border-bottom:1px solid #EBE9E6;
+}
+.htu-shortcuts th{
+  background:#FBFAF8;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem; font-weight:800;
+  letter-spacing:.06em; text-transform:uppercase;
+  color:#6B7280;
+}
+.htu-shortcuts tr:last-child td{ border-bottom:none; }
+.htu-shortcuts kbd{
+  display:inline-block; padding:2px 8px;
+  background:#F1F5F9; border:1px solid #CBD5E1;
+  border-radius:5px; font-family:'JetBrains Mono',monospace;
+  font-size:.78rem; font-weight:700; color:#334155;
+  box-shadow:0 1px 0 #CBD5E1;
+  margin-right:3px;
+}
+
+/* ---------- FAQ ---------- */
+.htu-faq details{
+  background:#fff; border:1px solid #EBE9E6;
+  border-radius:10px; margin-bottom:10px;
+  padding:0; overflow:hidden;
+}
+.htu-faq details[open]{
+  border-color:#C7D2FE;
+  box-shadow:0 2px 8px rgba(124,58,237,.08);
+}
+.htu-faq summary{
+  padding:14px 18px; cursor:pointer;
+  font-size:.92rem; font-weight:700; color:#1F2937;
+  list-style:none; display:flex; justify-content:space-between;
+  align-items:center; gap:12px;
+}
+.htu-faq summary::-webkit-details-marker{ display:none; }
+.htu-faq summary::after{
+  content:"＋"; font-size:1.1rem; color:#7C3AED;
+  transition:transform .2s; flex-shrink:0;
+}
+.htu-faq details[open] summary::after{
+  content:"−";
+}
+.htu-faq summary:hover{ background:#F8FAFC; }
+.htu-faq .faq-body{
+  padding:0 18px 16px;
+  font-size:.86rem; color:#475569; line-height:1.7;
+}
+.htu-faq .faq-body a{
+  color:#7C3AED; font-weight:600; text-decoration:none;
+}
+.htu-faq .faq-body a:hover{ text-decoration:underline; }
+
+/* ---------- FOOTER NAV ---------- */
+.htu-footer-nav{
+  margin:32px 0 0;
+  padding:22px 24px;
+  background:#FBFAF8; border:1px solid #EBE9E6;
+  border-radius:12px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;
+}
+.htu-footer-nav a{
+  display:block; padding:10px 14px;
+  background:#fff; border:1px solid #EBE9E6;
+  border-radius:8px; text-decoration:none;
+  color:#1F2937; font-size:.86rem; font-weight:600;
+  transition:.15s;
+}
+.htu-footer-nav a:hover{
+  border-color:#7C3AED; color:#7C3AED;
+  transform:translateY(-1px);
+}
+
+/* ---------- DARK MODE ---------- */
+[data-theme="dark"] .htu-role-tabs,
+[data-theme="dark"] .htu-quickstart,
+[data-theme="dark"] .htu-feature-card,
+[data-theme="dark"] .htu-workflow,
+[data-theme="dark"] .htu-faq details,
+[data-theme="dark"] .htu-footer-nav a,
+[data-theme="dark"] .htu-shortcuts{
+  background:#1A1614; border-color:#2E2823;
+}
+[data-theme="dark"] .htu-quickstart .qs-step{
+  background:#232019; border-color:#2E2823;
+}
+[data-theme="dark"] .htu-feature-card-head .fc-title h3,
+[data-theme="dark"] .htu-workflow-head h3,
+[data-theme="dark"] .htu-faq summary,
+[data-theme="dark"] .htu-footer-nav a{ color:#E8E6E3; }
+[data-theme="dark"] .htu-feature-card .fc-actions a,
+[data-theme="dark"] .htu-feature-card .fc-actions button{
+  background:#232019; border-color:#2E2823; color:#CBD5E1;
+}
+[data-theme="dark"] .htu-shortcuts kbd{
+  background:#232019; border-color:#334155; color:#E8E6E3;
+}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:600px){
+  .htu-hero{ padding:24px 20px; border-radius:14px; }
+  .htu-hero h1{ font-size:1.5rem; }
+  .htu-role-tabs{ flex-direction:column; }
+  .htu-role-tab{ justify-content:flex-start; }
+  .htu-quickstart{ padding:20px 18px; }
+  .htu-feature-grid{ grid-template-columns:1fr; }
+  .htu-category-desc{ padding-left:0; }
+  .htu-shortcuts{ font-size:.8rem; }
+  .htu-shortcuts th,.htu-shortcuts td{ padding:9px 10px; }
+}
+
+/* ---------- PRINT ---------- */
+@media print{
+  .topbar,.sidebar,.footer,#toTop,.buddy-fab,.buddy-panel,
+  .lang-switch,.slogan-pill,.exam-toggle,.author,.brand,
+  #search,#searchCounter,.breadcrumb,.pager,
+  .htu-role-tabs,.htu-hero{ display:none !important; }
+  .htu-feature-card .fc-actions{ display:none !important; }
+  .htu-feature-card,
+  .htu-workflow,
+  .htu-faq details{ break-inside:avoid; border:1px solid #000; }
+}

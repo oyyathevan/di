@@ -1,0 +1,497 @@
+/* =========================================================
+   EXAM MODE + PRINT STYLES
+   ========================================================= */
+
+/* ---------- TOGGLE BUTTON (header) ---------- */
+.exam-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  height:30px;padding:0 12px;margin:0 4px;
+  border-radius:999px;background:#EEF2FF;border:1px solid #C7D2FE;
+  color:#1E3A8A;font-size:.78rem;font-weight:700;cursor:pointer;
+  user-select:none;white-space:nowrap;transition:.15s;
+}
+.exam-toggle:hover{background:#E0E7FF}
+.exam-toggle.exam{background:#7C3AED;color:#fff;border-color:#7C3AED}
+.exam-toggle.exam:hover{background:#6D28D9}
+
+/* ---------- HIDE-IN-EXAM ---------- */
+body.exam-mode .studio-cta,
+body.exam-mode .audio-player,
+body.exam-mode .sketch,
+body.exam-mode .case-snap,
+body.exam-mode .self-check,
+body.exam-mode .buddy-fab,
+body.exam-mode .buddy-panel,
+body.exam-mode .topic-head .listen-btn,
+body.exam-mode .topic-head .tags .tag:not(.bloom){display:none !important}
+
+/* Compact topic head in exam mode */
+body.exam-mode .topic-head{
+  background:none !important;
+  border-bottom:2px solid var(--unit) !important;
+  padding:0 0 8px 0 !important;
+  margin:0 0 14px 0 !important;
+  border-radius:0 !important;
+}
+body.exam-mode .topic-head .big-emoji{display:none !important}
+body.exam-mode .topic-head h2{
+  font-size:1.15rem !important;
+  color:#111 !important;
+  font-weight:800 !important;
+}
+body.exam-mode .topic-head .sec-no{
+  background:transparent !important;
+  color:var(--unit) !important;
+  padding:0 !important;
+  font-size:.9rem !important;
+}
+
+/* Plain cards */
+body.exam-mode .card{
+  background:#fff !important;
+  border:1px solid #CBD5E1 !important;
+  box-shadow:none !important;
+  border-radius:6px !important;
+  padding:16px 20px !important;
+}
+body.exam-mode .callout{
+  background:#F8FAFC !important;
+  border-left:3px solid #64748B !important;
+  border-radius:4px !important;
+  padding:10px 14px !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+body.exam-mode .callout::before{display:none !important}
+body.exam-mode .callout .label{
+  background:#E2E8F0 !important;
+  color:#334155 !important;
+  font-size:.68rem !important;
+  padding:2px 8px !important;
+}
+body.exam-mode .objectives-card{background:#F1F5F9 !important;border-color:#CBD5E1 !important}
+
+/* ---------- KEY DEFINITIONS TABLE ---------- */
+.key-defs{
+  background:#F8FAFC;border:1px solid #CBD5E1;border-radius:10px;
+  padding:14px 18px;margin:18px 0;
+}
+.key-defs > summary,
+.key-defs > .kd-head{
+  font-size:.95rem;font-weight:800;color:#1E3A8A;
+  display:flex;align-items:center;gap:8px;
+  cursor:pointer;list-style:none;margin-bottom:8px;
+}
+.key-defs > summary::-webkit-details-marker{display:none}
+.key-defs > summary::after{
+  content:"▾";margin-left:auto;color:#64748B;
+  transition:transform .2s;
+}
+.key-defs[open] > summary::after{transform:rotate(180deg)}
+.key-defs table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:6px}
+.key-defs th,.key-defs td{
+  border:1px solid #E2E8F0;padding:8px 12px;text-align:left;vertical-align:top;
+}
+.key-defs th{background:#E2E8F0;color:#1E293B;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.4px}
+.key-defs td:first-child{font-weight:600;color:#1E3A8A;width:32%}
+body.exam-mode .key-defs{background:#fff}
+
+/* ---------- EXAM Q&A SECTION ---------- */
+.exam-qa{
+  margin:32px 0;
+  border:2px solid #7C3AED;border-radius:14px;
+  background:#FEFBFF;
+  overflow:hidden;
+}
+.exam-qa-head{
+  background:linear-gradient(135deg,#7C3AED,#2563EB);
+  color:#fff;padding:16px 22px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.exam-qa-head .eq-title{font-size:1.05rem;font-weight:800;flex:1}
+.exam-qa-head .eq-badge{
+  background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;
+  font-size:.72rem;font-weight:600;
+}
+.exam-qa-body{padding:6px 22px 22px}
+.exam-qa-group{margin-top:18px}
+.exam-qa-group h3{
+  font-size:1rem;color:#7C3AED;font-weight:800;
+  border-bottom:2px solid #EDE9FE;padding-bottom:6px;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.exam-q{
+  border-left:4px solid #C7D2FE;background:#fff;
+  padding:12px 16px;margin-bottom:12px;border-radius:6px;
+}
+.exam-q .qnum{
+  font-size:.72rem;font-weight:800;color:#7C3AED;
+  display:inline-block;margin-bottom:4px;letter-spacing:.5px;
+}
+.exam-q .qtext{
+  font-weight:700;color:#1E293B;font-size:.92rem;line-height:1.4;
+  margin-bottom:8px;
+}
+.exam-q .qanswer{
+  font-size:.88rem;color:#334155;line-height:1.65;
+  padding:10px 14px;background:#F8FAFC;border-radius:6px;
+  border-left:3px solid #10B981;
+}
+.exam-q .qanswer strong{color:#065F46}
+.exam-q .qanswer ol, .exam-q .qanswer ul{margin:6px 0 6px 22px}
+.exam-q .qanswer li{margin:3px 0}
+.exam-q .qanswer table{margin:8px 0;font-size:.84rem}
+.exam-q .qanswer th, .exam-q .qanswer td{
+  border:1px solid #E2E8F0;padding:6px 10px;text-align:left;
+}
+.exam-q .qanswer th{background:#F1F5F9}
+.exam-q .qdiagram{
+  background:#F1F5F9;border:1px dashed #94A3B8;
+  padding:10px 14px;border-radius:6px;margin-top:8px;
+  font-family:"SF Mono",Monaco,Consolas,monospace;
+  font-size:.78rem;color:#1E293B;white-space:pre;overflow-x:auto;
+}
+.exam-q .qdiagram-label{
+  font-size:.7rem;font-weight:800;color:#7C3AED;
+  display:block;margin-bottom:4px;letter-spacing:.5px;
+}
+.exam-qa-actions{
+  display:flex;gap:10px;flex-wrap:wrap;
+  padding:14px 22px;background:#F8FAFC;border-top:1px solid #E2E8F0;
+}
+.exam-qa-actions button{
+  padding:8px 16px;border-radius:8px;font-size:.82rem;font-weight:600;
+  border:1px solid #C7D2FE;background:#fff;color:#4C1D95;cursor:pointer;
+  transition:.15s;
+}
+.exam-qa-actions button:hover{background:#EDE9FE;border-color:#7C3AED}
+.exam-qa-actions button.primary{background:#7C3AED;color:#fff;border-color:#7C3AED}
+.exam-qa-actions button.primary:hover{background:#6D28D9}
+
+/* Answers hidden state (self-test) */
+.exam-qa.hide-answers .qanswer{display:none}
+.exam-qa.hide-answers .qdiagram{display:none}
+
+/* Learn mode: exam Q&A collapsed by default */
+body:not(.exam-mode) .exam-qa .exam-qa-body{display:none}
+body:not(.exam-mode) .exam-qa .exam-qa-head{cursor:pointer}
+body:not(.exam-mode) .exam-qa.open .exam-qa-body{display:block}
+
+/* ---------- PRINT BUTTON ROW ---------- */
+.print-row{
+  display:flex;gap:10px;flex-wrap:wrap;
+  padding:12px 16px;margin:14px 0;
+  background:#F8FAFC;border:1px dashed #94A3B8;border-radius:10px;
+}
+.print-row button{
+  padding:8px 16px;border-radius:8px;font-size:.82rem;font-weight:600;
+  border:1px solid #CBD5E1;background:#fff;cursor:pointer;
+  color:#1E293B;transition:.15s;
+}
+.print-row button:hover{border-color:#1E3A8A;color:#1E3A8A;background:#EEF2FF}
+.print-row button.primary{background:#1E3A8A;color:#fff;border-color:#1E3A8A}
+.print-row button.primary:hover{background:#1E40AF}
+
+/* =========================================================
+   PRINT STYLES
+   ========================================================= */
+@media print{
+  /* Hide chrome */
+  .topbar,.sidebar,.footer,#toTop,.menu-btn,
+  .buddy-fab,.buddy-panel,#searchCounter,
+  .lang-switch,.slogan-pill,.exam-toggle,.author,.brand,
+  .audio-player,.studio-cta,.print-row,
+  .self-check,.flip-card,.quiz-box,.quiz-q,.quiz-score,.quiz-actions,
+  .sketch,.case-snap,.exam-qa-actions,.pager,
+  .topic-head .listen-btn,.topic-head .tags,
+  mark.search-hit,#searchMsg,#searchResults{display:none !important}
+
+  /* Body reset */
+  html,body{background:#fff !important;color:#000 !important}
+  body{margin:0;padding:0;font-family:"Times New Roman",Georgia,serif;font-size:11pt;line-height:1.5}
+
+  /* Layout collapse */
+  .layout{display:block !important;padding:0 !important;margin:0 !important;max-width:100% !important;gap:0 !important}
+  main{max-width:100% !important;padding:0 8mm !important;margin:0 !important}
+
+  /* Title block (auto via CSS counters) */
+  body::before{
+    content:"Design Thinking and Innovation — Unit I — Study Notes | @Oyyathevan";
+    display:block;font-size:10pt;font-weight:bold;
+    border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:14px;
+  }
+
+  /* Cards become plain */
+  .card{
+    border:none !important;box-shadow:none !important;
+    padding:0 !important;margin:10px 0 16px !important;
+    page-break-inside:avoid;
+  }
+  body{background:#fff !important}
+
+  /* Headings */
+  h1{font-size:16pt;margin:0 0 12px 0;page-break-after:avoid}
+  h2{font-size:13pt;margin:16px 0 6px 0;page-break-after:avoid;border-left:3px solid #000 !important;padding-left:8px !important}
+  h3{font-size:11.5pt;margin:12px 0 4px 0;page-break-after:avoid}
+
+  /* Tables */
+  table{border-collapse:collapse;width:100%;font-size:10pt;margin:8px 0}
+  th,td{border:1px solid #000;padding:4px 8px;text-align:left}
+  th{background:#eee}
+
+  /* Callouts plain */
+  .callout{
+    border:1px solid #999 !important;border-left:3px solid #000 !important;
+    padding:6px 10px !important;margin:8px 0 !important;
+    background:#fff !important;border-radius:0 !important;
+  }
+  .callout .label{
+    background:none !important;color:#000 !important;padding:0 !important;
+    font-weight:800;text-transform:uppercase;font-size:9pt;
+  }
+
+  /* Key defs always open */
+  .key-defs{background:#fff !important;border:1px solid #000 !important;padding:8px !important}
+  .key-defs > summary{display:block;font-size:12pt;margin-bottom:6px}
+  .key-defs > summary::after{display:none}
+
+  /* Exam Q&A print styles */
+  .exam-qa{border:2px solid #000 !important;background:#fff !important;margin:16px 0 !important}
+  .exam-qa-head{
+    background:#fff !important;color:#000 !important;
+    border-bottom:2px solid #000;padding:8px 0 !important;
+  }
+  .exam-qa-head .eq-badge{background:none !important;color:#000 !important;border:1px solid #000}
+  .exam-qa-body{padding:8px 0 0 0 !important}
+  .exam-qa-group h3{color:#000 !important;border-bottom:1px solid #000 !important}
+  .exam-q{background:#fff !important;border-left:3px solid #000 !important;padding:6px 0 6px 10px !important}
+  .exam-q .qnum{color:#000 !important}
+  .exam-q .qanswer{background:#fff !important;border-left:none !important;padding:4px 0 !important}
+  .exam-q .qdiagram{background:#fff !important;border:1px solid #000 !important}
+
+  /* Force answers visible when printing */
+  .exam-qa.hide-answers .qanswer{display:block !important}
+
+  /* Page breaks */
+  .exam-qa-group{page-break-inside:auto}
+  .exam-q{page-break-inside:avoid}
+}
+
+/* QA-only print mode */
+@media print{
+  body.print-qa-only .topic,
+  body.print-qa-only .objectives-card,
+  body.print-qa-only .key-defs,
+  body.print-qa-only .breadcrumb,
+  body.print-qa-only .badges{display:none !important}
+}
+/* =========================================================
+   PRINT PREVIEW MODAL (screen only)
+   ========================================================= */
+
+.print-preview-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15,23,42,.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: ppm-fade .2s ease-out;
+}
+.print-preview-modal.open{ display: flex; }
+@keyframes ppm-fade{
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.print-preview-modal .ppm-card{
+  background: #fff;
+  border-radius: 16px;
+  max-width: 460px;
+  width: 100%;
+  padding: 28px 32px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.3);
+  animation: ppm-pop .25s cubic-bezier(.2,.8,.3,1);
+}
+@keyframes ppm-pop{
+  from { opacity: 0; transform: translateY(12px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.print-preview-modal .ppm-card h3{
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 0 0 6px;
+}
+.print-preview-modal .ppm-sub{
+  font-size: .85rem;
+  color: #6B7280;
+  margin: 0 0 18px;
+  line-height: 1.5;
+}
+
+.print-preview-modal .ppm-options{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 22px;
+  padding: 10px;
+  background: #FBFAF8;
+  border: 1px solid #EBE9E6;
+  border-radius: 10px;
+}
+.print-preview-modal .ppm-options label{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: .88rem;
+  color: #334155;
+  cursor: pointer;
+  transition: background .15s;
+}
+.print-preview-modal .ppm-options label:hover{
+  background: rgba(0,0,0,.035);
+}
+.print-preview-modal .ppm-options input[type="checkbox"]{
+  width: 16px;
+  height: 16px;
+  accent-color: #7C3AED;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.print-preview-modal .ppm-actions{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.print-preview-modal .ppm-btn{
+  padding: 10px 20px;
+  border-radius: 9px;
+  border: 1.5px solid #EBE9E6;
+  background: #fff;
+  color: #475569;
+  font-family: inherit;
+  font-size: .85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .15s;
+}
+.print-preview-modal .ppm-btn:hover{
+  border-color: #94A3B8;
+  color: #1F2937;
+}
+.print-preview-modal .ppm-btn.primary{
+  background: linear-gradient(135deg, #1E3A8A, #7C3AED);
+  border-color: transparent;
+  color: #fff;
+}
+.print-preview-modal .ppm-btn.primary:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(124,58,237,.35);
+}
+
+/* Dark mode */
+[data-theme="dark"] .print-preview-modal .ppm-card{
+  background: #1E293B;
+  color: #E2E8F0;
+}
+[data-theme="dark"] .print-preview-modal .ppm-card h3{ color: #E2E8F0; }
+[data-theme="dark"] .print-preview-modal .ppm-sub{ color: #94A3B8; }
+[data-theme="dark"] .print-preview-modal .ppm-options{
+  background: #0F172A;
+  border-color: #334155;
+}
+[data-theme="dark"] .print-preview-modal .ppm-options label{ color: #CBD5E1; }
+[data-theme="dark"] .print-preview-modal .ppm-options label:hover{
+  background: rgba(255,255,255,.05);
+}
+[data-theme="dark"] .print-preview-modal .ppm-btn{
+  background: #0F172A;
+  border-color: #334155;
+  color: #CBD5E1;
+}
+[data-theme="dark"] .print-preview-modal .ppm-btn:hover{
+  border-color: #64748B;
+  color: #E2E8F0;
+}
+
+/* =========================================================
+   PRINT MODES — hide/show sections per selection
+   ========================================================= */
+@media print{
+
+  /* Hide the modal itself */
+  .print-preview-modal{ display: none !important; }
+
+  /* Always hide interactive chrome when printing */
+  .print-row,
+  .audio-player,
+  .studio-cta,
+  .print-controls,
+  .reading-topbar,
+  .reading-controls,
+  .reading-btn,
+  .listen-btn,
+  .buddy-fab,
+  .buddy-panel,
+  .topbar,
+  .sidebar,
+  .footer,
+  #toTop,
+  .breadcrumb,
+  .pager,
+  .lang-switch,
+  .slogan-pill,
+  .exam-toggle,
+  .author,
+  .brand,
+  #search,
+  #searchCounter{
+    display: none !important;
+  }
+
+  /* ===== FULL UNIT print — hide what user unchecked ===== */
+  body.print-hide-notes .topic,
+  body.print-hide-notes .objectives-card,
+  body.print-hide-notes .key-defs{
+    display: none !important;
+  }
+  body.print-hide-qa .exam-qa{
+    display: none !important;
+  }
+  body.print-hide-quiz .self-check{
+    display: none !important;
+  }
+
+  /* Ensure exam Q&A bodies are expanded when printed */
+  body.print-qa-only .exam-qa .exam-qa-body,
+  .exam-qa.open .exam-qa-body{
+    display: block !important;
+  }
+
+  /* ===== Q&A ONLY print — hide all notes ===== */
+  body.print-qa-only .topic,
+  body.print-qa-only .objectives-card,
+  body.print-qa-only .key-defs,
+  body.print-qa-only .badges,
+  body.print-qa-only .self-check{
+    display: none !important;
+  }
+
+  /* Ensure exam Q&A prints fully */
+  body.print-qa-only .exam-qa{
+    display: block !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}

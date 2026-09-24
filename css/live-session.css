@@ -1,0 +1,710 @@
+/* =========================================================
+   LIVE SESSION MODE — full-screen guided activity runner
+   ========================================================= */
+
+/* ---------- Session button on activity cards ---------- */
+.live-session-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid #1E3A8A;
+  background: #1E3A8A;
+  color: #fff;
+  font-family: inherit;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: -.005em;
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease,
+              box-shadow .15s ease;
+  margin-left: 8px;
+}
+.live-session-btn:hover{
+  background: #4338CA;
+  border-color: #4338CA;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(30,58,138,.28);
+}
+.live-session-btn:active{ transform: translateY(0); }
+.live-session-btn::before{
+  content: "▶";
+  font-size: .8rem;
+}
+[data-theme="dark"] .live-session-btn{
+  background: #6366F1;
+  border-color: #6366F1;
+}
+[data-theme="dark"] .live-session-btn:hover{
+  background: #818CF8;
+  border-color: #818CF8;
+}
+
+/* =========================================================
+   FULL-SCREEN OVERLAY
+   ========================================================= */
+.live-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(124,58,237,.35), transparent 55%),
+    radial-gradient(circle at 80% 100%, rgba(30,58,138,.4), transparent 55%),
+    #0B1020;
+  color: #F8FAFC;
+  display: none;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+.live-overlay.open{
+  display: flex;
+  animation: live-fade .25s ease-out;
+}
+@keyframes live-fade{
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+.live-topbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 32px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.live-activity-name{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: .88rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: rgba(248,250,252,.75);
+  text-transform: uppercase;
+  min-width: 0;
+}
+.live-activity-name .live-num{
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  color: #FDBA74;
+}
+.live-activity-name .live-sep{ opacity: .5; }
+.live-activity-name .live-title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #F8FAFC;
+}
+
+.live-progress-wrap{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 220px;
+  flex: 1;
+  justify-content: flex-end;
+}
+.live-step-count{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: rgba(248,250,252,.75);
+  white-space: nowrap;
+}
+.live-progress-bar{
+  width: 160px;
+  height: 6px;
+  background: rgba(255,255,255,.1);
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.live-progress-fill{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #F59E0B, #FB923C);
+  transition: width .35s ease;
+  border-radius: 999px;
+}
+
+/* =========================================================
+   CENTER — step text + timer
+   ========================================================= */
+.live-center{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 40px;
+  text-align: center;
+  min-height: 0;
+}
+.live-step-text{
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1.6rem, 3.6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  color: #F8FAFC;
+  max-width: 900px;
+  margin: 0 0 40px;
+  animation: live-slide .35s ease-out;
+}
+@keyframes live-slide{
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.live-timer{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1;
+  color: #F8FAFC;
+  transition: color .3s ease;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 60px rgba(255,255,255,.08);
+}
+.live-timer.warn{ color: #FBBF24; }
+.live-timer.danger{
+  color: #F87171;
+  animation: live-pulse .9s ease-in-out infinite;
+}
+.live-timer.done{
+  color: #34D399;
+  animation: live-flash 1s ease-in-out infinite;
+}
+@keyframes live-pulse{
+  0%,100%{ opacity: 1; }
+  50%    { opacity: .55; }
+}
+@keyframes live-flash{
+  0%,100%{ opacity: 1; transform: scale(1); }
+  50%    { opacity: .85; transform: scale(1.03); }
+}
+
+.live-timer-label{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(248,250,252,.55);
+  margin-top: 12px;
+}
+
+/* =========================================================
+   BOTTOM — up next + controls
+   ========================================================= */
+.live-next{
+  padding: 14px 32px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: .88rem;
+  color: rgba(248,250,252,.6);
+  min-height: 52px;
+  overflow: hidden;
+}
+.live-next .live-next-label{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(248,250,252,.4);
+  flex-shrink: 0;
+}
+.live-next .live-next-text{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.live-next.empty .live-next-text{ opacity: .4; font-style: italic; }
+
+.live-controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 22px 32px 26px;
+  flex-wrap: wrap;
+}
+.live-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.05);
+  color: #F8FAFC;
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease,
+              transform .15s ease;
+}
+.live-btn:hover{
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.3);
+}
+.live-btn:active{ transform: scale(.98); }
+.live-btn.primary{
+  background: #F59E0B;
+  border-color: #F59E0B;
+  color: #1A1614;
+  font-weight: 700;
+}
+.live-btn.primary:hover{
+  background: #FBBF24;
+  border-color: #FBBF24;
+}
+.live-btn.danger{
+  border-color: rgba(248,113,113,.4);
+  color: #FCA5A5;
+}
+.live-btn.danger:hover{
+  background: rgba(248,113,113,.12);
+  border-color: #F87171;
+  color: #FECACA;
+}
+.live-btn:disabled{
+  opacity: .35;
+  cursor: not-allowed;
+  transform: none;
+}
+.live-btn .kbd{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .68rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.1);
+  margin-left: 4px;
+  opacity: .8;
+}
+
+/* =========================================================
+   END SCREEN
+   ========================================================= */
+.live-end{
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 32px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(52,211,153,.18), transparent 60%),
+    #0B1020;
+  text-align: center;
+  animation: live-fade .3s ease-out;
+}
+.live-end.open{ display: flex; }
+.live-end .end-emoji{
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+.live-end h2{
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin: 0 0 12px;
+  color: #F8FAFC;
+}
+.live-end .end-meta{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .88rem;
+  color: rgba(248,250,252,.7);
+  margin-bottom: 32px;
+  letter-spacing: .02em;
+}
+.live-end .end-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* =========================================================
+   SETUP DIALOG
+   ========================================================= */
+.live-setup{
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(11,16,32,.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.live-setup.open{ display: flex; }
+.live-setup-card{
+  background: #1E293B;
+  color: #F8FAFC;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  padding: 28px 32px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+  animation: live-pop .25s ease-out;
+}
+@keyframes live-pop{
+  from { opacity: 0; transform: scale(.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.live-setup-card h3{
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: #F8FAFC;
+}
+.live-setup-card p{
+  font-size: .85rem;
+  color: rgba(248,250,252,.6);
+  margin: 0 0 20px;
+  line-height: 1.55;
+}
+.live-setup-row{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.live-setup-row > label{
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(248,250,252,.5);
+}
+.live-setup-row .radios{
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.live-setup-row .radios label{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .88rem;
+  cursor: pointer;
+  color: #F8FAFC;
+}
+.live-setup-row input[type="radio"],
+.live-setup-row input[type="checkbox"]{
+  accent-color: #F59E0B;
+  width: 16px;
+  height: 16px;
+}
+.live-setup-row input[type="number"]{
+  width: 80px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.05);
+  color: #F8FAFC;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .9rem;
+  outline: none;
+}
+.live-setup-row input[type="number"]:focus{
+  border-color: #F59E0B;
+}
+.live-setup-actions{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media(max-width:700px){
+  .live-topbar{
+    padding: 14px 18px;
+  }
+  .live-activity-name{
+    font-size: .75rem;
+    width: 100%;
+  }
+  .live-progress-wrap{
+    width: 100%;
+    justify-content: space-between;
+    min-width: 0;
+  }
+  .live-progress-bar{ flex: 1; }
+  .live-center{ padding: 20px 18px; }
+  .live-step-text{ font-size: 1.3rem; }
+  .live-timer{ font-size: 4.5rem; }
+  .live-next{ padding: 12px 18px; font-size: .82rem; }
+  .live-controls{ padding: 16px 18px 22px; gap: 8px; }
+  .live-btn{ padding: 10px 16px; font-size: .82rem; }
+  .live-btn .kbd{ display: none; }
+}
+
+/* =========================================================
+   PRINT — hide everything live
+   ========================================================= */
+@media print{
+  .live-overlay,
+  .live-setup,
+  .live-session-btn{
+    display: none !important;
+  }
+}
+/* =========================================================
+   STUDIO MODE — Run Session CTA
+   ========================================================= */
+
+.live-studio-cta{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 22px 24px;
+  background: linear-gradient(135deg, #EEF2FF, #F5F3FF);
+  border: 1.5px dashed #A5B4FC;
+  border-radius: 14px;
+  text-align: center;
+}
+.live-studio-cta .live-session-btn-lg{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  margin: 0;
+  border-radius: 12px;
+  border: 1px solid #1E3A8A;
+  background: #1E3A8A;
+  color: #fff;
+  font-family: inherit;
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: -.005em;
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease,
+              box-shadow .15s ease;
+}
+.live-studio-cta .live-session-btn-lg::before{
+  content: "▶";
+  font-size: .85rem;
+}
+.live-studio-cta .live-session-btn-lg:hover{
+  background: #4338CA;
+  border-color: #4338CA;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30,58,138,.3);
+}
+.live-studio-cta .live-studio-hint{
+  font-size: .82rem;
+  color: #64748B;
+  line-height: 1.5;
+  max-width: 480px;
+}
+.live-studio-cta .live-studio-hint strong{
+  color: #1E3A8A;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .live-studio-cta{
+  background: linear-gradient(135deg, #1E293B, #312E81);
+  border-color: #4338CA;
+}
+[data-theme="dark"] .live-studio-cta .live-session-btn-lg{
+  background: #6366F1;
+  border-color: #6366F1;
+}
+[data-theme="dark"] .live-studio-cta .live-session-btn-lg:hover{
+  background: #818CF8;
+  border-color: #818CF8;
+}
+[data-theme="dark"] .live-studio-cta .live-studio-hint{
+  color: #94A3B8;
+}
+[data-theme="dark"] .live-studio-cta .live-studio-hint strong{
+  color: #A5B4FC;
+}
+
+/* Studio session header — small stage tag */
+.live-overlay[data-mode="studio"] .live-activity-name .live-num{
+  color: #A5B4FC;
+}
+/* =========================================================
+   EXAM RAPID REVIEW
+   ========================================================= */
+
+/* ---------- CTA above the exam Q&A section on unit pages ---------- */
+.live-exam-cta{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  margin: 0 0 20px;
+  background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+  border: 1.5px dashed #F59E0B;
+  border-radius: 12px;
+  flex-wrap: wrap;
+}
+.live-exam-cta .live-exam-text{
+  flex: 1;
+  min-width: 200px;
+}
+.live-exam-cta .live-exam-text b{
+  display: block;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #78350F;
+  margin-bottom: 4px;
+  letter-spacing: -.005em;
+}
+.live-exam-cta .live-exam-text span{
+  font-size: .82rem;
+  color: #92400E;
+  line-height: 1.5;
+}
+.live-exam-cta .live-session-btn{
+  background: #D97706;
+  border-color: #D97706;
+  color: #fff;
+  margin: 0;
+}
+.live-exam-cta .live-session-btn:hover{
+  background: #B45309;
+  border-color: #B45309;
+}
+[data-theme="dark"] .live-exam-cta{
+  background: linear-gradient(135deg, #422006, #78350F);
+  border-color: #B45309;
+}
+[data-theme="dark"] .live-exam-cta .live-exam-text b{ color: #FDE68A; }
+[data-theme="dark"] .live-exam-cta .live-exam-text span{ color: #FCD34D; }
+
+/* ---------- Overlay — exam-mode tweaks ---------- */
+.live-overlay[data-mode="exam"] .live-step-text{
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+
+/* Question-type badge above the question */
+.live-question-badge{
+  display: none;
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, .2);
+  border: 1px solid rgba(245, 158, 11, .4);
+  color: #FCD34D;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.live-overlay[data-mode="exam"] .live-question-badge{
+  display: inline-block;
+}
+
+/* Answer block */
+.live-answer{
+  display: none;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.65;
+  color: #F8FAFC;
+  max-width: 820px;
+  width: 100%;
+  margin: 0 auto 20px;
+  padding: 20px 26px;
+  background: rgba(255,255,255,.06);
+  border-left: 3px solid #34D399;
+  border-radius: 10px;
+  text-align: left;
+  animation: live-fade .3s ease-out;
+  overflow-y: auto;
+  max-height: 40vh;
+}
+.live-answer.revealed{ display: block; }
+.live-answer strong{ color: #A7F3D0; font-weight: 700; }
+.live-answer ol,
+.live-answer ul{
+  margin: 8px 0 8px 22px;
+  padding: 0;
+}
+.live-answer li{ margin-bottom: 4px; }
+.live-answer table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: .82rem;
+}
+.live-answer th,
+.live-answer td{
+  border: 1px solid rgba(255,255,255,.15);
+  padding: 6px 10px;
+  text-align: left;
+}
+.live-answer th{
+  background: rgba(255,255,255,.05);
+  color: #FCD34D;
+  font-weight: 700;
+}
+
+/* Reveal button — only shows in exam mode */
+.live-btn.reveal{
+  background: #34D399;
+  border-color: #34D399;
+  color: #0B1020;
+  font-weight: 700;
+  display: none;
+}
+.live-btn.reveal:hover{
+  background: #6EE7B7;
+  border-color: #6EE7B7;
+}
+.live-btn.reveal.revealed{
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.15);
+  color: #F8FAFC;
+}
+.live-overlay[data-mode="exam"] .live-btn.reveal{
+  display: inline-flex;
+}
+
+/* Timer smaller in exam mode (less critical) */
+.live-overlay[data-mode="exam"] .live-timer{
+  font-size: clamp(2.6rem, 6vw, 4rem);
+}
+
+/* Setup dialog — exam filter row (hidden by default) */
+.live-setup-row[data-mode-only]{
+  display: none;
+}
+.live-setup-row[data-mode-only].active{
+  display: flex;
+}
